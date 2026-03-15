@@ -10,6 +10,7 @@ cd $rundir
 git clone ssh://git@github.com/mdmitry1/optimization-tutorial |& tee -a $log 
 cd optimization-tutorial
 python -m venv venv
+set prompt='%U%m%u:%B%~%b%#'
 source venv/bin/activate.csh
 pip install -r requirements.txt
 cd tutorial/examples
