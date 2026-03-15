@@ -7,7 +7,7 @@ echo "Run directory: $rundir" |& tee $log
 \rm -rf $rundir >& /dev/null
 mkdir -p $rundir
 cd $rundir
-git clone ssh://git@github.com/mdmitry1/optimization-tutorial |& tee -a $log 
+git clone https://git@github.com/mdmitry1/optimization-tutorial |& tee -a $log 
 cd optimization-tutorial
 python -m venv venv
 set prompt='%U%m%u:%B%~%b%#'
