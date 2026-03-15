@@ -4,6 +4,7 @@ PySMT==0.9.6
 deap==1.4.3
 onnxruntime==1.23.2
 optunahub==0.4.0
+pandas==2.3.3
 pandas-datareader==0.10.0
 pymoo==0.6.1.6
 pyomo==6.9.5
