@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
         git \
         jq \
         libgfortran5 \
+        libgmp-dev \
         libgomp1 \
         libmpfr6 \
         locales \
@@ -19,11 +20,11 @@ RUN apt-get update && apt-get install -y \
         tzdata \
         vim \
         wget \
-        x11-apps && \
-        x11-xserver-utils && \
+        x11-apps \
+        x11-xserver-utils \
         xvfb && \
     apt-get update && apt-get install -y \
-        python3 python3-dev python3-venv python3-tk python3-pip python3-setuptools python-is-python3 z3 && \
+        python3 python3-dev python3-venv python3-tk python3-pip python3-setuptools python-is-python3 python3-pyqt5 python3-z3 z3 && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # ---------------------------------------------------------------------------
@@ -42,6 +43,18 @@ RUN /root/miniconda3/bin/conda install -y -c conda-forge ipopt scip && \
     ln -sf /root/miniconda3/bin/scip /usr/local/bin && \
     ln -sf /root/miniconda3/bin/ipopt /usr/local/bin && \
     rm ./Miniconda3-latest-Linux-x86_64.sh
+
+# ---------------------------------------------------------------------------
+# 3. Mathsat
+# ---------------------------------------------------------------------------
+RUN wget --tries=5 --timeout=30 --waitretry=2 https://mathsat.fbk.eu/release/mathsat-5.6.15-linux-x86_64.tar.gz && \
+    tar -xvf mathsat-5.6.15-linux-x86_64.tar.gz && \
+    cd mathsat-5.6.15-linux-x86_64/python && \
+    python setup.py build && \
+    mkdir -p  /usr/local/lib/python3.12/dist-packages/mathsat && \
+    mv -f mathsat.py /usr/local/lib/python3.12/dist-packages && \
+    mv -f build/lib.linux-x86_64-cpython-312/_mathsat.cpython-312-x86_64-linux-gnu.so /usr/local/lib/python3.12/dist-packages/mathsat/_mathsat.so && \
+    rm mathsat-5.6.15-linux-x86_64.tar.gz 
 
 # ---------------------------------------------------------------------------
 # 3. Install UTF-8 fonts
