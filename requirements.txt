@@ -1,3 +1,6 @@
+PyQt5==5.15.11
+PyQtWebEngine-Qt5==5.15.18
+PySMT==0.9.6
 deap==1.4.3
 onnxruntime==1.23.2
 optunahub==0.4.0
@@ -6,6 +9,9 @@ pymoo==0.6.1.6
 pyomo==6.9.5
 pytest-forked==1.6.0
 pytest-mock==3.12.0
+scikit-learn==1.8.0
+scikit-optimize==0.10.2
+setuptools==80.10.1
 shgo==1.0.0
 tensorflow==2.20.0
 tf2onnx==1.17.0
