@@ -13,6 +13,7 @@ python -m venv venv
 set prompt='%U%m%u:%B%~%b%#'
 source venv/bin/activate.csh
 pip install -r requirements.txt
+\cp -rp /usr/local/lib/python3.12/dist-packages/mathsat* venv/lib/python3.12/site-packages
 cd tutorial/examples
 set cmd="env PYTHONDONTWRITEBYTECODE=1 /usr/bin/pytest -v --forked -m forked $PWD"
 echo $cmd |& tee -a $log
