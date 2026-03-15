@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
         python3-dev \
         python3-pip \
         python3-pyqt5 \
-        python3-pytest \
+        python3-pytest-mock \
         python3-setuptools \
         python3-tk \
         python3-venv \
