@@ -63,7 +63,7 @@ RUN wget --tries=5 --timeout=30 --waitretry=2 https://mathsat.fbk.eu/release/mat
     mkdir -p  /usr/local/lib/python3.12/dist-packages/mathsat && \
     mv -f mathsat.py /usr/local/lib/python3.12/dist-packages && \
     mv -f build/lib.linux-x86_64-cpython-312/_mathsat.cpython-312-x86_64-linux-gnu.so /usr/local/lib/python3.12/dist-packages/mathsat/_mathsat.so && \
-    rm mathsat-5.6.15-linux-x86_64.tar.gz 
+    rm ../../mathsat-5.6.15-linux-x86_64.tar.gz 
 
 # ---------------------------------------------------------------------------
 # 3. Install UTF-8 fonts
