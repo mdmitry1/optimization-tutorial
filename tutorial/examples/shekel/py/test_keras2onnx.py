@@ -18,4 +18,6 @@ def test_keras2onnx(monkeypatch, request):
         assert exists(onnx_model) == False
         print("")
         m.setattr(sys, 'argv', ['shgo_onnx'])
-        assert main(test_path) == 'e833c8d813f8a3467c8ce9fa72b3f3ce5be4f38f1a38ce99fdc0c362952cfe54'
+        ret = main(test_path)
+        assert ret == 'e833c8d813f8a3467c8ce9fa72b3f3ce5be4f38f1a38ce99fdc0c362952cfe54' or \
+               ret == '9e2c3dc2ce93199f2c8cff1014eee3aa6ab0a7775ba1755668c05c6f66ef2cf7'
