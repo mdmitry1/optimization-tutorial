@@ -16,15 +16,24 @@ RUN apt-get update && apt-get install -y \
         libgomp1 \
         libmpfr6 \
         locales \
+        python3 \
+        python-is-python3 \
+        python3-dev \
+        python3-pip \
+        python3-pyqt5 \
+        python3-pytest \
+        python3-setuptools \
+        python3-tk \
+        python3-venv \
+        python3-z3 \
         tcsh \
         tzdata \
         vim \
         wget \
         x11-apps \
         x11-xserver-utils \
-        xvfb && \
-    apt-get update && apt-get install -y \
-        python3 python3-dev python3-venv python3-tk python3-pip python3-setuptools python-is-python3 python3-pyqt5 python3-z3 z3 && \
+        xvfb \
+        z3 && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # ---------------------------------------------------------------------------
