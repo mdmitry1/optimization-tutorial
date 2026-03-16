@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
         g++ \
         gcc \
         git \
+        glpk-utils \
         jq \
         libgfortran5 \
         libgmp-dev \
