@@ -2,8 +2,10 @@ PyQt5==5.15.11
 PyQtWebEngine-Qt5==5.15.18
 PySMT==0.9.6
 deap==1.4.3
+diversipy==0.9
 onnxruntime==1.23.2
 onnxscript==0.5.7
+optproblems==1.3
 optunahub==0.4.0
 pandas==2.3.3
 pandas-datareader==0.10.0
