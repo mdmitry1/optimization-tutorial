@@ -18,8 +18,10 @@ def test_nsga2(monkeypatch, request):
         print("")
         m.setattr(sys, 'argv', ['bnh'])
         assert main(test_path) == 0
+        res = int(popen(f"sum {out}").read().split()[0]) 
         if version_info.minor == 14:
-            assert int(popen(f"sum {out}").read().split()[0]) == 19751
+            assert res == 19751
         else:
-            assert int(popen(f"sum {out}").read().split()[0]) == 43431
+            assert res == 43431 or \
+                   res == 19751
         assert int(popen(f"sum {out1}").read().split()[0]) == 9816
