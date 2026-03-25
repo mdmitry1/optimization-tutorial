@@ -180,7 +180,7 @@ simplejson==3.20.2
 six==1.17.0
 sklearn-compat==0.1.5
 sktime==0.26.0
-smlp @ file:///home/mdmitry/github/smlp_poly_pareto/scripts/dist/smlp-1.0.1-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl#sha256=5305b9b01a556ba5ceb2b86b207d811e1d151137aeb4003c4db4df207c23889e
+smlptech @ file:///home/mdmitry/github/smlptech/scripts/dist/smlptech-1.0.1-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl#sha256=412fe7f3594fce380c87da5cd815a49c682d41105e7852ba45ef206091a2ad48
 smmap==6.0.0
 soupsieve==2.5
 ssh-import-id==5.11
