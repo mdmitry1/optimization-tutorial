@@ -180,7 +180,7 @@ simplejson==3.20.2
 six==1.17.0
 sklearn-compat==0.1.5
 sktime==0.26.0
-smlptech @ file:///home/mdmitry/github/smlptech/scripts/dist/smlptech-1.0.1-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl#sha256=412fe7f3594fce380c87da5cd815a49c682d41105e7852ba45ef206091a2ad48
+smlptech @ file:///home/mdmitry/github/smlp_docker_sync/scripts/dist/smlptech-1.1.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl#sha256=756bb888d4bb723530f5a3b48b38400670d3d9eba935ef95d5848624dad83ea7
 smmap==6.0.0
 soupsieve==2.5
 ssh-import-id==5.11
