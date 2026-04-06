@@ -78,7 +78,8 @@ ENV LC_ALL=en_US.UTF-8
 # 4. Clone repository
 # --------------------------------------------------------------------------
 ARG CACHE_BUST_OPTIMIZATION
-RUN git clone https://git@github.com/mdmitry1/optimization-tutorial 
+COPY run_git_clone .
+RUN ./run_git_clone
 
 # Default command
 WORKDIR /app/optimization-tutorial

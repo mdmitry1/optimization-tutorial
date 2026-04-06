@@ -1,0 +1,2 @@
+#!/usr/bin/tcsh -f
+git clone https://git@github.com/mdmitry1/optimization-tutorial
