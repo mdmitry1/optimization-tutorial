@@ -12,7 +12,7 @@ cd optimization-tutorial
 python -m venv venv
 set prompt='%U%m%u:%B%~%b%#'
 source venv/bin/activate.csh
-pip install pyproject.toml
+pip install '.[test]'
 \cp -rp /usr/local/lib/python3.12/dist-packages/mathsat* venv/lib/python3.12/site-packages
 \cp -rp /usr/lib/python3/dist-packages/z3 venv/lib/python3.12/site-packages
 cd tutorial/examples
