@@ -1,4 +1,4 @@
-/home/mdmitry/github/smlp_tutorial/tutorial/examples/c3dtlz4/py/c3dtlz4_ex.py:22: ExperimentalWarning: GPSampler is experimental (supported from v3.6.0). The interface can change in the future.
+/home/mdmitry/github/optimization_tutorial/tutorial/examples/c3dtlz4/py/c3dtlz4_ex.py:22: ExperimentalWarning: GPSampler is experimental (supported from v3.6.0). The interface can change in the future.
   sampler=optuna.samplers.GPSampler(seed=42, constraints_func=c3dtlz4.constraints_func, deterministic_objective=True),
 /usr/local/lib/python3.12/dist-packages/optuna/_experimental.py:32: ExperimentalWarning: Argument ``constraints_func`` is an experimental feature. The interface can change in the future.
   warnings.warn(
