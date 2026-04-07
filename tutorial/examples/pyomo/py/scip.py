@@ -15,13 +15,13 @@ Prerequisites:
 """
 
 from pyomo.environ import ConcreteModel, Var, Objective, Constraint, SolverFactory, minimize, sin, cos
-import matplotlib
-matplotlib.use('Qt5Agg')
-import matplotlib.pyplot as plt
 import numpy as np
 import time
 from hashlib import sha256
 from sys import argv
+import matplotlib
+matplotlib.use('TkAgg')
+import matplotlib.pyplot as plt
 from math import inf
 
 # Store results for comparison
@@ -179,7 +179,7 @@ def main(rootpath: str = ".", timeout: float=5000) -> int:
     # =============================================================================
     # EXAMPLE 3: Rosenbrock Function
     # =============================================================================
-    print("\n\n" + "="*70)
+    print("\n" + "="*70)
     print("EXAMPLE 3: Rosenbrock Function")
     print("Minimize: (1-x)² + 100*(y-x²)²  subject to x²+y²<=4")
     print("="*70)
@@ -421,11 +421,9 @@ def main(rootpath: str = ".", timeout: float=5000) -> int:
     """
     
     if scip_available:
-        summary_text += f"""  SCIP:    x={scip_result1['x']:.6f}, y={scip_result1['y']:.6f}
-               obj={scip_result1['obj']:.6f}
+        summary_text += f"""  SCIP:    x={scip_result1['x']:.6f}, y={scip_result1['y']:.6f}, obj={scip_result1['obj']:.6f}
     """
-    summary_text += f"""  IPOPT:   x={ipopt_result1_a['x']:.6f}, y={ipopt_result1_a['y']:.6f}
-               obj={ipopt_result1_a['obj']:.6f}
+    summary_text += f"""  IPOPT:   x={ipopt_result1_a['x']:.6f}, y={ipopt_result1_a['y']:.6f}, obj={ipopt_result1_a['obj']:.6f}
     
       Result: Both solvers find the same optimum ✓
     """
@@ -461,23 +459,22 @@ def main(rootpath: str = ".", timeout: float=5000) -> int:
     """
     summary_text += f"""  IPOPT tests: {len(ipopt_results3)} starting points
       Best IPOPT:  obj={min(ipopt_results3, key=lambda r: r['obj'])['obj']:.6f}
-    
     ══════════════════════════════════════════════════════════════
     
     KEY TAKEAWAYS:
-    ───────────────────────────────────────────────────────────────
-    ✓ SCIP (Global):  Finds TRUE global optimum every time
-                      Independent of starting point
-                      Slower but GUARANTEED optimal
+    ──────────────────────────────────────────────────────────────
+    ✓ SCIP (Global): Finds TRUE global optimum every time
+                     Independent of starting point
+                     Slower but GUARANTEED optimal
     
-    ✓ IPOPT (Local):  Fast and efficient
-                      May get stuck in local optima
-                      Solution depends on starting point
-                      Good initial guess is critical!
+    ✓ IPOPT (Local): Fast and efficient
+                     May get stuck in local optima
+                     Solution depends on starting point
+                     Good initial guess is critical!
     
     WHEN TO USE EACH:
-    ───────────────────────────────────────────────────────────────
-    SCIP:   • Non-convex problems with multiple optima
+    ──────────────────────────────────────────────────────────────
+    SCIP:   • Non-convex problems with multiple optima 
             • When global optimum is critical
             • MINLP problems
             • Small to medium problems
@@ -488,15 +485,16 @@ def main(rootpath: str = ".", timeout: float=5000) -> int:
             • Monte Carlo / repeated optimization
     """
     
-    ax7.text(0.05, 0.95, summary_text, fontsize=9, family='monospace',
+    ax7.text(0.05, 1.2, summary_text, fontsize=9, family='monospace',
              verticalalignment='top', 
              bbox=dict(boxstyle='round', facecolor='lightyellow', alpha=0.8))
-    
+
     plt.savefig(f'{rootpath}/scip_vs_ipopt_comparison.png', dpi=150, bbox_inches='tight')
     print("\nVisualization saved as 'scip_vs_ipopt_comparison.png'")
     if not inf == timeout:
         timer = fig.canvas.new_timer(interval=timeout, callbacks=[(plt.close, [], {})])
         timer.start()
+    print(timeout)
     plt.show()
     
     print("\n" + "="*70)

@@ -271,7 +271,7 @@ def main(rootpath: str = ".", timeout: float=5000) -> int:
     print("="*70)
     
     import matplotlib
-    matplotlib.use('Qt5Agg')
+    matplotlib.use('TkAgg')
     from matplotlib import pyplot as plt
     fig = plt.figure(figsize=(18, 12))
     plt.subplots_adjust(left=0.05, hspace=0.5, wspace=0.5)

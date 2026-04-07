@@ -11,8 +11,6 @@ from pymoo.termination import get_termination
 from math import inf
 from hashlib import sha256
 from sys import argv
-import matplotlib
-matplotlib.use('Qt5Agg')
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 

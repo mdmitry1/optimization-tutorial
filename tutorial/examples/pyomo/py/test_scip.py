@@ -12,5 +12,4 @@ def test_scip(monkeypatch, request):
         print("")
         m.setattr(sys, 'argv', ['scip'])
         result = main(test_path,5000)
-        assert result == "63af7a9f330083a8164db242198801fd756f2e94e19485ec245144b000f69a99" or \
-               result == '3b8da2b87a4908fa4d7a966c5b44d516b806e7ee1c474cfb1f8bf215365611e0'
+        assert result == "0f040f58a8717972b61635ca53dcf5b457303d62f8afe14513a78fc9d18c1299"
