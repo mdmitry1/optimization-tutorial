@@ -9,8 +9,6 @@ description = "Collection of optimization examlples"
 requires-python = "~=3.12"
 
 dependencies = [
-    "PyQt5==5.15.11",
-    "PyQtWebEngine-Qt5==5.15.18",
     "PySMT==0.9.6",
     "deap==1.4.3",
     "diversipy==0.9",
