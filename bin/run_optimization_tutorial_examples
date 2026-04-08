@@ -1,0 +1,45 @@
+#!/usr/bin/tcsh -f
+set script_path=`realpath $0 | xargs dirname`
+set script_name=`realpath $0 | xargs basename`
+set log=$PWD/${script_name}.log
+if($#argv > 0 ) then
+    if("-clean" == "$argv[1]") then
+        \rm -rf venv >& /dev/null
+        exit 0
+    endif
+endif
+set prompt='%U%m%u:%B%~%b%#'
+if(! -f venv/bin/activate.csh ) then
+    echo "Establishing python virtual environment in $PWD/venv directory"
+    python3.12 -m venv venv
+else
+    echo "Virtual environment in $PWD/venv directory in directory already exists"
+endif
+source venv/bin/activate.csh
+set package=optexamples
+pip show -q ${package}
+if($status) then
+    echo "Installing $package ..."
+    pip install '.[test]'
+else
+    echo "$package has been already installed, `pip show -V optexamples | grep Version`"
+endif
+set rundir=/tmp/optimization_tutorial_${USER}_$$
+echo "Run directory: $rundir" |& tee $log
+\rm -rf $rundir >& /dev/null
+mkdir -p $rundir
+cd $rundir
+set python_path=`which python`
+set venv_path=$python_path:h:h
+echo $venv_path
+\rm -rf $venv_path/lib/python3.12/site-packages/mathsat* >& /dev/null
+\cp -rp /usr/local/lib/python3.12/dist-packages/mathsat* $venv_path/lib/python3.12/site-packages
+\rm -rf $venv_path/lib/python3.12/site-packages/z3 >& /dev/null
+\cp -rp /usr/lib/python3/dist-packages/z3 $venv_path/lib/python3.12/site-packages
+\cp -rp $venv_path/lib/python3.12/site-packages/${package} .
+set cmd="env PYTHONDONTWRITEBYTECODE=1 pytest -v --forked -m forked $PWD/${package}/examples"
+echo $cmd |& tee -a $log
+$cmd |& tee -a $log
+set cmd="env PYTHONDONTWRITEBYTECODE=1 pytest -v -s -m 'not forked' $PWD/${package}/examples"
+echo $cmd | tr '\047' '"' |& tee -a $log
+echo $cmd | tr '\047' '"' | source /dev/stdin |& tee -a $log
