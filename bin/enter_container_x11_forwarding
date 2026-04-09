@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-image=mdmitry1/optimization_tutorial-312:latest
+image=mdmitry1/optimization_tutorial-31x:latest
 if [ $# -gt 0 ]; then 
     image=$1
     shift
