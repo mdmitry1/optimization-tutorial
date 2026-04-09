@@ -1,0 +1,66 @@
+#!/usr/bin/tcsh -f
+set script_path=`realpath $0 | xargs dirname`
+set script_name=`realpath $0 | xargs basename`
+set log=$PWD/${script_name}.log
+while($#argv > 0 )
+    set opt="$argv[1]"
+    shift
+    switch($opt)
+        case "-clean" == $opt :
+            \rm -rf venv >& /dev/null
+            exit 0
+        case "-w" == $opt || "-from_wheel" == $opt :
+            set from_wheel
+            breaksw
+        case "-r" == $opt || "-force_reinstall" == $opt :
+            set reinstall
+            breaksw
+    endsw
+end
+set prompt='%U%m%u:%B%~%b%#'
+if(! -f venv/bin/activate.csh ) then
+    echo "Establishing python virtual environment in $PWD/venv directory"
+    python3.13 -m venv venv
+else
+    echo "Virtual environment in $PWD/venv directory in directory already exists"
+endif
+source venv/bin/activate.csh
+set package=optexamples
+pip show -q ${package}
+if($status || $?reinstall) then
+    if( $?reinstall) then
+        echo "Reinstalling $package ..."
+    else
+        echo "Installing $package ..."
+    endif
+    if($?from_wheel) then
+        set wheel=`ls -t $script_path:h/dist/*whl | head -1`
+        echo "From wheel: $wheel"
+        pip install $wheel
+        echo "Installing pytest ..."
+        pip install pytest pytest-forked pytest-mock
+    else
+        pip install '.[test]'
+    endif
+else
+    echo "$package has been already installed, `pip show -V optexamples | grep Version`"
+endif
+set rundir=/tmp/optimization_tutorial_${USER}_$$
+echo "Run directory: $rundir" |& tee $log
+\rm -rf $rundir >& /dev/null
+mkdir -p $rundir
+cd $rundir
+set python_path=`which python`
+set venv_path=$python_path:h:h
+echo $venv_path
+\rm -rf $venv_path/lib/python3.13/site-packages/mathsat* >& /dev/null
+\cp -rp /usr/local/lib/python3.13/dist-packages/mathsat* $venv_path/lib/python3.13/site-packages
+\rm -rf $venv_path/lib/python3.13/site-packages/z3 >& /dev/null
+\cp -rp /usr/lib/python3/dist-packages/z3 $venv_path/lib/python3.13/site-packages
+\cp -rp $venv_path/lib/python3.13/site-packages/${package} .
+set cmd="env PYTHONDONTWRITEBYTECODE=1 pytest -v --forked -m forked $PWD/${package}/examples"
+echo $cmd |& tee -a $log
+$cmd |& tee -a $log
+set cmd="env PYTHONDONTWRITEBYTECODE=1 pytest -v -s -m 'not forked' $PWD/${package}/examples"
+echo $cmd | tr '\047' '"' |& tee -a $log
+echo $cmd | tr '\047' '"' | source /dev/stdin |& tee -a $log

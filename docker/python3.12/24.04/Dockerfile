@@ -33,11 +33,29 @@ RUN apt-get update && apt-get install -y \
         x11-apps \
         x11-xserver-utils \
         xvfb \
-        z3 && \
+        z3 
+
+# ---------------------------------------------------------------------------
+# 2. Python3.13
+# ---------------------------------------------------------------------------
+
+RUN apt-get install -y --no-install-recommends \
+        gnupg \
+        curl \
+        ca-certificates && \
+        curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xF23C5A6CF475977595C89F51BA6932366A755776" \
+            | gpg --dearmor -o /etc/apt/trusted.gpg.d/deadsnakes.gpg && \
+        echo "deb https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu noble main" \
+            > /etc/apt/sources.list.d/deadsnakes.list && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
+        python3.13 \
+        python3.13-dev \
+        python3.13-tk && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # ---------------------------------------------------------------------------
-# 2. Conda 
+# 3. Conda 
 # ---------------------------------------------------------------------------
 WORKDIR /app
 RUN wget --tries=5 --timeout=30 --waitretry=2 https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
@@ -46,7 +64,7 @@ RUN wget --tries=5 --timeout=30 --waitretry=2 https://repo.anaconda.com/minicond
     /root/miniconda3/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
     
 # ---------------------------------------------------------------------------
-# 2. Install scip and ipopt
+# 4. Install scip and ipopt
 # ---------------------------------------------------------------------------
 RUN /root/miniconda3/bin/conda install -y -c conda-forge ipopt scip && \
     ln -sf /root/miniconda3/bin/scip /usr/local/bin && \
@@ -54,7 +72,7 @@ RUN /root/miniconda3/bin/conda install -y -c conda-forge ipopt scip && \
     rm ./Miniconda3-latest-Linux-x86_64.sh
 
 # ---------------------------------------------------------------------------
-# 3. Mathsat
+# 5. Mathsat
 # ---------------------------------------------------------------------------
 RUN wget --tries=5 --timeout=30 --waitretry=2 https://mathsat.fbk.eu/release/mathsat-5.6.15-linux-x86_64.tar.gz && \
     tar -xvf mathsat-5.6.15-linux-x86_64.tar.gz && \
@@ -63,10 +81,20 @@ RUN wget --tries=5 --timeout=30 --waitretry=2 https://mathsat.fbk.eu/release/mat
     mkdir -p  /usr/local/lib/python3.12/dist-packages/mathsat && \
     mv -f mathsat.py /usr/local/lib/python3.12/dist-packages && \
     mv -f build/lib.linux-x86_64-cpython-312/_mathsat.cpython-312-x86_64-linux-gnu.so /usr/local/lib/python3.12/dist-packages/mathsat/_mathsat.so && \
-    rm ../../mathsat-5.6.15-linux-x86_64.tar.gz 
+    cd /app && \
+    rm -rf mathsat-5.6.15-linux-x86_64 && \
+    tar -xvf mathsat-5.6.15-linux-x86_64.tar.gz && \
+    cd mathsat-5.6.15-linux-x86_64/python && \
+    python3.13 setup.py build && \
+    mkdir -p  /usr/local/lib/python3.13/dist-packages/mathsat && \
+    mv -f mathsat.py /usr/local/lib/python3.13/dist-packages && \
+    mv -f build/lib.linux-x86_64-cpython-313/_mathsat.cpython-313-x86_64-linux-gnu.so /usr/local/lib/python3.13/dist-packages/mathsat/_mathsat.so && \
+    cd /app && \
+    rm -rf mathsat*
+
 
 # ---------------------------------------------------------------------------
-# 3. Install UTF-8 fonts
+# 6. Install UTF-8 fonts
 # ---------------------------------------------------------------------------
 RUN locale-gen en_US.UTF-8
 ENV LANG=en_US.UTF-8
@@ -74,7 +102,7 @@ ENV LANGUAGE=en_US:en
 ENV LC_ALL=en_US.UTF-8
 
 # --------------------------------------------------------------------------
-# 4. Clone repository
+# 7. Clone repository
 # --------------------------------------------------------------------------
 ARG CACHE_BUST_OPTIMIZATION
 COPY run_git_clone .
