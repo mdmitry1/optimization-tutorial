@@ -50,6 +50,7 @@ RUN apt-get install -y --no-install-recommends \
     apt-get update && \
     apt-get install -y --no-install-recommends \
         python3.13 \
+        python3.13-venv \
         python3.13-dev \
         python3.13-tk && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
