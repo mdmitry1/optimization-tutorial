@@ -1,22 +1,25 @@
-#!/usr/bin/tcsh -f
+#!/usr/bin/env -S tcsh -f
 set script_path=`realpath $0 | xargs dirname`
 set script_name=`realpath $0 | xargs basename`
-set log=$PWD/${script_name}.log
+set package=optexamples
 set version=python3.12
+set wheel=`ls -t $script_path:h/dist/*whl | head -1`
 while($#argv > 0 )
     set opt="$argv[1]"
     shift
     switch($opt)
+        case "-h" == $opt || "--help" == $opt
+             goto help
         case "-clean" == $opt :
-            \rm -rf venv >& /dev/null
+            \rm -rf venv* >& /dev/null
             exit 0
-        case "-w" == $opt || "-from_wheel" == $opt :
+        case "-w" == $opt || "--from_wheel" == $opt :
             set from_wheel
             breaksw
-        case "-r" == $opt || "-force_reinstall" == $opt :
+        case "-r" == $opt || "--force_reinstall" == $opt :
             set reinstall
             breaksw
-        case "-p" == $opt || "-python_version" == $opt :
+        case "-p" == $opt || "--python_version" == $opt :
             set version="$argv[1]"
             shift
             if( $version !~ "python3.1[1-3]" ) then
@@ -24,17 +27,22 @@ while($#argv > 0 )
                 exit(1)
             endif
             breaksw
+        default:
+            echo "\nERROR: switch $opt is not supported\n"
+            goto help
     endsw
 end
+set version_digits=`echo $version | tr -d '[a-z].'`
+set log=$PWD/${script_name}_${version_digits}.log
 set prompt='%U%m%u:%B%~%b%#'
-if(! -f venv/bin/activate.csh ) then
-    echo "Establishing python virtual environment in $PWD/venv directory"
-    ${version} -m venv venv
+set venv_root="venv_${version_digits}"
+if(! -f $venv_root/bin/activate.csh ) then
+    echo "Establishing python virtual environment in $PWD/${venv_root} directory"
+    ${version} -m venv $venv_root
 else
     echo "Virtual environment in $PWD/venv directory in directory already exists"
 endif
-source venv/bin/activate.csh
-set package=optexamples
+source ${venv_root}/bin/activate.csh
 pip show -q ${package}
 if($status || $?reinstall) then
     if( $?reinstall) then
@@ -43,7 +51,6 @@ if($status || $?reinstall) then
         echo "Installing $package ..."
     endif
     if($?from_wheel) then
-        set wheel=`ls -t $script_path:h/dist/*whl | head -1`
         echo "From wheel: $wheel"
         pip install $wheel
         echo "Installing pytest ..."
@@ -73,3 +80,16 @@ $cmd |& tee -a $log
 set cmd="env PYTHONDONTWRITEBYTECODE=1 pytest -v -s -m 'not forked' $PWD/${package}/examples"
 echo $cmd | tr '\047' '"' |& tee -a $log
 echo $cmd | tr '\047' '"' | source /dev/stdin |& tee -a $log
+exit($status)
+help:
+    echo "$script_name [[-h|--help] |[-clean] | [-w|--from_wheel] [-r|--force_reinstall] [-p|--python_version <version>]"
+    echo "                                   -h --help:             display this help message"
+    echo "                                   -clean:                clean all workareas $PWD/venv_31*"
+    echo "                                   -w --from_wheel:       install $package from wheel $wheel:t"
+    echo "                                   -r --force_reinstall:  reinstall $package in existing workarea"
+    echo "                                   -p --python_version:   use python<version>"
+    echo "Supported python versions:" python3.1{1,2,3}
+    echo "Default python version:    python3.12"
+    echo "Workarea root directory:   $PWD/venv_31[1|2|3]"
+    echo ""
+    exit(1)
