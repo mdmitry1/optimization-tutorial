@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "optexamples"
 version = "0.1.0"
 description = "Collection of optimization examples"
-requires-python = "~=3.12"
+requires-python = ">=3.11"
 
 dependencies = [
     "PySMT==0.9.6",
@@ -47,4 +47,4 @@ include = ["optexamples*"]
 "bin" = ["bin/run_optimization_tutorial_examples"]
 
 [tool.setuptools.package-data]
-"optexamples" = ["**/*"]
+"optexamples" = ["examples/**/*"]

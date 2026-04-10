@@ -84,8 +84,7 @@ def main(n: int = 512, rootpath: str = ".") -> int:
     results['DA'] = optimize.dual_annealing(eggholder, bounds, maxiter=10000)
     print(f"Dual annealing [3]:                          {results['DA']['x'][0]:.1f} {results['DA']['x'][1]:.2f} {results['DA']['fun']:.4f}")
 
-    print(f"Difference between SHGO and DA methods: {abs(200*(results['shgo']['fun']-results['DA']['fun']))
-                                                            /(results['shgo']['fun']+results['DA']['fun']):.2e} %")
+    print(f"Difference between SHGO and DA methods: {abs(200*(results['shgo']['fun']-results['DA']['fun']))/(results['shgo']['fun']+results['DA']['fun']):.2e} %")
     print("[1] EGGHOLDER: https://www.sfu.ca/~ssurjano/egg.html")
     print("[2] SHGO: https://link.springer.com/article/10.1007/s10898-018-0645-y")
     print("[3] DA: https://www.jstatsoft.org/article/view/v060i06")
