@@ -49,6 +49,10 @@ RUN apt-get install -y --no-install-recommends \
             > /etc/apt/sources.list.d/deadsnakes.list && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
+        python3.11 \
+        python3.11-venv \
+        python3.11-dev \
+        python3.11-tk \
         python3.13 \
         python3.13-venv \
         python3.13-dev \
@@ -91,8 +95,15 @@ RUN wget --tries=5 --timeout=30 --waitretry=2 https://mathsat.fbk.eu/release/mat
     mv -f mathsat.py /usr/local/lib/python3.13/dist-packages && \
     mv -f build/lib.linux-x86_64-cpython-313/_mathsat.cpython-313-x86_64-linux-gnu.so /usr/local/lib/python3.13/dist-packages/mathsat/_mathsat.so && \
     cd /app && \
+    rm -rf mathsat-5.6.15-linux-x86_64 && \
+    tar -xvf mathsat-5.6.15-linux-x86_64.tar.gz && \
+    cd mathsat-5.6.15-linux-x86_64/python && \
+    python3.11 setup.py build && \
+    mkdir -p  /usr/local/lib/python3.11/dist-packages/mathsat && \
+    mv -f mathsat.py /usr/local/lib/python3.11/dist-packages && \
+    mv -f build/lib.linux-x86_64-cpython-311/_mathsat.cpython-311-x86_64-linux-gnu.so /usr/local/lib/python3.11/dist-packages/mathsat/_mathsat.so && \
+    cd /app && \
     rm -rf mathsat*
-
 
 # ---------------------------------------------------------------------------
 # 6. Install UTF-8 fonts
