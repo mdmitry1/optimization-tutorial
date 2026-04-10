@@ -2,6 +2,7 @@
 set script_path=`realpath $0 | xargs dirname`
 set script_name=`realpath $0 | xargs basename`
 set log=$PWD/${script_name}.log
+set version=python3.12
 while($#argv > 0 )
     set opt="$argv[1]"
     shift
@@ -15,12 +16,20 @@ while($#argv > 0 )
         case "-r" == $opt || "-force_reinstall" == $opt :
             set reinstall
             breaksw
+        case "-p" == $opt || "-python_version" == $opt :
+            set version="$argv[1]"
+            shift
+            if( $version !~ "python3.1[1-3]" ) then
+                echo "\nERROR: only python versions python3.11, python3.12 and python3.13 are supported\n"
+                exit(1)
+            endif
+            breaksw
     endsw
 end
 set prompt='%U%m%u:%B%~%b%#'
 if(! -f venv/bin/activate.csh ) then
     echo "Establishing python virtual environment in $PWD/venv directory"
-    python3.12 -m venv venv
+    ${version} -m venv venv
 else
     echo "Virtual environment in $PWD/venv directory in directory already exists"
 endif
@@ -38,7 +47,7 @@ if($status || $?reinstall) then
         echo "From wheel: $wheel"
         pip install $wheel
         echo "Installing pytest ..."
-        pip install `grep pytest pyproject.toml | awk '{print $1}' | tr -d '","' | tr '\012' ' '`
+        pip install `$script_path:h/bin/package_optional_dependencies.py $wheel`
     else
         pip install '.[test]'
     endif
@@ -53,11 +62,11 @@ cd $rundir
 set python_path=`which python`
 set venv_path=$python_path:h:h
 echo $venv_path
-\rm -rf $venv_path/lib/python3.12/site-packages/mathsat* >& /dev/null
-\cp -rp /usr/local/lib/python3.12/dist-packages/mathsat* $venv_path/lib/python3.12/site-packages
-\rm -rf $venv_path/lib/python3.12/site-packages/z3 >& /dev/null
-\cp -rp /usr/lib/python3/dist-packages/z3 $venv_path/lib/python3.12/site-packages
-\cp -rp $venv_path/lib/python3.12/site-packages/${package} .
+\rm -rf $venv_path/lib/${version}/site-packages/mathsat* >& /dev/null
+\cp -rp /usr/local/lib/${version}/dist-packages/mathsat* $venv_path/lib/${version}/site-packages
+\rm -rf $venv_path/lib/${version}/site-packages/z3 >& /dev/null
+\cp -rp /usr/lib/python3/dist-packages/z3 $venv_path/lib/${version}/site-packages
+\cp -rp $venv_path/lib/${version}/site-packages/${package} .
 set cmd="env PYTHONDONTWRITEBYTECODE=1 pytest -v --forked -m forked $PWD/${package}/examples"
 echo $cmd |& tee -a $log
 $cmd |& tee -a $log
