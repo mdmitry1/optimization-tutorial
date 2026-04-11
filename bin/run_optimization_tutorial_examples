@@ -44,7 +44,7 @@ if(! -f $venv_root/bin/activate.csh ) then
     echo "Establishing python virtual environment in $PWD/${venv_root} directory"
     ${version} -m venv $venv_root
 else
-    echo "Virtual environment in $PWD/venv directory already exists"
+    echo "Virtual environment in $PWD/${venv_root} directory already exists"
 endif
 source ${venv_root}/bin/activate.csh
 pip show -q ${package}
