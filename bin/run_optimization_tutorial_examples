@@ -8,22 +8,22 @@ while($#argv > 0 )
     set opt="$argv[1]"
     shift
     switch($opt)
-        case "-h" == $opt :
-        case "--help" == $opt :
+        case "-h":
+        case "--help":
              goto help
-        case "-clean" == $opt :
+        case "-clean":
             \rm -rf venv* >& /dev/null
             exit 0
-        case "-w" == $opt  :
-        case "--from_wheel" == $opt :
+        case "-w":
+        case "--from_wheel":
             set from_wheel
             breaksw
-        case "-r" == $opt :
-        case "--force_reinstall" == $opt :
+        case "-r":
+        case "--force_reinstall":
             set reinstall
             breaksw
-        case "-p" == $opt :
-        case "--python_version" == $opt :
+        case "-p":
+        case "--python_version":
             set version="$argv[1]"
             shift
             if( $version !~ "python3.1[1-3]" ) then
