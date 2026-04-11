@@ -374,6 +374,7 @@ pexpect==4.9.0
 pipdeptree==2.30.0
 ├── packaging [required: >=25, installed: 26.0]
 └── pip [required: >=25.2, installed: 24.0]
+pkginfo==1.12.1.2
 psutil==5.9.8
 ptyprocess==0.7.0
 pycairo==1.25.1

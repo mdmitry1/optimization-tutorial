@@ -6,14 +6,16 @@ Warning!!! Duplicate package metadata found:
   urllib3                          2.0.7            (using 2.6.3, "/usr/local/lib/python3.13/dist-packages")
   markdown-it-py                   3.0.0            (using 4.0.0, "/usr/local/lib/python3.13/dist-packages")
   joblib                           1.3.2            (using 1.5.3, "/usr/local/lib/python3.13/dist-packages")
-  wrapt                            1.15.0           (using 2.0.1, "/usr/local/lib/python3.13/dist-packages")
   six                              1.16.0           (using 1.17.0, "/usr/local/lib/python3.13/dist-packages")
   threadpoolctl                    3.1.0            (using 3.6.0, "/usr/local/lib/python3.13/dist-packages")
   mdurl                            0.1.2            (using 0.1.2, "/usr/local/lib/python3.13/dist-packages")
   python-dateutil                  2.8.2            (using 2.9.0.post0, "/usr/local/lib/python3.13/dist-packages")
   pandas                           2.1.4+dfsg       (using 2.3.3, "/usr/local/lib/python3.13/dist-packages")
+  pluggy                           1.4.0            (using 1.6.0, "/usr/local/lib/python3.13/dist-packages")
   certifi                          2023.11.17       (using 2026.1.4, "/usr/local/lib/python3.13/dist-packages")
+  pytest-mock                      3.12.0           (using 3.15.1, "/usr/local/lib/python3.13/dist-packages")
   cryptography                     41.0.7           (using 41.0.7, "/usr/lib/python3/dist-packages")
+  iniconfig                        1.1.1            (using 2.3.0, "/usr/local/lib/python3.13/dist-packages")
   MarkupSafe                       2.1.5            (using 3.0.3, "/usr/local/lib/python3.13/dist-packages")
   packaging                        24.0             (using 26.0, "/usr/local/lib/python3.13/dist-packages")
   SciPy                            1.11.4           (using 1.17.0, "/usr/local/lib/python3.13/dist-packages")
@@ -23,7 +25,8 @@ Warning!!! Duplicate package metadata found:
   typing_extensions                4.10.0           (using 4.15.0, "/usr/local/lib/python3.13/dist-packages")
   numpy                            1.26.4           (using 2.4.1, "/usr/local/lib/python3.13/dist-packages")
   requests                         2.31.0           (using 2.32.5, "/usr/local/lib/python3.13/dist-packages")
-  Pygments                         2.17.2           (using 2.19.2, "/usr/local/lib/python3.13/dist-packages")
+  pytest                           7.4.4            (using 9.0.3, "/usr/local/lib/python3.13/dist-packages")
+  Pygments                         2.17.2           (using 2.20.0, "/usr/local/lib/python3.13/dist-packages")
   idna                             3.6              (using 3.11, "/usr/local/lib/python3.13/dist-packages")
 NOTE: This warning isn't a failure warning.
 ------------------------------------------------------------------------
@@ -123,7 +126,7 @@ keras-tuner==1.4.8
 │   ├── rich [required: Any, installed: 14.3.0]
 │   │   ├── markdown-it-py [required: >=2.2.0, installed: 4.0.0]
 │   │   │   └── mdurl [required: ~=0.1, installed: 0.1.2]
-│   │   └── Pygments [required: >=2.13.0,<3.0.0, installed: 2.19.2]
+│   │   └── Pygments [required: >=2.13.0,<3.0.0, installed: 2.20.0]
 │   ├── namex [required: Any, installed: 0.1.0]
 │   ├── h5py [required: Any, installed: 3.15.1]
 │   │   └── numpy [required: >=1.21.2, installed: 2.4.1]
@@ -219,6 +222,7 @@ openpyxl==3.1.2
 pipdeptree==2.30.0
 ├── packaging [required: >=25, installed: 26.0]
 └── pip [required: >=25.2, installed: 24.0]
+pkginfo==1.12.1.2
 ptyprocess==0.7.0
 pycairo==1.25.1
 pycaret==3.4.0
@@ -230,7 +234,7 @@ pycaret==3.4.0
 │   ├── pexpect [required: >4.3, installed: 4.9.0]
 │   ├── prompt_toolkit [required: >=3.0.41,<3.1.0, installed: 3.0.52]
 │   │   └── wcwidth [required: Any, installed: 0.6.0]
-│   ├── Pygments [required: >=2.11.0, installed: 2.19.2]
+│   ├── Pygments [required: >=2.11.0, installed: 2.20.0]
 │   ├── stack-data [required: >=0.6.0, installed: 0.6.3]
 │   │   ├── executing [required: >=1.2.0, installed: 2.2.1]
 │   │   ├── asttokens [required: >=2.1.0, installed: 3.0.1]
@@ -461,11 +465,19 @@ pysubgroup==0.9.0
     ├── patsy [required: >=0.5.6, installed: 1.0.2]
     │   └── numpy [required: >=1.4, installed: 2.4.1]
     └── packaging [required: >=21.3, installed: 26.0]
-pytest==7.4.4
-├── iniconfig [required: Any, installed: 1.1.1]
-├── packaging [required: Any, installed: 26.0]
-└── pluggy [required: >=0.12,<2.0, installed: 1.4.0]
-pytest-mock==3.12.0
+pytest-forked==1.6.0
+├── py [required: Any, installed: 1.11.0]
+└── pytest [required: >=3.10, installed: 9.0.3]
+    ├── iniconfig [required: >=1.0.1, installed: 2.3.0]
+    ├── packaging [required: >=22, installed: 26.0]
+    ├── pluggy [required: >=1.5,<2, installed: 1.6.0]
+    └── Pygments [required: >=2.7.2, installed: 2.20.0]
+pytest-mock==3.15.1
+└── pytest [required: >=6.2.5, installed: 9.0.3]
+    ├── iniconfig [required: >=1.0.1, installed: 2.3.0]
+    ├── packaging [required: >=22, installed: 26.0]
+    ├── pluggy [required: >=1.5,<2, installed: 1.6.0]
+    └── Pygments [required: >=2.7.2, installed: 2.20.0]
 python-apt==2.7.7+ubuntu5.2
 python-debian==0.1.49+ubuntu2
 pyxdg==0.28
@@ -548,7 +560,7 @@ tensorflow==2.20.0
 │   ├── rich [required: Any, installed: 14.3.0]
 │   │   ├── markdown-it-py [required: >=2.2.0, installed: 4.0.0]
 │   │   │   └── mdurl [required: ~=0.1, installed: 0.1.2]
-│   │   └── Pygments [required: >=2.13.0,<3.0.0, installed: 2.19.2]
+│   │   └── Pygments [required: >=2.13.0,<3.0.0, installed: 2.20.0]
 │   ├── namex [required: Any, installed: 0.1.0]
 │   ├── h5py [required: Any, installed: 3.15.1]
 │   │   └── numpy [required: >=1.21.2, installed: 2.4.1]
