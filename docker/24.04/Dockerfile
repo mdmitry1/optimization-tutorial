@@ -83,25 +83,25 @@ RUN wget --tries=5 --timeout=30 --waitretry=2 https://mathsat.fbk.eu/release/mat
     tar -xvf mathsat-5.6.15-linux-x86_64.tar.gz && \
     cd mathsat-5.6.15-linux-x86_64/python && \
     python setup.py build && \
-    mkdir -p  /usr/local/lib/python3.12/dist-packages/mathsat && \
+    mkdir -p  /usr/local/lib/python3.12/dist-packages && \
     mv -f mathsat.py /usr/local/lib/python3.12/dist-packages && \
-    mv -f build/lib.linux-x86_64-cpython-312/_mathsat.cpython-312-x86_64-linux-gnu.so /usr/local/lib/python3.12/dist-packages/mathsat/_mathsat.so && \
+    mv -f build/lib.linux-x86_64-cpython-312/_mathsat.cpython-312-x86_64-linux-gnu.so /usr/local/lib/python3.12/dist-packages/_mathsat.so && \
     cd /app && \
     rm -rf mathsat-5.6.15-linux-x86_64 && \
     tar -xvf mathsat-5.6.15-linux-x86_64.tar.gz && \
     cd mathsat-5.6.15-linux-x86_64/python && \
     python3.13 setup.py build && \
-    mkdir -p  /usr/local/lib/python3.13/dist-packages/mathsat && \
+    mkdir -p  /usr/local/lib/python3.13/dist-packages && \
     mv -f mathsat.py /usr/local/lib/python3.13/dist-packages && \
-    mv -f build/lib.linux-x86_64-cpython-313/_mathsat.cpython-313-x86_64-linux-gnu.so /usr/local/lib/python3.13/dist-packages/mathsat/_mathsat.so && \
+    mv -f build/lib.linux-x86_64-cpython-313/_mathsat.cpython-313-x86_64-linux-gnu.so /usr/local/lib/python3.13/dist-packages/_mathsat.so && \
     cd /app && \
     rm -rf mathsat-5.6.15-linux-x86_64 && \
     tar -xvf mathsat-5.6.15-linux-x86_64.tar.gz && \
     cd mathsat-5.6.15-linux-x86_64/python && \
     python3.11 setup.py build && \
-    mkdir -p  /usr/local/lib/python3.11/dist-packages/mathsat && \
+    mkdir -p  /usr/local/lib/python3.11/dist-packages && \
     mv -f mathsat.py /usr/local/lib/python3.11/dist-packages && \
-    mv -f build/lib.linux-x86_64-cpython-311/_mathsat.cpython-311-x86_64-linux-gnu.so /usr/local/lib/python3.11/dist-packages/mathsat/_mathsat.so && \
+    mv -f build/lib.linux-x86_64-cpython-311/_mathsat.cpython-311-x86_64-linux-gnu.so /usr/local/lib/python3.11/dist-packages/_mathsat.so && \
     cd /app && \
     rm -rf mathsat*
 
