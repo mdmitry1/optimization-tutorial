@@ -73,8 +73,8 @@ cd $rundir
 set python_path=`which python`
 set venv_path=$python_path:h:h
 echo $venv_path
-\rm -rf $venv_path/lib/${version}/site-packages/mathsat* >& /dev/null
-\cp -rp /usr/local/lib/${version}/dist-packages/mathsat* $venv_path/lib/${version}/site-packages
+\rm -rf $venv_path/lib/${version}/site-packages/*mathsat* >& /dev/null
+\cp -p /usr/local/lib/${version}/dist-packages/*mathsat* $venv_path/lib/${version}/site-packages
 \rm -rf $venv_path/lib/${version}/site-packages/z3 >& /dev/null
 \cp -rp /usr/lib/python3/dist-packages/z3 $venv_path/lib/${version}/site-packages
 \cp -rp $venv_path/lib/${version}/site-packages/${package} .
