@@ -53,4 +53,4 @@ include = ["pyoptiwize*"]
 "pyoptiwize" = ["examples/**/*"]
 
 [tool.setuptools.exclude-package-data]
-"pyoptiwize" = ["examples/**/expected_results/*"]
+"pyoptiwize" = ["examples/expected_results/**/*"]
