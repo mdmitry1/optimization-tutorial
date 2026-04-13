@@ -1,0 +1,11 @@
+#!/usr/bin/tcsh -f
+set script_path=`realpath $0 | xargs dirname`
+set dist=$script_path:h/dist
+\rm -rf $dist >& /dev/null
+pip -v wheel $script_path:h --no-deps -w $dist
+if($status) then
+    echo "\nERROR: build failed\n"
+    exit 1
+else
+    twine upload --repository testpypi $dist/*whl
+endif
