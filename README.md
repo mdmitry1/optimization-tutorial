@@ -1,4 +1,4 @@
-# Optimization Tutorial
+# Python Optimization Cookbook
 
 ![Python](https://img.shields.io/badge/Python-3.11%20|%203.12%20|%203.13-blue?logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-GPL--3.0-blue)
@@ -16,17 +16,20 @@ A collection of hands-on optimization examples covering single-objective, multi-
 ## 📂 Repository Structure
 
 ```
-optimization_tutorial/
-├── optexamples/
-│   ├── config/             # Environment setup & dependency notes
+pyoptiwize/                        # repo root (cloned from optimization_tutorial)
+├── pyproject.toml
+├── conftest.py
+├── LICENSE
+├── pyoptiwize/                    # package directory
+│   ├── config/                    # Environment setup & dependency notes
 │   └── examples/
-│       ├── shekel/py/      # Global optimization — Shekel function (SHGO)
-│       ├── eggholder/py/   # Global optimization — Eggholder function (SHGO, Dual Annealing)
-│       ├── constraint_dora/py/  # Constrained minimization (SLSQP)
-│       ├── cattlefeed/py/  # Nonlinear constrained NLP — HS73 cattle feed problem
-│       ├── bnh/py/         # Multi-objective — BNH problem (NSGA-II, Z3, PySMT)
-│       ├── c3dtlz4/py/     # Multi-objective benchmark — C3-DTLZ4 (Optuna GP Sampler)
-│       └── pyomo/py/       # Solver comparison — NSGA-II, SCIP, IPOPT, GLPK
+│       ├── shekel/py/             # Global optimization — Shekel function (SHGO)
+│       ├── eggholder/py/          # Global optimization — Eggholder function (SHGO, Dual Annealing)
+│       ├── constraint_dora/py/    # Constrained minimization (SLSQP)
+│       ├── cattlefeed/py/         # Nonlinear constrained NLP — HS73 cattle feed problem
+│       ├── bnh/py/                # Multi-objective — BNH problem (NSGA-II, Z3, PySMT)
+│       ├── c3dtlz4/py/            # Multi-objective benchmark — C3-DTLZ4 (Optuna GP Sampler)
+│       └── pyomo/py/              # Solver comparison — NSGA-II, SCIP, IPOPT, GLPK
 ```
 
 ---
@@ -34,7 +37,7 @@ optimization_tutorial/
 ## 🧪 Examples
 
 ### 1. 🔵 Shekel Function — Global Optimization
-**Path:** `optexamples/examples/shekel/py/`
+**Path:** `pyoptiwize/examples/shekel/py/`
 
 Classic 4-dimensional multimodal benchmark with 10 local minima. Solved with SciPy's SHGO algorithm using Sobol sampling.
 
@@ -46,7 +49,7 @@ Classic 4-dimensional multimodal benchmark with 10 local minima. Solved with Sci
 ---
 
 ### 2. 🟡 Eggholder Function — Global Optimization
-**Path:** `optexamples/examples/eggholder/py/`
+**Path:** `pyoptiwize/examples/eggholder/py/`
 
 Highly non-convex 2D benchmark with many local minima. Compares SHGO and Dual Annealing; includes 3D visualization and dataset generation.
 
@@ -58,7 +61,7 @@ Highly non-convex 2D benchmark with many local minima. Compares SHGO and Dual An
 ---
 
 ### 3. 🟢 Constraint Dora — Constrained Minimization
-**Path:** `optexamples/examples/constraint_dora/py/`
+**Path:** `pyoptiwize/examples/constraint_dora/py/`
 
 Textbook constrained minimization: minimize (x₁−2)² + (x₂−1)² subject to x₁² + x₂² ≤ 1. Solved with SLSQP; result verified analytically.
 
@@ -69,7 +72,7 @@ Textbook constrained minimization: minimize (x₁−2)² + (x₂−1)² subject 
 ---
 
 ### 4. 🟠 Cattle Feed Problem (HS73) — Nonlinear Programming
-**Path:** `optexamples/examples/cattlefeed/py/`
+**Path:** `pyoptiwize/examples/cattlefeed/py/`
 
 Hock–Schittkowski test problem #73. Minimizes a linear feed cost subject to nutritional linear, nonlinear, and equality constraints over 4 variables.
 
@@ -81,7 +84,7 @@ Hock–Schittkowski test problem #73. Minimizes a linear feed cost subject to nu
 ---
 
 ### 5. 🔴 BNH Problem — Multi-Objective Optimization
-**Path:** `optexamples/examples/bnh/py/`
+**Path:** `pyoptiwize/examples/bnh/py/`
 
 Binh and Korn constrained bi-objective problem. Pareto front approximated with NSGA-II; Pareto-stable solutions certified using Z3 SMT solver and PySMT (gradient-stable and minimax-stable flavors).
 
@@ -92,7 +95,7 @@ Binh and Korn constrained bi-objective problem. Pareto front approximated with N
 ---
 
 ### 6. 🟣 C3-DTLZ4 — Constrained Multi-Objective Benchmark
-**Path:** `optexamples/examples/c3dtlz4/py/`
+**Path:** `pyoptiwize/examples/c3dtlz4/py/`
 
 Scalable constrained benchmark combining DTLZ4 objectives (α=100 density bias) with C3-type constraints. Solved with Optuna's Gaussian Process Sampler.
 
@@ -103,7 +106,7 @@ Scalable constrained benchmark combining DTLZ4 objectives (α=100 density bias) 
 ---
 
 ### 7. 🔷 Pymoo & Pyomo — Solver Comparison Suite
-**Path:** `optexamples/examples/pyomo/py/`
+**Path:** `pyoptiwize/examples/pyomo/py/`
 
 Comprehensive multi-solver comparison on the BNH problem and mixed-variable problems. Includes Pareto front approximation from CSV data using linear interpolation and decision trees, and direct solver comparisons.
 
@@ -176,6 +179,10 @@ sudo ln -sf ~/miniconda3/bin/ipopt /usr/local/bin/ipopt
 
 ### 5. MathSAT (for PySMT / Z3 stable-gradient examples)
 
+> ⚠️ **Licensing limitations**
+> Please read the [MathSAT 5 license terms](https://mathsat.fbk.eu/download.html) before using MathSAT.
+> **MathSAT 5 is available for research and evaluation purposes only. It cannot be used in a commercial environment, particularly as part of a commercial product, without written permission.** MathSAT 5 is provided as-is, without any warranty.
+
 Download [MathSAT 5.6.15](https://mathsat.fbk.eu/download.html) and build the Python bindings for each interpreter:
 
 ```bash
@@ -231,22 +238,60 @@ export LC_ALL=en_US.UTF-8
 ### 7. Clone the repository
 
 ```bash
-git clone https://github.com/mdmitry1/optimization_tutorial.git
-cd optimization_tutorial
+git clone https://github.com/mdmitry1/optimization_tutorial.git pyoptiwize
+cd pyoptiwize
 ```
 
-### 8. Run an example
+### 8. Install Python dependencies
+
+Install the package and its dependencies from `pyproject.toml`:
 
 ```bash
-cd optexamples/examples/eggholder/py
+# Standard install
+pip install .
+
+# With test dependencies
+pip install ".[test]"
+```
+
+This installs the following key dependencies:
+
+| Package | Version |
+|---|---|
+| PySMT | ~0.9.6 |
+| DEAP | ~1.4.3 |
+| pymoo | ~0.6.1 |
+| Pyomo | ~6.9.5 |
+| OptunaHub | ~0.4.0 |
+| scikit-learn | ~1.8.0 |
+| scikit-optimize | ~0.10.2 |
+| pandas | ~2.3.3 |
+| TensorFlow | ~2.20.0 |
+| PyTorch | ~2.10.0 |
+| ONNX Runtime | ~1.23.2 |
+| shgo | ~1.0.0 |
+
+Test extras (`.[test]`): `pytest ~9.0.3`, `pytest-forked ~1.6.0`, `pytest-mock ~3.15.1`
+
+### 9. Run an example
+
+```bash
+cd pyoptiwize/examples/eggholder/py
 python optimization_ex.py
 ```
 
-### 9. Run tests
+### 10. Run tests
+
+Some tests (Z3 and Keras-based) must run in forked subprocesses to isolate solver state. The `conftest.py` at the repo root automatically marks any test whose path contains `z3` or `keras` with the `forked` marker.
+
+Run in two passes from each example's `py/` directory:
 
 ```bash
-cd optexamples/examples/<example>/py
-pytest -s
+# Pass 1 — forked tests (z3, keras)
+pytest -v --forked -m forked
+
+# Pass 2 — all other tests
+pytest -v -s -m 'not forked'
 ```
 
 ---
@@ -268,7 +313,7 @@ pytest -s
 | Z3 | 4.8.12 |
 | CUDA | 12.8 |
 
-Full environment details: [`optexamples/config/README.md`](optexamples/config/README.md)
+Full environment details: [`pyoptiwize/config/README.md`](pyoptiwize/config/README.md)
 
 ---
 

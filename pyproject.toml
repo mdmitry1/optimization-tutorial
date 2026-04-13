@@ -1,11 +1,13 @@
 [build-system]
-requires = ["setuptools>=80.10.1", "wheel"]
+requires = ["setuptools>=80.10.1", "wheel","setuptools_scm"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools_scm]
+
 [project]
-name = "optexamples"
-version = "0.1.0"
-description = "Collection of optimization examples"
+name = "pyoptiwize"
+dynamic = ["version"]
+description = "Optimization tutorial: learn by example"
 requires-python = ">=3.11"
 
 dependencies = [
@@ -42,10 +44,10 @@ py-modules = []
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["optexamples*"]
+include = ["pyoptiwize*"]
 
 [tool.setuptools.data-files]
 "bin" = ["bin/run_optimization_tutorial_examples"]
 
 [tool.setuptools.package-data]
-"optexamples" = ["examples/**/*"]
+"pyoptiwize" = ["examples/**/*"]

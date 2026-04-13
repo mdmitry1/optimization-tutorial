@@ -1,7 +1,7 @@
 #!/usr/bin/env -S tcsh -f
 set script_path=`realpath $0 | xargs dirname`
 set script_name=`realpath $0 | xargs basename`
-set package=optexamples
+set package=pyoptiwize
 set version=python3.12
 set wheel=`ls -t $script_path:h/dist/*whl | head -1`
 while($#argv > 0 )
