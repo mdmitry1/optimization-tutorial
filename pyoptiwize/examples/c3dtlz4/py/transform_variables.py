@@ -1,4 +1,8 @@
-#!/usr/bin/python3.12
+#!/usr/bin/env python3.12
+
+# Copyright (C) 2025-2026 Dmitry Messerman
+# SPDX-License-Identifier: GPL-3.0
+
 
 from mpmath import pi, cos, acos, power, mpf, mp, sqrt, fsum as sum
 from pandas import read_csv, isna

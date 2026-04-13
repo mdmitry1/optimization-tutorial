@@ -1,4 +1,8 @@
-#!/usr/bin/python3.12
+#!/usr/bin/env python3.12
+
+# Copyright (C) 2025-2026 Dmitry Messerman
+# SPDX-License-Identifier: GPL-3.0
+
 """
 C3-DTLZ4 Objective Functions
 Based on the DTLZ test suite with DTLZ4 objectives and C3 constraints.

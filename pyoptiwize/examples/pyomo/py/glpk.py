@@ -1,4 +1,8 @@
-#!/usr/bin/python3.12
+#!/usr/bin/env python3.12
+
+# Copyright (C) 2025-2026 Dmitry Messerman
+# SPDX-License-Identifier: GPL-3.0
+
 import pandas as pd
 import pyomo.environ as pyo
 from hashlib import sha256

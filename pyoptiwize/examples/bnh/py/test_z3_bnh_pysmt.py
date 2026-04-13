@@ -1,3 +1,6 @@
+# Copyright (C) 2025-2026 Dmitry Messerman
+# SPDX-License-Identifier: GPL-3.0
+
 import sys
 from bnh_pysmt_z3 import solve_bnh_pysmt
 from os import remove, popen

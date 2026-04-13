@@ -1,3 +1,6 @@
+# Copyright (C) 2025-2026 Dmitry Messerman
+# SPDX-License-Identifier: GPL-3.0
+
 import sys
 from glpk import main
 from os import remove, popen

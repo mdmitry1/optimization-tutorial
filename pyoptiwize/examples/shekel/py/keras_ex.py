@@ -1,4 +1,8 @@
-#!/usr/bin/python3.12
+#!/usr/bin/env python3.12
+
+# Copyright (C) 2025-2026 Dmitry Messerman
+# SPDX-License-Identifier: GPL-3.0
+
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split

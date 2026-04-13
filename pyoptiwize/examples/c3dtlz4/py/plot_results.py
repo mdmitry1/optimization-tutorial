@@ -1,4 +1,8 @@
-#!/usr/bin/python3.12
+#!/usr/bin/env python3.12
+
+# Copyright (C) 2025-2026 Dmitry Messerman
+# SPDX-License-Identifier: GPL-3.0
+
 from pandas import read_csv
 from matplotlib import pyplot as plt
 from sys import argv

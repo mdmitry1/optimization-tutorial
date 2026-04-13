@@ -1,4 +1,8 @@
 #!/usr/bin/tcsh -f
+
+# Copyright (C) 2025-2026 Dmitry Messerman
+# SPDX-License-Identifier: GPL-3.0
+
 set build_args=""
 if($#argv > 0) then
     if("-rebuild" == "$argv[1]" ) then

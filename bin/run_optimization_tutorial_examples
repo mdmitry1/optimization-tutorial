@@ -1,4 +1,8 @@
 #!/usr/bin/env -S tcsh -f
+
+# Copyright (C) 2025-2026 Dmitry Messerman
+# SPDX-License-Identifier: GPL-3.0
+
 set script_path=`realpath $0 | xargs dirname`
 set script_name=`realpath $0 | xargs basename`
 set package=pyoptiwize

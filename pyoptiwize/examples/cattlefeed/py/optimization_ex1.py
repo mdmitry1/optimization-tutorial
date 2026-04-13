@@ -1,4 +1,8 @@
-#!/usr/bin/python3.14
+#!/usr/bin/env python3.12
+
+# Copyright (C) 2025-2026 Dmitry Messerman
+# SPDX-License-Identifier: GPL-3.0
+
 # Reference: https://shgo.readthedocs.io/en/latest/docs/README.html#1-endres-sc--sandrock-c-focke-ww-2018-a-simplicial-homology-algorithm-for-lipschitz-optimisation-journal-of-global-optimization
 from shgo import shgo
 from numpy import sqrt, dot, sum

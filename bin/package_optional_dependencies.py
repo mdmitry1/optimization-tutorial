@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+
+# Copyright (C) 2025-2026 Dmitry Messerman
+# SPDX-License-Identifier: GPL-3.0
+
 from pkginfo import Wheel
 from sys import argv
 from os.path import realpath, basename

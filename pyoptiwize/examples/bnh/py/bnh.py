@@ -1,4 +1,8 @@
-#!/usr/bin/python3.12
+#!/usr/bin/env python3.12
+
+# Copyright (C) 2025-2026 Dmitry Messerman
+# SPDX-License-Identifier: GPL-3.0
+
 """
 Binh and Korn (BNH) Multi-Objective Optimization Problem
 Reference: https://pymoo.org/problems/multi/bnh.html
