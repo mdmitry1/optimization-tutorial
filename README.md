@@ -313,6 +313,7 @@ pytest -v -s -m 'not forked'
 
 ---
 
-## 📄 License
+## Copyright and license
 
-This project is licensed under the [GNU General Public License v3.0](LICENSE).
+© 2025 Dmitry Messerman. Licensed under [GNU General Public License v3.0](LICENSE).
+
