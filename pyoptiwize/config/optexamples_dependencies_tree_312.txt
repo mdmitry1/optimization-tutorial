@@ -1,7 +1,7 @@
 cryptography==46.0.7
 └── cffi [required: >=2.0.0, installed: 2.0.0]
     └── pycparser [required: Any, installed: 3.0]
-optexamples==0.1.0
+pyoptiwize==<version>
 ├── PySMT [required: ~=0.9.6, installed: 0.9.6]
 ├── deap [required: ~=1.4.3, installed: 1.4.3]
 │   └── numpy [required: Any, installed: 2.4.4]
