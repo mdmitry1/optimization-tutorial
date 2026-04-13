@@ -3,7 +3,7 @@ set script_path=`realpath $0 | xargs dirname`
 set script_name=`realpath $0 | xargs basename`
 set package=pyoptiwize
 set version=python3.12
-set wheel=`ls -t $script_path:h/dist/*whl | head -1`
+set wheel=pyoptiwize
 while($#argv > 0 )
     set opt="$argv[1]"
     shift
@@ -56,9 +56,15 @@ if($status || $?reinstall) then
     endif
     if($?from_wheel) then
         echo "From wheel: $wheel"
-        pip install $wheel
-        echo "Installing pytest ..."
-        pip install `$script_path:h/bin/package_optional_dependencies.py $wheel`
+        if(! $?noglob ) then
+            set noglob
+            set unset_noglob_after_pip_install
+        endif
+        pip install "$wheel"[test]
+        if($?unset_noglob_after_pip_install) then
+            unset noglob
+            unset unset_noglob_after_pip_install
+        endif
     else
         pip install '.[test]'
     endif
