@@ -254,24 +254,9 @@ pip install .
 pip install ".[test]"
 ```
 
-This installs the following key dependencies:
-
-| Package | Version |
-|---|---|
-| PySMT | ~0.9.6 |
-| DEAP | ~1.4.3 |
-| pymoo | ~0.6.1 |
-| Pyomo | ~6.9.5 |
-| OptunaHub | ~0.4.0 |
-| scikit-learn | ~1.8.0 |
-| scikit-optimize | ~0.10.2 |
-| pandas | ~2.3.3 |
-| TensorFlow | ~2.20.0 |
-| PyTorch | ~2.10.0 |
-| ONNX Runtime | ~1.23.2 |
-| shgo | ~1.0.0 |
-
-Test extras (`.[test]`): `pytest ~9.0.3`, `pytest-forked ~1.6.0`, `pytest-mock ~3.15.1`
+[python3.11 dependecies](https://github.com/mdmitry1/optimization-tutorial/blob/main/pyoptiwize/config/optexamples_dependencies_tree_311.txt)<br>
+[python3.12 dependecies](https://github.com/mdmitry1/optimization-tutorial/blob/main/pyoptiwize/config/optexamples_dependencies_tree_312.txt)<br>
+[python3.13 dependecies](https://github.com/mdmitry1/optimization-tutorial/blob/main/pyoptiwize/config/optexamples_dependencies_tree_313.txt)
 
 ### 9. Run an example
 
@@ -302,18 +287,11 @@ pytest -v -s -m 'not forked'
 |---|---|
 | OS | Ubuntu 24.04 LTS (Noble) |
 | Python | 3.11, 3.12, 3.13 |
-| NumPy | 1.26.4 (py3.12) / 2.4.1 (py3.14) |
-| SciPy | 1.16.3 |
-| pymoo | 0.6.1.6 |
-| Pyomo | 6.9.5 |
-| Optuna | 4.7.0 |
 | IPOPT | 3.14.19 |
 | SCIP | 10.0.0 |
 | GLPK | 5.0 |
 | Z3 | 4.8.12 |
 | CUDA | 12.8 |
-
-Full environment details: [`pyoptiwize/config/README.md`](pyoptiwize/config/README.md)
 
 ---
 
