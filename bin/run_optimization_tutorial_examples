@@ -56,17 +56,12 @@ if($status || $?reinstall) then
     endif
     if($?from_wheel) then
         echo "From wheel: $wheel"
-        if(! $?noglob ) then
-            set noglob
-            set unset_noglob_after_pip_install
-        endif
-        pip install "$wheel"[test]
-        if($?unset_noglob_after_pip_install) then
-            unset noglob
-            unset unset_noglob_after_pip_install
-        endif
+        (set noglob; pip install "$wheel"[test])
     else
-        pip install '.[test]'
+        set repo=/tmp/${package}_repo_$$
+        \rm -rf $repo >& /dev/null
+        git clone https://git@github.com/mdmitry1/optimization-tutorial $repo
+        (set noglob; pip install "$repo"[test])
     endif
 else
     echo "$package has been already installed, `pip show -V optexamples | grep Version`"
@@ -99,6 +94,7 @@ help:
     echo "                                   -r --force_reinstall:  reinstall $package in existing workarea"
     echo "                                   -p --python_version:   use python<version>"
     echo "Supported python versions:" python3.1{1,2,3}
+    echo "Default installation:      download git repository from the GitHub and then install from the latest version"
     echo "Default python version:    python3.12"
     echo "Workarea root directory:   $PWD/venv_31[1|2|3]"
     echo ""
