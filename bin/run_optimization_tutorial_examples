@@ -94,7 +94,7 @@ help:
     echo "$script_name [[-h|--help] | [-clean] | [-w|--from_wheel] [-r|--force_reinstall] [-p|--python_version <version>]"
     echo "                                   -h --help:             display this help message"
     echo "                                   -clean:                clean all workareas $PWD/venv_31*"
-    echo "                                   -w --from_wheel:       install $package from wheel $wheel:t"
+    echo "                                   -w --from_wheel:       install $package from wheel https://pypi.org/project/$wheel"
     echo "                                   -r --force_reinstall:  reinstall $package in existing workarea"
     echo "                                   -p --python_version:   use python<version>"
     echo "Supported python versions:" python3.1{1,2,3}
