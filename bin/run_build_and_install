@@ -7,5 +7,5 @@ if($status) then
     echo "\nERROR: build failed\n"
     exit 1
 else
-    twine upload --repository testpypi $dist/*whl
+    twine upload $dist/*whl
 endif
