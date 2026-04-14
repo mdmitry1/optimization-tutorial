@@ -51,7 +51,7 @@ where = ["."]
 include = ["pyoptiwize*"]
 
 [tool.setuptools.data-files]
-"bin" = ["bin/run_optimization_tutorial_examples"]
+"bin" = ["bin/run_optimization_tutorial_examples","bin/open_virtual_display"]
 
 [tool.setuptools.package-data]
 "pyoptiwize" = ["examples/**/*"]
