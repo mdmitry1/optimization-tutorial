@@ -40,6 +40,17 @@ while($#argv > 0 )
             goto help
     endsw
 end
+xset q >& /dev/null
+if($status) then
+    echo "\nWARINING: GUI is not available"
+    echo "Opening virtual display"
+    $script_path/open_virtual_display
+    if($status) then
+        echo "\nERROR: failed to open virtual display. Exiting ...\n"
+        exit 1
+    endif
+    setenv DISPLAY :99
+endif
 set version_digits=`echo $version | tr -d '[a-z].'`
 set log=$PWD/${script_name}_${version_digits}.log
 set prompt='%U%m%u:%B%~%b%#'
