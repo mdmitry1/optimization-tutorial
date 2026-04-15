@@ -67,7 +67,15 @@ else
 endif
 source ${venv_root}/bin/activate.csh
 pip show -q ${package}
-if($status || $?reinstall) then
+set package_status=$status
+if($?run_jupyter) then
+    pip show -q notebook
+    set extra_status=$status
+else
+    pip show -q pytest
+    set extra_status=$status
+endif
+if($package_status || $extra_status || $?reinstall) then
     if( $?reinstall) then
         echo "Reinstalling $package ..."
     else
@@ -91,7 +99,7 @@ if($status || $?reinstall) then
         endif
     endif
 else
-    echo "$package has been already installed, `pip show -V optexamples | grep Version`"
+    echo "$package has been already installed, `pip show -V $package | grep Version`"
 endif
 set rundir=/tmp/optimization_tutorial_${USER}_$$
 echo "Run directory: $rundir" |& tee $log
