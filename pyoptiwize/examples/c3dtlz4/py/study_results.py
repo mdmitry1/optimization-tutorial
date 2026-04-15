@@ -50,4 +50,4 @@ def study_results(args: Namespace) -> bool:
         print("Please check the storage URL and study name.")
     
 if __name__ == "__main__":
-    exit(study_results(add_study_arguments().parse_args()))
+    exit(study_results(add_study_arguments().parse_known_args()[0]))

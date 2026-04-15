@@ -67,7 +67,7 @@ def transform_objectives(csv: str = "results.csv", tcsv: str = "transformed_vari
     return tcsv
 
 def main():
-    args=add_study_arguments().parse_args()
+    args=add_study_arguments().parse_known_args()[0]
     if study_results(args):
         results_csv = args.path + "/" + args.results
         mp.dps=500

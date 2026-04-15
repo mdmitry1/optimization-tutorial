@@ -52,7 +52,7 @@ def run_study(args: Namespace) -> bool:
 def main() -> int:
     parser = add_study_arguments()
     parser.add_argument('--n_trials', '-n', type=int, default=10)
-    args = parser.parse_args()
+    args = parser.parse_known_args()[0]
     if run_study(args):
        if study_results(args):
            plot_results(args.path + "/" + args.results, 5000)

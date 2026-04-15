@@ -35,6 +35,10 @@ while($#argv > 0 )
                 exit(1)
             endif
             breaksw
+        case "-j":
+        case "--jupyter":
+            set run_jupyter
+            breaksw
         default:
             echo "\nERROR: switch $opt is not supported\n"
             goto help
@@ -71,12 +75,20 @@ if($status || $?reinstall) then
     endif
     if($?from_wheel) then
         echo "From wheel: $wheel"
-        (set noglob; pip install "$wheel"[test])
+        if( $?run_jupyter ) then
+            (set noglob; pip install "$wheel"[notebook])
+        else
+            (set noglob; pip install "$wheel"[test])
+        endif
     else
         set repo=/tmp/${package}_repo_$$
         \rm -rf $repo >& /dev/null
         git clone https://git@github.com/mdmitry1/optimization-tutorial $repo
-        (set noglob; pip install "$repo"[test])
+        if( $?run_jupyter ) then
+            (set noglob; pip install "$repo"[notebook])
+        else
+            (set noglob; pip install "$repo"[test])
+        endif
     endif
 else
     echo "$package has been already installed, `pip show -V optexamples | grep Version`"
@@ -94,12 +106,21 @@ echo $venv_path
 \rm -rf $venv_path/lib/${version}/site-packages/z3 >& /dev/null
 \cp -rp /usr/lib/python3/dist-packages/z3 $venv_path/lib/${version}/site-packages
 \cp -rp $venv_path/lib/${version}/site-packages/${package} .
-set cmd="env PYTHONDONTWRITEBYTECODE=1 pytest -v --forked -m forked $PWD/${package}/examples"
-echo $cmd |& tee -a $log
-$cmd |& tee -a $log
-set cmd="env PYTHONDONTWRITEBYTECODE=1 pytest -v -s -m 'not forked' $PWD/${package}/examples"
-echo $cmd | tr '\047' '"' |& tee -a $log
-echo $cmd | tr '\047' '"' | source /dev/stdin |& tee -a $log
+if( $?run_jupyter ) then
+    set cmd="env PYTHONDONTWRITEBYTECODE=1 jupyter-notebook --ip 0.0.0.0"
+    if( -f /.dockerenv ) then
+        set cmd="$cmd --no-browser --port=8888 --allow-root"
+    endif
+    echo $cmd |& tee -a $log
+    $cmd |& tee -a $log
+else
+    set cmd="env PYTHONDONTWRITEBYTECODE=1 pytest -v --forked -m forked $PWD/${package}/examples"
+    echo $cmd |& tee -a $log
+    $cmd |& tee -a $log
+    set cmd="env PYTHONDONTWRITEBYTECODE=1 pytest -v -s -m 'not forked' $PWD/${package}/examples"
+    echo $cmd | tr '\047' '"' |& tee -a $log
+    echo $cmd | tr '\047' '"' | source /dev/stdin |& tee -a $log
+endif
 exit($status)
 help:
     echo "$script_name [[-h|--help] | [-clean] | [-w|--from_wheel] [-r|--force_reinstall] [-p|--python_version <version>]"
@@ -108,6 +129,7 @@ help:
     echo "                                   -w --from_wheel:       install $package from wheel https://pypi.org/project/$wheel"
     echo "                                   -r --force_reinstall:  reinstall $package in existing workarea"
     echo "                                   -p --python_version:   use python<version>"
+    echo "                                   -j --run_jupyter:      start jupyter notebook server"
     echo "Supported python versions:" python3.1{1,2,3}
     echo "Default installation:      download git repository from the GitHub and then install from the latest version"
     echo "Default python version:    python3.12"
