@@ -72,8 +72,11 @@ if($?run_jupyter) then
     pip show -q notebook
     set extra_status=$status
 else
-    pip show -q pytest
-    set extra_status=$status
+    @ extra_status = 0
+    foreach test_package (pytest pytest-forked pytest-mock)
+        pip show -q $test_package
+        @ extra_status = $extra_status + $status
+    end
 endif
 if($package_status || $extra_status || $?reinstall) then
     if( $?reinstall) then
@@ -115,6 +118,7 @@ echo $venv_path
 \cp -rp /usr/lib/python3/dist-packages/z3 $venv_path/lib/${version}/site-packages
 \cp -rp $venv_path/lib/${version}/site-packages/${package} .
 if( $?run_jupyter ) then
+    cd $package/examples
     set cmd="env PYTHONDONTWRITEBYTECODE=1 jupyter-notebook --ip 0.0.0.0"
     if( -f /.dockerenv ) then
         set cmd="$cmd --no-browser --port=8888 --allow-root"
