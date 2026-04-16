@@ -13,23 +13,19 @@ A collection of hands-on optimization examples covering single-objective, multi-
 
 ---
 
-## 📂 Repository Structure
+## 📂 Package structure
 
 ```
-pyoptiwize/                        # repo root (cloned from optimization_tutorial)
-├── pyproject.toml
-├── conftest.py
-├── LICENSE
-├── pyoptiwize/                    # package directory
-│   ├── config/                    # Environment setup & dependency notes
-│   └── examples/
-│       ├── shekel/py/             # Global optimization — Shekel function (SHGO)
-│       ├── eggholder/py/          # Global optimization — Eggholder function (SHGO, Dual Annealing)
-│       ├── constraint_dora/py/    # Constrained minimization (SLSQP)
-│       ├── cattlefeed/py/         # Nonlinear constrained NLP — HS73 cattle feed problem
-│       ├── bnh/py/                # Multi-objective — BNH problem (NSGA-II, Z3, PySMT)
-│       ├── c3dtlz4/py/            # Multi-objective benchmark — C3-DTLZ4 (Optuna GP Sampler)
-│       └── pyomo/py/              # Solver comparison — NSGA-II, SCIP, IPOPT, GLPK
+pyoptiwize/                    # Package root directory
+├── config/                    # Python dependency trees
+└── examples/
+    ├── shekel/py/             # Global optimization — Shekel function (SHGO)
+    ├── eggholder/py/          # Global optimization — Eggholder function (SHGO, Dual Annealing)
+    ├── constraint_dora/py/    # Constrained minimization (SLSQP)
+    ├── cattlefeed/py/         # Nonlinear constrained NLP — HS73 cattle feed problem
+    ├── bnh/py/                # Multi-objective — BNH problem (NSGA-II, Z3, PySMT)
+    ├── c3dtlz4/py/            # Multi-objective benchmark — C3-DTLZ4 (Optuna GP Sampler)
+    └── pyomo/py/              # Solver comparison — NSGA-II, SCIP, IPOPT, GLPK
 ```
 
 ---
@@ -121,113 +117,26 @@ Comprehensive multi-solver comparison on the BNH problem and mixed-variable prob
 
 ---
 
+## ⚠️ **Licensing limitations - read before installation**
+
+Please read the [MathSAT 5 license terms](https://mathsat.fbk.eu/download.html) before using MathSAT.
+**MathSAT 5 is available for research and evaluation purposes only.**<br> 
+**It cannot be used in a commercial environment, particularly as part of a commercial product, without written permission.**<br>
+MathSAT 5 is provided as-is, without any warranty.
+
 ## ⚡ Installation (Ubuntu 24.04)
 
-### 1. System packages
+### 1. External dependencies
 
+#### 1.1 Download installation script [install.bash](https://raw.githubusercontent.com/mdmitry1/optimization-tutorial/refs/heads/main/docker/24.04/install.bash)
+
+### 2. Run installation script (⚠️`sudo` required)
 ```bash
-sudo apt-get update && sudo apt-get install -y \
-    g++ gcc git glpk-utils jq \
-    libgfortran5 libgmp-dev libgomp1 libmpfr6 \
-    locales tzdata \
-    python3 python-is-python3 python3-dev python3-pip \
-    python3-pytest-mock python3-setuptools python3-tk python3-venv \
-    python3-z3 z3 \
-    tcsh vim wget \
-    x11-apps x11-xserver-utils xvfb
+chmod +x install.bash
+./install.bash
 ```
 
-### 2. Python 3.11 and 3.13 (via deadsnakes PPA)
-
-Ubuntu 24.04 ships Python 3.12 by default. Install 3.11 and 3.13 from the deadsnakes PPA:
-
-```bash
-sudo apt-get install -y gnupg curl ca-certificates
-
-curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xF23C5A6CF475977595C89F51BA6932366A755776" \
-    | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/deadsnakes.gpg > /dev/null
-
-echo "deb https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu noble main" \
-    | sudo tee /etc/apt/sources.list.d/deadsnakes.list
-
-sudo apt-get update && sudo apt-get install -y \
-    python3.11 python3.11-venv python3.11-dev python3.11-tk \
-    python3.13 python3.13-venv python3.13-dev python3.13-tk
-```
-
-### 3. Miniconda
-
-```bash
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash ./Miniconda3-latest-Linux-x86_64.sh -b
-```
-
-Accept the Conda terms of service:
-
-```bash
-~/miniconda3/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
-~/miniconda3/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
-```
-
-### 4. SCIP and IPOPT
-
-```bash
-~/miniconda3/bin/conda install -y -c conda-forge ipopt scip
-sudo ln -sf ~/miniconda3/bin/scip /usr/local/bin/scip
-sudo ln -sf ~/miniconda3/bin/ipopt /usr/local/bin/ipopt
-```
-
-### 5. MathSAT (for PySMT / Z3 stable-gradient examples)
-
-> ⚠️ **Licensing limitations**
-> Please read the [MathSAT 5 license terms](https://mathsat.fbk.eu/download.html) before using MathSAT.
-> **MathSAT 5 is available for research and evaluation purposes only. It cannot be used in a commercial environment, particularly as part of a commercial product, without written permission.** MathSAT 5 is provided as-is, without any warranty.
-
-Download [MathSAT 5.6.15](https://mathsat.fbk.eu/download.html) and build the Python bindings for each interpreter:
-
-```bash
-wget https://mathsat.fbk.eu/release/mathsat-5.6.15-linux-x86_64.tar.gz
-
-# Python 3.12 (system default)
-tar -xf mathsat-5.6.15-linux-x86_64.tar.gz
-cd mathsat-5.6.15-linux-x86_64/python
-python setup.py build
-sudo mkdir -p /usr/local/lib/python3.12/dist-packages
-sudo mv mathsat.py /usr/local/lib/python3.12/dist-packages/
-sudo mv build/lib.linux-x86_64-cpython-312/_mathsat.cpython-312-x86_64-linux-gnu.so \
-        /usr/local/lib/python3.12/dist-packages/_mathsat.so
-cd ../..
-
-# Python 3.13
-tar -xf mathsat-5.6.15-linux-x86_64.tar.gz
-cd mathsat-5.6.15-linux-x86_64/python
-python3.13 setup.py build
-sudo mkdir -p /usr/local/lib/python3.13/dist-packages
-sudo mv mathsat.py /usr/local/lib/python3.13/dist-packages/
-sudo mv build/lib.linux-x86_64-cpython-313/_mathsat.cpython-313-x86_64-linux-gnu.so \
-        /usr/local/lib/python3.13/dist-packages/_mathsat.so
-cd ../..
-
-# Python 3.11
-tar -xf mathsat-5.6.15-linux-x86_64.tar.gz
-cd mathsat-5.6.15-linux-x86_64/python
-python3.11 setup.py build
-sudo mkdir -p /usr/local/lib/python3.11/dist-packages
-sudo mv mathsat.py /usr/local/lib/python3.11/dist-packages/
-sudo mv build/lib.linux-x86_64-cpython-311/_mathsat.cpython-311-x86_64-linux-gnu.so \
-        /usr/local/lib/python3.11/dist-packages/_mathsat.so
-cd ../..
-
-rm -rf mathsat-5.6.15-linux-x86_64 mathsat-5.6.15-linux-x86_64.tar.gz
-```
-
-### 6. Locale
-
-```bash
-sudo locale-gen en_US.UTF-8
-```
-
-Add to your `~/.bashrc` (or `~/.profile`):
+### 3. Set locale
 
 ```bash
 export LANG=en_US.UTF-8
@@ -235,50 +144,39 @@ export LANGUAGE=en_US:en
 export LC_ALL=en_US.UTF-8
 ```
 
-### 7. Clone the repository
-
+### 4. Create and enter virtual environment
 ```bash
-git clone https://github.com/mdmitry1/optimization_tutorial.git pyoptiwize
-cd pyoptiwize
+python3 -m venv_312 venv_312
+source venv_312/bin/activate
 ```
 
-### 8. Install Python dependencies
+### 5. Install `pyoptiwize`
 
-Install the package and its dependencies from `pyproject.toml`:
-
+- Standard install
 ```bash
-# Standard install
-pip install .
-
-# With test dependencies
-pip install ".[test]"
+pip install pyoptiwize
 ```
 
-[python3.11 dependecies](https://github.com/mdmitry1/optimization-tutorial/blob/main/pyoptiwize/config/optexamples_dependencies_tree_311.txt)<br>
-[python3.12 dependecies](https://github.com/mdmitry1/optimization-tutorial/blob/main/pyoptiwize/config/optexamples_dependencies_tree_312.txt)<br>
-[python3.13 dependecies](https://github.com/mdmitry1/optimization-tutorial/blob/main/pyoptiwize/config/optexamples_dependencies_tree_313.txt)
-
-### 9. Run an example
-
+- Install with test dependencies
 ```bash
-cd pyoptiwize/examples/eggholder/py
-python optimization_ex.py
+pip install 'pyoptiwize[test]'
 ```
 
-### 10. Run tests
-
-Some tests (Z3 and Keras-based) must run in forked subprocesses to isolate solver state. The `conftest.py` at the repo root automatically marks any test whose path contains `z3` or `keras` with the `forked` marker.
-
-Run in two passes from each example's `py/` directory:
+### 6. Quickstart - run an example
 
 ```bash
-# Pass 1 — forked tests (z3, keras)
-pytest -v --forked -m forked
-
-# Pass 2 — all other tests
-pytest -v -s -m 'not forked'
+cp -rp $(python -c 'import pyoptiwize; print(pyoptiwize.__path__[0])')/examples/eggholder .
+./eggholder/py/optimization_ex.py
 ```
 
+### 7. Run all tests using existing virtual environment (requires installation with test dependencies)
+
+Installation script starts its own virtual environment and therefore it is necessary to exit current virtual environment before running tests
+
+```bash
+exit
+$(python -c 'import pyoptiwize; print(pyoptiwize.__path__[0])')/../bin/run_optimization_tutorial_examples
+```
 ---
 
 ## 🛠️ Environment
@@ -315,5 +213,5 @@ pytest -v -s -m 'not forked'
 
 ## Copyright and license
 
-© 2025 Dmitry Messerman. Licensed under [GNU General Public License v3.0](LICENSE).
+© 2025-2026 Dmitry Messerman. Licensed under [GNU General Public License v3.0](LICENSE).
 

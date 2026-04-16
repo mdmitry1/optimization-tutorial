@@ -1,0 +1,10 @@
+FROM ubuntu:24.04
+
+RUN sed -i 's|http://archive.ubuntu.com/ubuntu|http://ftp.uni-stuttgart.de/ubuntu|g' /etc/apt/sources.list.d/ubuntu.sources && \
+    sed -i 's|http://security.ubuntu.com/ubuntu|http://ftp.uni-stuttgart.de/ubuntu|g' /etc/apt/sources.list.d/ubuntu.sources
+
+WORKDIR /app
+COPY install.bash .
+RUN ./install.bash
+
+CMD ["/usr/bin/bash"]
