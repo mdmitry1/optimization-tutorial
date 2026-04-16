@@ -133,7 +133,7 @@ MathSAT 5 is provided as-is, without any warranty.
 ### 2. Run installation script (⚠️`sudo` required)
 ```bash
 chmod +x install.bash
-./install.bash
+sudo ./install.bash
 ```
 
 ### 3. Set locale
@@ -152,12 +152,12 @@ source venv_312/bin/activate
 
 ### 5. Install `pyoptiwize`
 
-- Standard install
+- Standard installation
 ```bash
 pip install pyoptiwize
 ```
 
-- Install with test dependencies
+- Installation with test dependencies
 ```bash
 pip install 'pyoptiwize[test]'
 ```
@@ -178,6 +178,27 @@ exit
 $(python -c 'import pyoptiwize; print(pyoptiwize.__path__[0])')/../bin/run_optimization_tutorial_examples
 ```
 ---
+
+## ⚡ Installation from Docker image
+
+```bash
+docker pull ghcr.io/mdmitry1/optimization-tutorial:latest
+docker run -it ghcr.io/mdmitry1/optimization-tutorial:latest
+python -m venv venv_312
+bash
+source venv_312/bin/activate
+```
+
+- Standard installation
+```bash
+pip install pyoptiwize
+```
+
+- Installion with test dependencies
+
+```bash
+pip install 'pyoptiwize[test]'
+```
 
 ## 🛠️ Environment
 
