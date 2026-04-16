@@ -130,13 +130,13 @@ MathSAT 5 is provided as-is, without any warranty.
 
 #### 1.1 Download installation script [install.bash](https://raw.githubusercontent.com/mdmitry1/optimization-tutorial/refs/heads/main/docker/24.04/install.bash)
 
-### 2. Run installation script (⚠️`sudo` required)
+#### 1.2. Run installation script (⚠️`sudo` required)
 ```bash
 chmod +x install.bash
 sudo ./install.bash
 ```
 
-### 3. Set locale
+### 2. Set locale
 
 ```bash
 export LANG=en_US.UTF-8
@@ -144,13 +144,13 @@ export LANGUAGE=en_US:en
 export LC_ALL=en_US.UTF-8
 ```
 
-### 4. Create and enter virtual environment
+### 3. Create and enter virtual environment
 ```bash
 python3 -m venv_312 venv_312
 source venv_312/bin/activate
 ```
 
-### 5. Install `pyoptiwize`
+### 4. Install `pyoptiwize`
 
 - Standard installation
 ```bash
@@ -162,14 +162,14 @@ pip install pyoptiwize
 pip install 'pyoptiwize[test]'
 ```
 
-### 6. Quickstart - run an example
+### 5. Quickstart - run an example
 
 ```bash
 cp -rp $(python -c 'import pyoptiwize; print(pyoptiwize.__path__[0])')/examples/eggholder .
 ./eggholder/py/optimization_ex.py
 ```
 
-### 7. Run all tests using existing virtual environment (requires installation with test dependencies)
+### 6. Run all tests using existing virtual environment (requires installation with test dependencies)
 
 Installation script starts its own virtual environment and therefore it is necessary to exit current virtual environment before running tests
 
