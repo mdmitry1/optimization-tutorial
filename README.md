@@ -169,6 +169,24 @@ cp -rp $(python -c 'import pyoptiwize; print(pyoptiwize.__path__[0])')/examples/
 ./eggholder/py/optimization_ex.py
 ```
 
+Expected results:
+
+![Eggholder plot](https://raw.githubusercontent.com/mdmitry1/optimization-tutorial/master/media/Eggholder_plot.png)
+
+```bash
+The first element of the sorted dataset:     512.0 404.00 -959.5797
+Analytical solution [1]:                     512.0 404.23 -959.6407
+Simplicial homology global optimization [2]: 512.0 404.23 -959.6407
+Dual annealing [3]:                          482.4 432.88 -956.9182
+Difference between SHGO and DA methods: -2.84e-01 %
+[1] EGGHOLDER: https://www.sfu.ca/~ssurjano/egg.html
+[2] SHGO: https://link.springer.com/article/10.1007/s10898-018-0645-y
+[3] DA: https://www.jstatsoft.org/article/view/v060i06
+[4] SCIPY: https://docs.scipy.org/doc/scipy/tutorial/optimize.html#global-optimization
+54e5105d59a57fd2898e581ca6f1e3502d4cda22b371fa17a88420d6da862602
+```
+
+
 ### 6. Run all tests using existing virtual environment (requires installation with test dependencies)
 
 Installation script starts its own virtual environment and therefore it is necessary to exit current virtual environment before running tests
