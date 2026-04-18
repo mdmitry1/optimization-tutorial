@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+# Copyright (C) 2025-2026 Dmitry Messerman
+# SPDX-License-Identifier: GPL-3.0
+
 # Avoid interactive prompts during apt install
 export DEBIAN_FRONTEND=noninteractive
 
