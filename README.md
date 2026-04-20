@@ -166,7 +166,7 @@ pip install 'pyoptiwize[test]'
 
 ```bash
 cp -rp $(python -c 'import pyoptiwize; print(pyoptiwize.__path__[0])')/examples/eggholder .
-./eggholder/py/optimization_ex.py
+python3 ./eggholder/py/optimization_ex.py
 ```
 
 Expected results:
