@@ -25,6 +25,8 @@ from math import inf
 from sys import argv
 from pyomo.environ import ConcreteModel, Objective, Constraint, SolverFactory, TerminationCondition, Var, value, maximize, minimize
 from pymoo.core.problem import Problem
+import os, matplotlib; matplotlib.use("TkAgg" if os.environ.get("DISPLAY") else "Agg")
+from matplotlib import pyplot as plt
 
 # =============================================================================
 # PROBLEM DEFINITION: Bioprocess Optimization Example
@@ -274,9 +276,6 @@ def main(rootpath: str = ".", timeout: float=5000) -> int:
     print("GENERATING COMPREHENSIVE VISUALIZATION")
     print("="*70)
     
-    import matplotlib
-    matplotlib.use('TkAgg')
-    from matplotlib import pyplot as plt
     fig = plt.figure(figsize=(18, 12))
     plt.subplots_adjust(left=0.05, hspace=0.5, wspace=0.5)
     

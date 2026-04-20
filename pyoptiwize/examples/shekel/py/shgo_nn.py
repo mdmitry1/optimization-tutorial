@@ -10,7 +10,8 @@ from sklearn.preprocessing import StandardScaler
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
-import matplotlib.pyplot as plt
+import os, matplotlib; matplotlib.use("TkAgg" if os.environ.get("DISPLAY") else "Agg")
+from matplotlib import pyplot as plt
 from sys import argv
 from hashlib import sha256
 import logging

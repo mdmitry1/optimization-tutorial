@@ -29,7 +29,8 @@ Characteristics:
 """
 
 import numpy as np
-import matplotlib.pyplot as plt
+import os, matplotlib; matplotlib.use("TkAgg" if os.environ.get("DISPLAY") else "Agg")
+from matplotlib import pyplot as plt
 from pymoo.problems import get_problem
 from pymoo.algorithms.moo.nsga2 import NSGA2
 from pymoo.operators.crossover.sbx import SBX

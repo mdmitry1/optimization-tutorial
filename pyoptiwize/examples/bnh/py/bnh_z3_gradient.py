@@ -5,7 +5,8 @@
 
 from z3 import *
 import numpy as np
-import matplotlib.pyplot as plt
+import os, matplotlib; matplotlib.use("TkAgg" if os.environ.get("DISPLAY") else "Agg")
+from matplotlib import pyplot as plt
 from scipy.optimize import approx_fprime
 from sys import argv
 from math import inf

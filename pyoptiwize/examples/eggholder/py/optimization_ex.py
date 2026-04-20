@@ -7,6 +7,7 @@
 https://docs.scipy.org/doc/scipy/tutorial/optimize.html#global-optimization
 https://www.sfu.ca/~ssurjano/egg.html
 """
+import os, matplotlib; matplotlib.use("TkAgg" if os.environ.get("DISPLAY") else "Agg")
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from scipy import optimize

@@ -15,7 +15,8 @@ from pymoo.termination import get_termination
 from math import inf
 from hashlib import sha256
 from sys import argv
-import matplotlib.pyplot as plt
+import os, matplotlib; matplotlib.use("TkAgg" if os.environ.get("DISPLAY") else "Agg")
+from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 # Create sample CSV files for demonstration

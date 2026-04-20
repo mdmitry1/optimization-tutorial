@@ -10,6 +10,7 @@ from pymoo.algorithms.moo.nsga3 import NSGA3
 from pymoo.util.ref_dirs import get_reference_directions
 from pymoo.core.mixed import MixedVariableMating, MixedVariableSampling, MixedVariableDuplicateElimination
 from pymoo.optimize import minimize
+import os, matplotlib; matplotlib.use("TkAgg" if os.environ.get("DISPLAY") else "Agg")
 from matplotlib import pyplot as plt
 from sys import argv
 from math import inf

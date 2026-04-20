@@ -6,7 +6,8 @@
 from pysmt.shortcuts import Symbol, Real, Solver, And, Plus, Times, Minus, LE, GE
 from pysmt.typing import REAL
 import numpy as np
-import matplotlib.pyplot as plt
+import os, matplotlib; matplotlib.use("TkAgg" if os.environ.get("DISPLAY") else "Agg")
+from matplotlib import pyplot as plt
 from scipy.optimize import minimize
 from sys import argv
 from math import inf

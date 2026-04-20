@@ -4,6 +4,7 @@
 # SPDX-License-Identifier: GPL-3.0
 
 from pandas import read_csv
+import os, matplotlib; matplotlib.use("TkAgg" if os.environ.get("DISPLAY") else "Agg")
 from matplotlib import pyplot as plt
 from sys import argv
 from math import inf

@@ -23,9 +23,8 @@ import numpy as np
 import time
 from hashlib import sha256
 from sys import argv
-import matplotlib
-matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
+import os, matplotlib; matplotlib.use("TkAgg" if os.environ.get("DISPLAY") else "Agg")
+from matplotlib import pyplot as plt
 from math import inf
 
 # Store results for comparison

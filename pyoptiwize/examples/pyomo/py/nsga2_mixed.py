@@ -9,6 +9,7 @@ from pymoo.core.variable import Real, Choice
 from pymoo.algorithms.moo.nsga2 import NSGA2
 from pymoo.core.mixed import MixedVariableMating, MixedVariableSampling, MixedVariableDuplicateElimination
 from pymoo.optimize import minimize
+import os, matplotlib; matplotlib.use("TkAgg" if os.environ.get("DISPLAY") else "Agg")
 from matplotlib import pyplot as plt
 from sys import argv
 from math import inf

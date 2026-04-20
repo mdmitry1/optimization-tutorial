@@ -30,7 +30,8 @@ https://www.wolframalpha.com/input?i=Minimize%3A+f%28x1%2C+x2%29+%3D+%28x1+-+2%2
 
 import numpy as np
 from scipy.optimize import minimize
-import matplotlib.pyplot as plt
+import os, matplotlib; matplotlib.use("TkAgg" if os.environ.get("DISPLAY") else "Agg")
+from matplotlib import pyplot as plt
 from hashlib import sha256
 from os import popen
 from pandas import read_csv, concat

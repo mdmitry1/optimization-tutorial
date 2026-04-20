@@ -5,7 +5,8 @@
 
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+import os, matplotlib; matplotlib.use("TkAgg" if os.environ.get("DISPLAY") else "Agg")
+from matplotlib import pyplot as plt
 from scipy.interpolate import LinearNDInterpolator, NearestNDInterpolator
 from pymoo.core.problem import Problem
 from pymoo.algorithms.moo.nsga2 import NSGA2
