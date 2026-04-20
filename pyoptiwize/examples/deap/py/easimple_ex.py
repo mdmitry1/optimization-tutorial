@@ -8,6 +8,11 @@ import numpy as np
 import random
 from hashlib import sha256
 from deap import base, creator, tools, algorithms
+import os, matplotlib; matplotlib.use("TkAgg" if os.environ.get("DISPLAY") else "Agg")
+from matplotlib import pyplot as plt
+import matplotlib.patches as mpatches
+from sys import argv
+from math import inf
 
 products_data = pd.DataFrame({
     'product': ['A', 'B', 'C', 'D'],
@@ -176,7 +181,7 @@ def run_ga():
     # GA Parameters
     POPULATION_SIZE = 100
     GENERATIONS = 50
-    CROSSOVER_PROB = 0.7
+    CROSSOVER_PROB = 0.8
     MUTATION_PROB = 0.2
     
     print(f"\nGenetic Algorithm Parameters:")
@@ -212,7 +217,112 @@ def run_ga():
     
     return population, logbook, hof
 
-def main(rootpath: str = ".") -> str:
+# ============================================================================
+# VISUALIZATION
+# ============================================================================
+
+def plot_results(best_individual, logbook, rootpath=".", timeout=inf):
+    """
+    Produce a 2x2 matplotlib figure summarising GA results:
+      [0,0] Evolution curves  – max & avg fitness over generations
+      [0,1] Optimal quantities – horizontal bar chart per product
+      [1,0] Resource utilisation – grouped bar (used vs capacity)
+      [1,1] Profit breakdown – pie chart of per-product profit contribution
+    Saves to <rootpath>/ga_results.png (Agg backend, no display required).
+    """
+    gen          = logbook.select("gen")
+    max_fitness  = logbook.select("max")
+    avg_fitness  = logbook.select("avg")
+
+    quantities   = [round(q, 2) for q in best_individual]
+    profits      = [round(q * products_data.iloc[i]['profit'], 2)
+                    for i, q in enumerate(quantities)]
+    product_names = list(products_data['product'])
+
+    resources    = list(resources_data['resource'])
+    capacities   = list(resources_data['capacity'])
+    used_list    = [
+        sum(req_dict.get((products_data.iloc[i]['product'], r), 0) * quantities[i]
+            for i in range(len(quantities)))
+        for r in resources
+    ]
+
+    fig, axes = plt.subplots(2, 2, figsize=(12, 9))
+    fig.suptitle("GA Optimisation Results", fontsize=14, fontweight='bold')
+    colors = ['#185FA5', '#1D9E75', '#BA7517', '#A32D2D']
+
+    # ── [0,0] Evolution curves ────────────────────────────────────────────────
+    ax = axes[0, 0]
+    ax.plot(gen, max_fitness, color='#185FA5', linewidth=2, label='Max fitness')
+    ax.plot(gen, avg_fitness, color='#1D9E75', linewidth=2,
+            linestyle='--', label='Avg fitness')
+    ax.set_title("Fitness over generations", fontsize=11)
+    ax.set_xlabel("Generation")
+    ax.set_ylabel("Fitness ($)")
+    ax.legend(framealpha=0.3)
+    ax.grid(axis='y', linewidth=0.4, alpha=0.5)
+    ax.spines[['top', 'right']].set_visible(False)
+
+    # ── [0,1] Optimal quantities ──────────────────────────────────────────────
+    ax = axes[0, 1]
+    bars = ax.barh(product_names, quantities, color=colors, height=0.55)
+    for bar, qty in zip(bars, quantities):
+        ax.text(bar.get_width() + 0.2, bar.get_y() + bar.get_height() / 2,
+                f'{qty:.1f}', va='center', fontsize=10)
+    ax.set_title("Optimal production quantities", fontsize=11)
+    ax.set_xlabel("Quantity")
+    ax.set_xlim(0, max(quantities) * 1.25)
+    ax.spines[['top', 'right']].set_visible(False)
+    # overlay min/max range markers
+    for i, name in enumerate(product_names):
+        mn = products_data.iloc[i]['min_quantity']
+        mx = products_data.iloc[i]['max_quantity']
+        ax.plot([mn, mx], [i, i], color='#888', linewidth=6, alpha=0.15,
+                solid_capstyle='round')
+
+    # ── [1,0] Resource utilisation ────────────────────────────────────────────
+    ax = axes[1, 0]
+    x   = np.arange(len(resources))
+    w   = 0.38
+    b1  = ax.bar(x - w/2, used_list,   width=w, color='#185FA5', label='Used')
+    b2  = ax.bar(x + w/2, capacities,  width=w, color='#D3D1C7', label='Capacity')
+    for bar, val in zip(b1, used_list):
+        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.5,
+                f'{val:.1f}', ha='center', fontsize=9)
+    ax.set_xticks(x)
+    ax.set_xticklabels([r.replace('_', '\n') for r in resources], fontsize=9)
+    ax.set_title("Resource utilisation", fontsize=11)
+    ax.set_ylabel("Units")
+    ax.legend(framealpha=0.3)
+    ax.spines[['top', 'right']].set_visible(False)
+    ax.grid(axis='y', linewidth=0.4, alpha=0.5)
+
+    # ── [1,1] Profit breakdown ────────────────────────────────────────────────
+    ax = axes[1, 1]
+    wedge_props = {'linewidth': 0.8, 'edgecolor': 'white'}
+    wedges, texts, autotexts = ax.pie(
+        profits, labels=product_names, colors=colors,
+        autopct='%1.1f%%', startangle=90,
+        wedgeprops=wedge_props, pctdistance=0.78
+    )
+    for at in autotexts:
+        at.set_fontsize(9)
+    total = sum(profits)
+    ax.set_title(f"Profit breakdown  (total: ${total:.0f})", fontsize=11)
+
+    fig.tight_layout(rect=[0, 0, 1, 0.96])
+    out_path = f"{rootpath}/ga_results.png"
+    fig.savefig(out_path, dpi=150, bbox_inches='tight')
+    if not inf == timeout:
+        timer = fig.canvas.new_timer(interval=timeout, callbacks=[(plt.close, [], {})])
+        timer.start()
+    plt.show()
+    plt.close(fig)
+    print(f"\nPlot saved → {out_path}")
+    return out_path
+
+
+def main(rootpath: str = ".", timeout: float=5000) -> int:
     # Create sample CSV files for demonstration
     # In practice, you'd read these from actual CSV files
     
@@ -304,7 +414,13 @@ def main(rootpath: str = ".") -> str:
     print("  resources_data = pd.read_csv('your_resources.csv')")
     print("  requirements_data = pd.read_csv('your_requirements.csv')")
     print("=" * 70)
+
+    # Produce and save visualisation
+    plot_results(best_individual, logbook, rootpath,timeout)
+
     return sha256(last_generation.encode()).hexdigest()
- 
+
 if __name__ == "__main__":
-  print(main())
+    rootpath = "." if len(argv) < 2 else argv[1]
+    timeout = inf if len(argv) < 3 else argv[2]
+    print(main(rootpath,timeout))

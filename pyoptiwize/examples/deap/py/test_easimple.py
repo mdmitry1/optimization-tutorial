@@ -21,7 +21,7 @@ def test_easimple(monkeypatch, request):
         assert exists(out) == False
         print("")
         m.setattr(sys, 'argv', ['easimple_ex'])
-        assert main(test_path) == "b3898956f280959c285691b5d6d8a08bf7779ab573ac5bbb2d0f5ddc1ae19d58"
+        assert main(test_path) == "bfeabc4b3f30ef63488fcbdef55ba7e67c019f7361463e97ff6ccc801ca0ef5f"
         assert int(popen(f"sum {out}").read().split()[0])  == 20585
         assert int(popen(f"sum {out1}").read().split()[0]) == 32435
         assert int(popen(f"sum {out2}").read().split()[0]) == 33263
