@@ -18,56 +18,50 @@ A collection of hands-on optimization examples covering single-objective, multi-
 ```
 pyoptiwize/                    # Package root directory
 ├── config/                    # Python dependency trees
-└── examples/
-    ├── shekel/py/             # Global optimization — Shekel function (SHGO)
-    ├── eggholder/py/          # Global optimization — Eggholder function (SHGO, Dual Annealing)
-    ├── constraint_dora/py/    # Constrained minimization (SLSQP)
-    ├── cattlefeed/py/         # Nonlinear constrained NLP — HS73 cattle feed problem
+└── examples/                  # Top level examples directory
     ├── bnh/py/                # Multi-objective — BNH problem (NSGA-II, Z3, PySMT)
-    ├── c3dtlz4/py/            # Multi-objective benchmark — C3-DTLZ4 (Optuna GP Sampler)
-    └── pyomo/py/              # Solver comparison — NSGA-II, SCIP, IPOPT, GLPK
+    ├── c3dtlz4/py/            # Multi-objective optimzation benchmark problem — C3-DTLZ4 (Optuna GP Sampler)
+    ├── cattlefeed/py/         # Global nonlinear constrained single objective optimization — HS73 cattle feed problem (SHGO)
+    ├── constraint_dora/py/    # Constrained minimization schoolbook example (SLSQP)
+    ├── deap/py/               # Constrained single-objective optimization using genetic algorithm (DEAP)
+    ├── eggholder/py/          # Global unconstrained single-objective optimization — Eggholder function (SHGO, Dual Annealing)
+    ├── pyomo/py/              # Solver comparison site for single- and multi-objective optimization 
+    |                          # Algorithms used: large scale linear programming (GLPK)
+    |                          #                  large scale non-linear optimization (IPOPT)
+    |                          #                  genetic multiobjective optimization (NSGA-II and NSGA-III)
+    |                          #                  mixed integer linear and non-linear programming (SCIP)
+    └── shekel/py/             # Global black-box function optimization — Shekel function (SHGO)
+                               # Two packages is used for building the model: Keras/TensorFlow and PyTorch
+
 ```
 
 ---
 
 ## 🧪 Examples
 
-### 1. 🔵 Shekel Function — Global Optimization
-**Path:** `pyoptiwize/examples/shekel/py/`
+### 1. 🔴 BNH Problem — Multi-Objective Optimization
+**Path:** `pyoptiwize/examples/bnh/py/`
 
-Classic 4-dimensional multimodal benchmark with 10 local minima. Solved with SciPy's SHGO algorithm using Sobol sampling.
+Binh and Korn constrained bi-objective problem. Pareto front approximated with NSGA-II; Pareto-stable solutions certified using Z3 SMT solver and PySMT (gradient-stable and minimax-stable flavors).
 
-- **Type:** Single-objective, unconstrained, global
-- **Known minimum:** f(x\*) ≈ −10.5363 at x\* ≈ [4, 4, 4, 4]
-- **Solver:** SHGO (Simplicial Homology Global Optimization)
-- 📖 [Reference](https://www.sfu.ca/~ssurjano/shekel.html)
-
----
-
-### 2. 🟡 Eggholder Function — Global Optimization
-**Path:** `pyoptiwize/examples/eggholder/py/`
-
-Highly non-convex 2D benchmark with many local minima. Compares SHGO and Dual Annealing; includes 3D visualization and dataset generation.
-
-- **Type:** Single-objective, unconstrained, global
-- **Known minimum:** f(x\*) ≈ −959.64 at x\* ≈ (512, 404.23)
-- **Solvers:** SHGO, Dual Annealing
-- 📖 [Reference](https://www.sfu.ca/~ssurjano/egg.html)
+- **Type:** Multi-objective, constrained (2 objectives, 2 constraints)
+- **Solvers:** NSGA-II (pymoo), Z3, PySMT
+- 📖 [pymoo BNH](https://pymoo.org/problems/multi/bnh.html)
 
 ---
 
-### 3. 🟢 Constraint Dora — Constrained Minimization
-**Path:** `pyoptiwize/examples/constraint_dora/py/`
+### 2. 🟣 C3-DTLZ4 — Constrained Multi-Objective Benchmark
+**Path:** `pyoptiwize/examples/c3dtlz4/py/`
 
-Textbook constrained minimization: minimize (x₁−2)² + (x₂−1)² subject to x₁² + x₂² ≤ 1. Solved with SLSQP; result verified analytically.
+Scalable constrained benchmark combining DTLZ4 objectives (α=100 density bias) with C3-type constraints. Solved with Optuna's Gaussian Process Sampler.
 
-- **Type:** Single-objective, nonlinear constraint
-- **Solver:** SLSQP
-- 📖 [WolframAlpha solution](https://www.wolframalpha.com/input?i=Minimize%3A+f%28x1%2C+x2%29+%3D+%28x1+-+2%29%5E2+%2B+%28x2+-+1%29%5E2+subject+to+x1%5E2+%2B+x2%5E2+-+1+%3C%3D+0)
+- **Type:** Multi-objective, constrained, scalable (m objectives, n variables)
+- **Solver:** Optuna GP Sampler
+- 📖 [Deb et al. DTLZ](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/145762/eth-24696-01.pdf)
 
 ---
 
-### 4. 🟠 Cattle Feed Problem (HS73) — Nonlinear Programming
+### 3. 🟠 Cattle Feed Problem (HS73) — Nonlinear Programming
 **Path:** `pyoptiwize/examples/cattlefeed/py/`
 
 Hock–Schittkowski test problem #73. Minimizes a linear feed cost subject to nutritional linear, nonlinear, and equality constraints over 4 variables.
@@ -79,29 +73,41 @@ Hock–Schittkowski test problem #73. Minimizes a linear feed cost subject to nu
 
 ---
 
-### 5. 🔴 BNH Problem — Multi-Objective Optimization
-**Path:** `pyoptiwize/examples/bnh/py/`
+### 4. 🟢 Constraint Dora — Constrained Minimization
+**Path:** `pyoptiwize/examples/constraint_dora/py/`
 
-Binh and Korn constrained bi-objective problem. Pareto front approximated with NSGA-II; Pareto-stable solutions certified using Z3 SMT solver and PySMT (gradient-stable and minimax-stable flavors).
+Textbook constrained minimization: minimize (x₁−2)² + (x₂−1)² subject to x₁² + x₂² ≤ 1. Solved with SLSQP; result verified analytically.
 
-- **Type:** Multi-objective, constrained (2 objectives, 2 constraints)
-- **Solvers:** NSGA-II (pymoo), Z3, PySMT
-- 📖 [pymoo BNH](https://pymoo.org/problems/multi/bnh.html)
-
----
-
-### 6. 🟣 C3-DTLZ4 — Constrained Multi-Objective Benchmark
-**Path:** `pyoptiwize/examples/c3dtlz4/py/`
-
-Scalable constrained benchmark combining DTLZ4 objectives (α=100 density bias) with C3-type constraints. Solved with Optuna's Gaussian Process Sampler.
-
-- **Type:** Multi-objective, constrained, scalable (m objectives, n variables)
-- **Solver:** Optuna GP Sampler
-- 📖 [Deb et al. DTLZ](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/145762/eth-24696-01.pdf)
+- **Type:** Single-objective, nonlinear constraint
+- **Solver:** SLSQP
+- 📖 [WolframAlpha solution](https://www.wolframalpha.com/input?i=Minimize%3A+f%28x1%2C+x2%29+%3D+%28x1+-+2%29%5E2+%2B+%28x2+-+1%29%5E2+subject+to+x1%5E2+%2B+x2%5E2+-+1+%3C%3D+0)
 
 ---
 
-### 7. 🔷 Pymoo & Pyomo — Solver Comparison Suite
+### 5. 🟤 DEAP — Constrained Single-Objective Optimization
+**Path:** `pyoptiwize/examples/deap/py/`
+
+Production planning problem with four products (A–D) and three shared resources (labor hours, machine hours, storage space). A genetic algorithm maximises total profit subject to resource capacity, minimum production quantities, a total weight limit, and a product ratio constraint. Infeasible individuals are steered towards feasibility via a graduated penalty in the fitness function rather than outright rejection.
+
+- **Type:** Single-objective, constrained
+- **Solver:** DEAP `eaSimple` (generational GA — blend crossover, Gaussian mutation, tournament selection)
+- 📖 [Fortin et al., DEAP: Evolutionary Algorithms Made Easy, JMLR 2012 (PDF)](https://www.jmlr.org/papers/volume13/fortin12a/fortin12a.pdf)
+
+---
+
+### 6. 🟡 Eggholder Function — Global Optimization
+**Path:** `pyoptiwize/examples/eggholder/py/`
+
+Highly non-convex 2D benchmark with many local minima. Compares SHGO and Dual Annealing; includes 3D visualization and dataset generation.
+
+- **Type:** Single-objective, unconstrained, global
+- **Known minimum:** f(x\*) ≈ −959.64 at x\* ≈ (512, 404.23)
+- **Solvers:** SHGO, Dual Annealing
+- 📖 [Reference](https://www.sfu.ca/~ssurjano/egg.html)
+
+---
+
+### 7. 🔷 Pyomo - Solver Comparison Suite for Single Objective and Multiobjective Optimization
 **Path:** `pyoptiwize/examples/pyomo/py/`
 
 Comprehensive multi-solver comparison on the BNH problem and mixed-variable problems. Includes Pareto front approximation from CSV data using linear interpolation and decision trees, and direct solver comparisons.
@@ -112,8 +118,20 @@ Comprehensive multi-solver comparison on the BNH problem and mixed-variable prob
   - BNH Pareto front: analytical vs. linear interpolation vs. decision tree
   - Mixed-variable Pareto fronts (NSGA-II, NSGA-III)
   - Single-objective: SCIP vs. IPOPT comparison
-  - Multi-objective: SCIP vs. IPOPT vs. NSGA-II comparison
-  - Linear programming via GLPK/Pyomo
+  - Multi-objective: SCIP vs. NSGA-II comparison
+  - Linear programming via GLPK
+
+---
+
+### 8. 🔵 Shekel Function — Global Optimization
+**Path:** `pyoptiwize/examples/shekel/py/`
+
+Classic 4-dimensional multimodal benchmark with 10 local minima. Solved with SciPy's SHGO algorithm using Sobol sampling.
+
+- **Type:** Single-objective, unconstrained, global
+- **Known minimum:** f(x\*) ≈ −10.5363 at x\* ≈ [4, 4, 4, 4]
+- **Solver:** SHGO (Simplicial Homology Global Optimization)
+- 📖 [Reference](https://www.sfu.ca/~ssurjano/shekel.html)
 
 ---
 
@@ -145,9 +163,26 @@ export LC_ALL=en_US.UTF-8
 ```
 
 ### 3. Create and enter virtual environment
+
+#### 3.1 python3.11
+
+```bash
+python3.11 -m venv_311 venv_311
+source venv_311/bin/activate
+```
+
+#### 3.2 python3.12
+
 ```bash
 python3 -m venv_312 venv_312
 source venv_312/bin/activate
+```
+
+#### 3.3 python3.13
+
+```bash
+python3.13 -m venv_313 venv_313
+source venv_313/bin/activate
 ```
 
 ### 4. Install `pyoptiwize`
@@ -186,16 +221,34 @@ Difference between SHGO and DA methods: -2.84e-01 %
 54e5105d59a57fd2898e581ca6f1e3502d4cda22b371fa17a88420d6da862602
 ```
 
+### 6. Run all tests using existing virtual environment batch mode or interactively (requires installation with test dependencies)
 
-### 6. Run all tests using existing virtual environment (requires installation with test dependencies)
-
-Installation script starts its own virtual environment and therefore it is necessary to exit current virtual environment before running tests
+`pip install` runs in virtual environment and therefore it is necessary to exit it before running tests
 
 ```bash
 exit
-$(python -c 'import pyoptiwize; print(pyoptiwize.__path__[0])')/../bin/run_optimization_tutorial_examples
+$(python -c 'import pyoptiwize; print(pyoptiwize.__path__[0])')/../bin/run_optimization_tutorial_examples [-j]
 ```
+
+- If -j option is specified, then Jupyter server will open
+
 ---
+
+### 7. Full list of script options
+
+```bash
+run_optimization_tutorial_examples [[-h|--help] | [-clean] | [-w|--from_wheel] [-r|--force_reinstall] [-p|--python_version <version>]
+                                   -h --help:             display this help message
+                                   -clean:                clean all workareas /home/mdmitry/github/optimization_tutorial/bin/venv_31*
+                                   -w --from_wheel:       install pyoptiwize from wheel https://pypi.org/project/pyoptiwize
+                                   -r --force_reinstall:  reinstall pyoptiwize in existing workarea
+                                   -p --python_version:   use python<version>
+                                   -j --run_jupyter:      start jupyter notebook server
+Supported python versions: python3.11 python3.12 python3.13
+Default installation:      download git repository from the GitHub and then install from the latest version
+Default python version:    python3.12
+Workarea root directory:   /home/mdmitry/github/optimization_tutorial/bin/venv_31[1|2|3]
+```
 
 ## ⚡ Installation from Docker image
 
@@ -217,6 +270,15 @@ pip install pyoptiwize
 ```bash
 pip install 'pyoptiwize[test]'
 ```
+## ⚡ Recommended GUI support for Docker Image
+
+### Native Linux
+
+[Enter container using socat and X11 forwarding](https://github.com/mdmitry1/optimization-tutorial/blob/main/bin/enter_container_x11_forwarding)
+
+### Windows 11 with WSL2 and WSG installed
+
+[Enter container using WSLG X11 forwarding](https://github.com/mdmitry1/optimization-tutorial/blob/main/bin/enter_container_wslg)
 
 ## 🛠️ Environment
 
