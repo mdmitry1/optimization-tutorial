@@ -3,7 +3,7 @@
 # Copyright (C) 2025-2026 Dmitry Messerman
 # SPDX-License-Identifier: GPL-3.0
 
-image=mdmitry1/optimization_tutorial-31x:latest
+image=mdmitry1/optimization-tutorial:latest
 if [ $# -gt 0 ]; then 
     image=$1
     shift

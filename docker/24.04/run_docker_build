@@ -3,4 +3,4 @@
 # Copyright (C) 2025-2026 Dmitry Messerman
 # SPDX-License-Identifier: GPL-3.0
 
-env DOCKER_BUILDKIT=1 docker build --no-cache --progress=plain -t optimization_tutorial-31x .
+env DOCKER_BUILDKIT=1 docker build --no-cache --progress=plain -t optimization-tutorial .
