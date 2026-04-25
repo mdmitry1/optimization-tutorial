@@ -61,6 +61,7 @@ while [[ $# -gt 0 ]]; do
             ;;
         -t|--testpypi)
             testpypi=1
+            test_version=$($script_path/pyoptiwize_versions.py -atl)
             ;;
         *)
             echo -e "\nERROR: switch $opt is not supported\n"
@@ -122,9 +123,16 @@ if [[ $package_status -ne 0 || $extra_status -ne 0 || -n "$reinstall" ]]; then
         echo "From wheel: $wheel"
         if [[ -n "$run_jupyter" ]]; then
             if [[ -n "$testpypi" ]]; then
-            pip install "${wheel}[notebook]"
+                pip install -i https://test.pypi.org/simple --extra-index-url https://pypi.org/simple  "${wheel}[notebook]==$test_version"
+            else
+                pip install "${wheel}[notebook]"
+            fi
         else
-            pip install "${wheel}[test]"
+            if [[ -n "$testpypi" ]]; then
+                pip install -i https://test.pypi.org/simple --extra-index-url https://pypi.org/simple  "${wheel}[test]==$test_version"
+            else
+                pip install "${wheel}[test]"
+            fi
         fi
     else
         repo="/tmp/${package}_repo_$$"
