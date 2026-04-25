@@ -150,8 +150,7 @@ MathSAT 5 is provided as-is, without any warranty.
 
 #### 1.2. Run installation script (⚠️`sudo` required)
 ```bash
-chmod +x install.bash
-sudo ./install.bash
+sudo ./bin/install.bash
 ```
 
 ### 2. Set locale
