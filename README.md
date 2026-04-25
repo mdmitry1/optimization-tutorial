@@ -296,19 +296,20 @@ pip install 'pyoptiwize[test]'
 
 ## 📚 References
 
+- [BNH problem — pymoo](https://pymoo.org/problems/multi/bnh.html)
+- [C3-DTLZ4 source code](https://github.com/optuna/optunahub-registry/blob/main/package/benchmarks/dtlz_constrained/_dtlz_constrained.py)
+- [DEAP API](https://deap.readthedocs.io/en/master/api/algo.html)
 - [Shekel function](https://www.sfu.ca/~ssurjano/shekel.html)
 - [Eggholder function](https://www.sfu.ca/~ssurjano/egg.html)
+- [GLPK](https://en.wikipedia.org/wiki/GNU_Linear_Programming_Kit)
 - [Hock & Schittkowski test problems](https://link.springer.com/book/10.1007/978-3-642-48320-2)
-- [BNH problem — pymoo](https://pymoo.org/problems/multi/bnh.html)
+- [IPOPT](https://github.com/coin-or/Ipopt)
 - [NSGA-II](https://sci2s.ugr.es/sites/default/files/files/Teaching/OtherPostGraduateCourses/Metaheuristicas/Deb_NSGAII.pdf)
 - [NSGA-III](https://www.egr.msu.edu/~kdeb/papers/k2012009.pdf)
-- [C3-DTLZ4 source code](https://github.com/optuna/optunahub-registry/blob/main/package/benchmarks/dtlz_constrained/_dtlz_constrained.py)
-- [SCIP solver](https://www.scipopt.org)
-- [IPOPT](https://github.com/coin-or/Ipopt)
-- [GLPK](https://en.wikipedia.org/wiki/GNU_Linear_Programming_Kit)
+- [Optuna GP Sampler](https://medium.com/optuna/introducing-optunas-native-gpsampler-0aa9aa3b4840)
 - [pymoo](https://pypi.org/project/pymoo)
 - [Pyomo](https://pypi.org/project/pyomo)
-- [Optuna GP Sampler](https://medium.com/optuna/introducing-optunas-native-gpsampler-0aa9aa3b4840)
+- [SCIP](https://www.scipopt.org)
 
 ---
 
