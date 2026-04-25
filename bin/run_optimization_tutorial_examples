@@ -61,6 +61,7 @@ while [[ $# -gt 0 ]]; do
             ;;
         -t|--testpypi)
             testpypi=1
+            pip install requests --target /usr/local/lib/python3.12/dist-packages
             test_version=$($script_path/pyoptiwize_versions.py -atl)
             ;;
         *)
