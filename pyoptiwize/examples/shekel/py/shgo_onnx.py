@@ -312,7 +312,6 @@ def compare_optimization_results(rootpath=".", model_path='shekel_model.onnx'):
 
 def main(rootpath: str = ".") -> int:
     # Set random seeds for reproducibility
-    import os
     os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
      
     tf2onnx.convert._rename_duplicate_keras_model_names = patched_rename
@@ -353,5 +352,6 @@ def main(rootpath: str = ".") -> int:
 
 
 if __name__ == "__main__":
+    argv = [] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
     rootpath = "." if len(argv) < 2 else argv[1]
     print(main(rootpath))

@@ -190,6 +190,7 @@ def main(rootpath: str = ".", timeout: float=5000) -> int:
     plt.show()
     return 0
 if __name__ == "__main__":
+    argv = [] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
     rootpath = "." if len(argv) < 2 else argv[1]
     timeout = inf if len(argv) < 3 else argv[2]
     print(main(rootpath,timeout))

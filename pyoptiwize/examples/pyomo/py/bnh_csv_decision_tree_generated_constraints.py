@@ -356,6 +356,7 @@ def main(rootpath: str = ".", timeout: float=5000, spec: str = "bnh.json" ) -> i
     return sha256(pareto_df.to_string().encode()).hexdigest()
     
 if __name__ == "__main__":
+    argv = [] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
     rootpath = "." if len(argv) < 2 else argv[1]
     spec = "bnh.json" if len(argv) < 3 else argv[2]
     timeout = inf if len(argv) < 4 else argv[3]

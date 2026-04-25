@@ -526,6 +526,7 @@ def plot_results(solutions, minimax_results, timeout):
     logging.info("\n✓ Visualization complete")
 
 if __name__ == "__main__":
+    argv = [] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
     rootpath = "." if len(argv) < 2 else argv[1]
     timeout = inf if len(argv) < 3 else float(argv[2])
     print(solve_bnh_z3_minimax(rootpath, timeout))

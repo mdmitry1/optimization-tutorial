@@ -9,6 +9,7 @@ import logging
 import time
 from hashlib import sha256
 from sys import argv
+import os
 
 logging.basicConfig(
     level=logging.INFO,
@@ -321,7 +322,6 @@ def main(rootpath: str = ".") -> str:
     hash : str
         SHA256 hash of results
     """
-    import os
     
     # Set environment variable
     os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
@@ -356,5 +356,6 @@ def main(rootpath: str = ".") -> str:
 
 
 if __name__ == "__main__":
+    argv = [] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
     rootpath = "." if len(argv) < 2 else argv[1]
     print(main(rootpath))

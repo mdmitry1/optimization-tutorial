@@ -23,7 +23,6 @@ from hashlib import sha256
 # SKLEARN SURROGATE MODEL IMPORTS
 # ============================================================================
 import pickle
-import os
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.multioutput import MultiOutputRegressor
 from sklearn.model_selection import train_test_split, cross_val_score
@@ -478,6 +477,7 @@ def main(rootpath: str = ".", timeout: float = 5000, retrain: bool = False) -> s
 
 
 if __name__ == "__main__":
+    argv = [] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
     rootpath = "."         if len(argv) < 2 else argv[1]
     timeout  = inf         if len(argv) < 3 else float(argv[2])
     retrain  = False       if len(argv) < 4 else argv[3].lower() in ("1", "true", "yes")

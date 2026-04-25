@@ -289,7 +289,6 @@ def compare_optimization_results(rootpath=".", model_path='shekel_model_expected
 
 def main(rootpath: str = ".") -> int:
     # Set random seeds for reproducibility - more comprehensive
-    import os
     os.environ['CUDA_VISIBLE_DEVICES']='-1'
      
     logging.info("=" * 60)
@@ -316,5 +315,6 @@ def main(rootpath: str = ".") -> int:
     return sha256(all_results.encode()).hexdigest()
 
 if __name__ == "__main__":
+    argv = [] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
     rootpath = "." if len(argv) < 2 else argv[1]
     print(main(rootpath))

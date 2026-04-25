@@ -127,6 +127,7 @@ def main(rootpath: str = ".", timeout: int = 30000):
     return sha256(str(results).encode()).hexdigest()
 
 if __name__ == "__main__":
+    argv = [] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
     match len(argv):
         case 1:
             print(main())

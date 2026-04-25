@@ -16,7 +16,7 @@ from math import pi, sin, cos
 from pandas import read_csv, isna
 from numpy import floating
 from sys import argv
-from os.path import realpath, dirname
+from os.path import realpath, dirname, basename
 
 def compare_dataframes(df1, df2, float_threshold=0.01, report_file=None):
     """
@@ -257,5 +257,6 @@ def objectives_and_constraints(csv: str = "results.csv", rel_thr: float = 0.0001
     return compare_dataframes(df, df1, float_threshold=rel_thr)
 
 if __name__ == "__main__":
+    argv = [] if basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
     results = "results.csv" if len(argv) < 2 else argv[1]
     print(objectives_and_constraints(results))
