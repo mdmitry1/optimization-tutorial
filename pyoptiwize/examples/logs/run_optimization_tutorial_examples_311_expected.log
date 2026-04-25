@@ -1,9 +1,9 @@
-Run directory: /tmp/optimization_tutorial_root_4275
-env PYTHONDONTWRITEBYTECODE=1 pytest -v --forked -m forked /tmp/optimization_tutorial_root_4275/pyoptiwize/examples
+Run directory: /tmp/optimization_tutorial_root_8526
+env PYTHONDONTWRITEBYTECODE=1 pytest -v --forked -m forked /tmp/optimization_tutorial_root_8526/pyoptiwize/examples
 ============================= test session starts ==============================
 platform linux -- Python 3.11.15, pytest-9.0.3, pluggy-1.6.0 -- /app/optimization-tutorial/venv_311/bin/python3.11
 cachedir: .pytest_cache
-rootdir: /tmp/optimization_tutorial_root_4275
+rootdir: /tmp/optimization_tutorial_root_8526
 plugins: cov-7.1.0, forked-1.6.0, mock-3.15.1
 collecting ... collected 31 items / 21 deselected / 10 selected
 
@@ -446,7 +446,7 @@ Solution 17 (epsilon): x = (0.031250, 0.019531)
     Δf2 = 0.014071 (0.03%)
 
   Robustness Assessment:
-    Score: 0.055283 (lower is better)
+    Score: 0.055282 (lower is better)
     Class: MODERATELY ROBUST
 
 ======================================================================
@@ -591,14 +591,14 @@ Constraint Status:
 
 Sensitivity Analysis:
   Avg sensitivity (f1): 0.0005
-  Avg sensitivity (f2): 12.2770
-  Max sensitivity (f1): 0.0012
-  Max sensitivity (f2): 13.9981
-  Feasible perturbations tested: 8/20
+  Avg sensitivity (f2): 13.2306
+  Max sensitivity (f1): 0.0008
+  Max sensitivity (f2): 14.0243
+  Feasible perturbations tested: 5/20
 
 Stability Assessment:
   At boundary: True
-  Stability score: 13.2099
+  Stability score: 13.6867
   Classification: MODERATELY STABLE
 
 Solution 2: x = (0.000000, 0.000000)
@@ -614,14 +614,14 @@ Constraint Status:
 
 Sensitivity Analysis:
   Avg sensitivity (f1): 0.0005
-  Avg sensitivity (f2): 12.6401
-  Max sensitivity (f1): 0.0008
-  Max sensitivity (f2): 13.6798
+  Avg sensitivity (f2): 12.0515
+  Max sensitivity (f1): 0.0010
+  Max sensitivity (f2): 12.7522
   Feasible perturbations tested: 5/20
 
 Stability Assessment:
   At boundary: True
-  Stability score: 13.3914
+  Stability score: 13.0971
   Classification: MODERATELY STABLE
 
 Solution 3: x = (2.501953, 1.000000)
@@ -635,15 +635,15 @@ Constraint Status:
   C2 active: False (value: -38.528519)
 
 Sensitivity Analysis:
-  Avg sensitivity (f1): 14.5290
-  Avg sensitivity (f2): 6.8770
-  Max sensitivity (f1): 21.5082
-  Max sensitivity (f2): 9.4242
+  Avg sensitivity (f1): 14.0753
+  Avg sensitivity (f2): 5.9373
+  Max sensitivity (f1): 21.5516
+  Max sensitivity (f2): 9.4236
   Feasible perturbations tested: 20/20
 
 Stability Assessment:
   At boundary: False
-  Stability score: 26.1966
+  Stability score: 25.4998
   Classification: WEAKLY STABLE
 
 Solution 4: x = (1.000000, 2.830078)
@@ -657,15 +657,15 @@ Constraint Status:
   C2 active: False (value: -75.289811)
 
 Sensitivity Analysis:
-  Avg sensitivity (f1): 19.0426
-  Avg sensitivity (f2): 5.5666
-  Max sensitivity (f1): 23.9888
-  Max sensitivity (f2): 9.0982
+  Avg sensitivity (f1): 16.4265
+  Avg sensitivity (f2): 5.0605
+  Max sensitivity (f1): 24.0033
+  Max sensitivity (f2): 9.1013
   Feasible perturbations tested: 20/20
 
 Stability Assessment:
   At boundary: False
-  Stability score: 28.8615
+  Stability score: 27.3004
   Classification: WEAKLY STABLE
 
 Solution 5: x = (1.000000, 1.000000)
@@ -679,15 +679,15 @@ Constraint Status:
   C2 active: False (value: -57.300000)
 
 Sensitivity Analysis:
-  Avg sensitivity (f1): 7.6902
-  Avg sensitivity (f2): 7.6901
-  Max sensitivity (f1): 11.2339
-  Max sensitivity (f2): 11.2327
+  Avg sensitivity (f1): 8.1302
+  Avg sensitivity (f2): 8.1303
+  Max sensitivity (f1): 11.3127
+  Max sensitivity (f2): 11.3121
   Feasible perturbations tested: 20/20
 
 Stability Assessment:
   At boundary: False
-  Stability score: 19.0039
+  Stability score: 19.4440
   Classification: WEAKLY STABLE
 
 Solution 6: x = (1.000000, 2.000000)
@@ -701,15 +701,15 @@ Constraint Status:
   C2 active: False (value: -66.300000)
 
 Sensitivity Analysis:
-  Avg sensitivity (f1): 9.9438
-  Avg sensitivity (f2): 5.4667
-  Max sensitivity (f1): 17.8891
-  Max sensitivity (f2): 9.9990
+  Avg sensitivity (f1): 11.5797
+  Avg sensitivity (f2): 5.6755
+  Max sensitivity (f1): 17.8461
+  Max sensitivity (f2): 9.9940
   Feasible perturbations tested: 20/20
 
 Stability Assessment:
   At boundary: False
-  Stability score: 21.6495
+  Stability score: 22.5719
   Classification: WEAKLY STABLE
 
 Solution 7: x = (1.000000, 1.000000)
@@ -723,15 +723,15 @@ Constraint Status:
   C2 active: False (value: -57.300000)
 
 Sensitivity Analysis:
-  Avg sensitivity (f1): 6.8628
-  Avg sensitivity (f2): 6.8630
-  Max sensitivity (f1): 11.2983
-  Max sensitivity (f2): 11.2976
+  Avg sensitivity (f1): 6.8765
+  Avg sensitivity (f2): 6.8765
+  Max sensitivity (f1): 11.3021
+  Max sensitivity (f2): 11.3016
   Feasible perturbations tested: 20/20
 
 Stability Assessment:
   At boundary: False
-  Stability score: 18.1766
+  Stability score: 18.1902
   Classification: WEAKLY STABLE
 
 Solution 8: x = (0.250000, 0.250000)
@@ -745,15 +745,15 @@ Constraint Status:
   C2 active: False (value: -62.925000)
 
 Sensitivity Analysis:
-  Avg sensitivity (f1): 2.0342
-  Avg sensitivity (f2): 9.6613
-  Max sensitivity (f1): 2.7959
-  Max sensitivity (f2): 13.2793
+  Avg sensitivity (f1): 1.6127
+  Avg sensitivity (f2): 7.6609
+  Max sensitivity (f1): 2.7561
+  Max sensitivity (f2): 13.0920
   Feasible perturbations tested: 20/20
 
 Stability Assessment:
   At boundary: False
-  Stability score: 13.9795
+  Stability score: 12.7685
   Classification: MODERATELY STABLE
 
 Solution 9: x = (0.000977, 0.000977)
@@ -767,15 +767,15 @@ Constraint Status:
   C2 active: False (value: -65.290236)
 
 Sensitivity Analysis:
-  Avg sensitivity (f1): 0.0073
-  Avg sensitivity (f2): 9.2284
-  Max sensitivity (f1): 0.0117
-  Max sensitivity (f2): 14.1195
+  Avg sensitivity (f1): 0.0075
+  Avg sensitivity (f2): 9.4863
+  Max sensitivity (f1): 0.0115
+  Max sensitivity (f2): 13.7113
   Feasible perturbations tested: 20/20
 
 Stability Assessment:
   At boundary: True
-  Stability score: 11.6931
+  Stability score: 11.8221
   Classification: MODERATELY STABLE
 
 ============================================================
@@ -783,15 +783,15 @@ STABILITY SUMMARY TABLE
 ============================================================
 Sol   x1         x2         ||∇f1||    ||∇f2||    Score      Class               
 ------------------------------------------------------------
-1     0.0000     0.0000     0.0001     14.1421    13.2099    MODERATELY STABLE   
-2     0.0000     0.0000     0.0001     14.1421    13.3914    MODERATELY STABLE   
-3     2.5020     1.0000     21.5552    9.4319     26.1966    WEAKLY STABLE       
-4     1.0000     2.8301     24.0125    9.1013     28.8615    WEAKLY STABLE       
-5     1.0000     1.0000     11.3138    11.3137    19.0039    WEAKLY STABLE       
-6     1.0000     2.0000     17.8886    10.0000    21.6495    WEAKLY STABLE       
-7     1.0000     1.0000     11.3138    11.3137    18.1766    WEAKLY STABLE       
-8     0.2500     0.2500     2.8285     13.4350    13.9795    MODERATELY STABLE   
-9     0.0010     0.0010     0.0111     14.1394    11.6931    MODERATELY STABLE   
+1     0.0000     0.0000     0.0001     14.1421    13.6867    MODERATELY STABLE   
+2     0.0000     0.0000     0.0001     14.1421    13.0971    MODERATELY STABLE   
+3     2.5020     1.0000     21.5552    9.4319     25.4998    WEAKLY STABLE       
+4     1.0000     2.8301     24.0125    9.1013     27.3004    WEAKLY STABLE       
+5     1.0000     1.0000     11.3138    11.3137    19.4440    WEAKLY STABLE       
+6     1.0000     2.0000     17.8886    10.0000    22.5719    WEAKLY STABLE       
+7     1.0000     1.0000     11.3138    11.3137    18.1902    WEAKLY STABLE       
+8     0.2500     0.2500     2.8285     13.4350    12.7685    MODERATELY STABLE   
+9     0.0010     0.0010     0.0111     14.1394    11.8221    MODERATELY STABLE   
 ============================================================
 
 6. Decision Space, Pareto Front, and Stability Plots Generated
@@ -803,7 +803,7 @@ Found 9 Pareto optimal solutions
 Most stable solution: #9
   x = (0.000977, 0.000977)
   Stability class: MODERATELY STABLE
-  Stability score: 11.6931
+  Stability score: 11.8221
 ============================================================
 PASSED  [ 30%]
 pyoptiwize/examples/bnh/py/test_z3_minimax.py::test_z3_minimax 
@@ -1107,7 +1107,7 @@ pyoptiwize/examples/shekel/py/test_keras.py::test_keras
 -------------------------------- live log call ---------------------------------
 Random seeds set for reproducibility (seed=42)
 ============================================================
-Loading data from /tmp/optimization_tutorial_root_4275/pyoptiwize/examples/shekel/py/shekel_meshgrid_26.csv.expected.gz...
+Loading data from /tmp/optimization_tutorial_root_8526/pyoptiwize/examples/shekel/py/shekel_meshgrid_26.csv.expected.gz...
 Data shape: (456976, 5)
 Columns: ['X1', 'X2', 'X3', 'X4', 'Y']
 
@@ -1159,7 +1159,7 @@ None
 Training model...
 Initial learning rate: 0.005 (using Nadam optimizer with cosine annealing)
 Epoch 1/150
-715/715 - 5s - 7ms/step - loss: 0.1270 - mae: 0.1686 - mse: 0.1270 - val_loss: 0.1096 - val_mae: 0.2063 - val_mse: 0.1096 - learning_rate: 0.0050 - lr: 0.0050
+715/715 - 5s - 8ms/step - loss: 0.1270 - mae: 0.1686 - mse: 0.1270 - val_loss: 0.1096 - val_mae: 0.2063 - val_mse: 0.1096 - learning_rate: 0.0050 - lr: 0.0050
 
 Epoch 2/150
 715/715 - 2s - 3ms/step - loss: 0.0715 - mae: 0.1208 - mse: 0.0715 - val_loss: 0.0769 - val_mae: 0.1451 - val_mse: 0.0769 - learning_rate: 0.0050 - lr: 0.0050
@@ -1171,7 +1171,7 @@ Epoch 4/150
 715/715 - 2s - 3ms/step - loss: 0.0594 - mae: 0.1053 - mse: 0.0594 - val_loss: 0.0411 - val_mae: 0.1079 - val_mse: 0.0411 - learning_rate: 0.0050 - lr: 0.0050
 
 Epoch 5/150
-715/715 - 3s - 4ms/step - loss: 0.0607 - mae: 0.1077 - mse: 0.0607 - val_loss: 0.0346 - val_mae: 0.0988 - val_mse: 0.0346 - learning_rate: 0.0050 - lr: 0.0050
+715/715 - 2s - 3ms/step - loss: 0.0607 - mae: 0.1077 - mse: 0.0607 - val_loss: 0.0346 - val_mae: 0.0988 - val_mse: 0.0346 - learning_rate: 0.0050 - lr: 0.0050
 
 Epoch 6/150
 715/715 - 3s - 4ms/step - loss: 0.0584 - mae: 0.1065 - mse: 0.0584 - val_loss: 0.0306 - val_mae: 0.0829 - val_mse: 0.0306 - learning_rate: 0.0050 - lr: 0.0050
@@ -1696,7 +1696,7 @@ Scalers loaded
 ============================================================
 Optimizing with Neural Network Model using SHGO
 ============================================================
-[Elapsed time: 12.701] Elapsed CPU time: 12.670 seconds
+[Elapsed time: 12.711] Elapsed CPU time: 12.695 seconds
 
 Optimization Results (Model):
 Success: True
@@ -1787,7 +1787,7 @@ Scalers loaded
 ============================================================
 Optimizing with Keras ONNX Neural Network Model using SHGO
 ============================================================
-[Elapsed time: 0.399] Elapsed CPU time: 0.471 seconds
+[Elapsed time: 0.426] Elapsed CPU time: 0.503 seconds
 
 Optimization Results (ONNX Model):
 Success: True
@@ -1839,12 +1839,12 @@ PASSED [100%]
     import pkg_resources
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-=========== 10 passed, 21 deselected, 1 warning in 523.08s (0:08:43) ===========
-env PYTHONDONTWRITEBYTECODE=1 pytest -v -s -m "not forked" /tmp/optimization_tutorial_root_4275/pyoptiwize/examples
+=========== 10 passed, 21 deselected, 1 warning in 523.66s (0:08:43) ===========
+env PYTHONDONTWRITEBYTECODE=1 pytest -v -s -m "not forked" /tmp/optimization_tutorial_root_8526/pyoptiwize/examples
 ============================= test session starts ==============================
 platform linux -- Python 3.11.15, pytest-9.0.3, pluggy-1.6.0 -- /app/optimization-tutorial/venv_311/bin/python3.11
 cachedir: .pytest_cache
-rootdir: /tmp/optimization_tutorial_root_4275
+rootdir: /tmp/optimization_tutorial_root_8526
 plugins: cov-7.1.0, forked-1.6.0, mock-3.15.1
 collecting ... ======================================================================
 EXAMPLE 1: Simple Quadratic Optimization
@@ -1882,120 +1882,120 @@ pyoptiwize/examples/bnh/py/test_nsga2.py::test_nsga2
 
 ```
 PASSED
-pyoptiwize/examples/c3dtlz4/py/test_gpsampler.py::test_gpsampler [I 2026-04-21 08:44:53,434] A new study created in RDB with name: my_study
-[I 2026-04-21 08:44:53,525] Trial 0 finished with values: [1.2569645750397653, 4.4185249455598885e-43] and parameters: {'x0': 0.3745401188473625, 'x1': 0.9507143064099162, 'x2': 0.7319939418114051}.
-[I 2026-04-21 08:44:53,586] Trial 1 finished with values: [1.236662945761789, 1.0145778959154135e-22] and parameters: {'x0': 0.5986584841970366, 'x1': 0.15601864044243652, 'x2': 0.15599452033620265}.
-[I 2026-04-21 08:44:53,646] Trial 2 finished with values: [1.1443092153344159, 4.571144650098741e-124] and parameters: {'x0': 0.05808361216819946, 'x1': 0.8661761457749352, 'x2': 0.6011150117432088}.
-[I 2026-04-21 08:44:53,706] Trial 3 finished with values: [1.4506544962685188, 2.3198580035410804e-15] and parameters: {'x0': 0.7080725777960455, 'x1': 0.020584494295802447, 'x2': 0.9699098521619943}.
-[I 2026-04-21 08:44:53,765] Trial 4 finished with values: [1.1839841387381274, 2.017890472548048e-08] and parameters: {'x0': 0.8324426408004217, 'x1': 0.21233911067827616, 'x2': 0.18182496720710062}.
-[I 2026-04-21 08:44:53,825] Trial 5 finished with values: [1.0389339803486743, 3.578564831812836e-74] and parameters: {'x0': 0.18340450985343382, 'x1': 0.3042422429595377, 'x2': 0.5247564316322378}.
-[I 2026-04-21 08:44:53,885] Trial 6 finished with values: [1.0560963419602245, 5.789891256550866e-37] and parameters: {'x0': 0.43194501864211576, 'x1': 0.2912291401980419, 'x2': 0.6118528947223795}.
-[I 2026-04-21 08:44:53,945] Trial 7 finished with values: [1.0610630040604079, 4.7574085951972936e-86] and parameters: {'x0': 0.13949386065204183, 'x1': 0.29214464853521815, 'x2': 0.3663618432936917}.
-[I 2026-04-21 08:44:54,004] Trial 8 finished with values: [1.171521166079494, 1.4723771522333772e-34] and parameters: {'x0': 0.45606998421703593, 'x1': 0.7851759613930136, 'x2': 0.19967378215835974}.
-[I 2026-04-21 08:44:54,072] Trial 9 finished with values: [1.2142476806598177, 2.491970914729005e-29] and parameters: {'x0': 0.5142344384136116, 'x1': 0.5924145688620425, 'x2': 0.046450412719997725}.
-[I 2026-04-21 08:45:00,111] Trial 10 finished with values: [1.5, 3.249132054563685e-24] and parameters: {'x0': 0.5772920306987445, 'x1': 1.0, 'x2': 1.0}.
-[I 2026-04-21 08:45:00,514] Trial 11 finished with values: [1.4810590572975793, 2.2471687400140787e-21] and parameters: {'x0': 0.616381271404474, 'x1': 0.0, 'x2': 0.9806860277744498}.
-[I 2026-04-21 08:45:00,838] Trial 12 finished with values: [1.3962865006473393, 0.0] and parameters: {'x0': 0.0, 'x1': 0.0, 'x2': 0.8824741829814651}.
-[I 2026-04-21 08:45:01,248] Trial 13 finished with values: [1.4319600251053506, 4.613008316428876e-65] and parameters: {'x0': 0.22548587130879116, 'x1': 0.0, 'x2': 0.9265677262819476}.
-[I 2026-04-21 08:45:01,658] Trial 14 finished with values: [1.4657790846195586, 3.1399921722830447e-18] and parameters: {'x0': 0.6627464371294791, 'x1': 1.0, 'x2': 0.9645202736367473}.
-[I 2026-04-21 08:45:02,210] Trial 15 finished with values: [1.445114846117425, 2.5479755591876564e-80] and parameters: {'x0': 0.1586725240275914, 'x1': 1.0, 'x2': 0.9417180617966907}.
-[I 2026-04-21 08:45:02,635] Trial 16 finished with values: [1.4458575475275077, 6.445293888426763e-57] and parameters: {'x0': 0.2719756187229194, 'x1': 1.0, 'x2': 0.9425579595120934}.
-[I 2026-04-21 08:45:03,354] Trial 17 finished with values: [1.255194971651199, 6.912014307771002e-107] and parameters: {'x0': 0.08618818508327279, 'x1': 0.3403540168938965, 'x2': 0.9792787620261143}.
-[I 2026-04-21 08:45:04,076] Trial 18 finished with values: [1.4448556966461257, 0.0] and parameters: {'x0': 0.0, 'x1': 0.9998164559591163, 'x2': 0.9416324342692624}.
-[I 2026-04-21 08:45:04,774] Trial 19 finished with values: [1.4445869046211222, 4.585494496743527e-44] and parameters: {'x0': 0.36564128475868873, 'x1': 0.0030928341581690846, 'x2': 0.9446011394004309}.
-[I 2026-04-21 08:45:05,394] Trial 20 finished with values: [1.4443633775253015, 3.095705331360937e-36] and parameters: {'x0': 0.43787447810613506, 'x1': 0.9996722436046344, 'x2': 0.941238061024219}.
-[I 2026-04-21 08:45:07,850] Trial 21 finished with values: [1.443408516454606, 4.3094579972876635e-45] and parameters: {'x0': 0.35709941202732837, 'x1': 0.9997098583444072, 'x2': 0.9401120015723482}.
-[I 2026-04-21 08:45:08,425] Trial 22 finished with values: [1.463130590964571, 2.888001049597235e-17] and parameters: {'x0': 0.6776289374052729, 'x1': 0.03833931187010174, 'x2': 1.0}.
-[I 2026-04-21 08:45:08,887] Trial 23 finished with values: [1.443973196351162, 1.7300030254632066e-25] and parameters: {'x0': 0.5608202394978651, 'x1': 0.9994244463105117, 'x2': 0.9410764319010944}.
-[I 2026-04-21 08:45:09,515] Trial 24 finished with values: [1.3849349118817273, 8.362307825117555e-13] and parameters: {'x0': 0.7513594778738962, 'x1': 0.8673348770287508, 'x2': 1.0}.
-[I 2026-04-21 08:45:10,114] Trial 25 finished with values: [1.5, 0.0] and parameters: {'x0': 0.0, 'x1': 1.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:10,735] Trial 26 finished with values: [1.4381781661444666, 5.444554551490792e-68] and parameters: {'x0': 0.21077558233539917, 'x1': 0.9674237804847422, 'x2': 0.03128561406564639}.
-[I 2026-04-21 08:45:11,444] Trial 27 finished with values: [1.4450624040166224, 8.973847889825106e-96] and parameters: {'x0': 0.1111654223264895, 'x1': 0.9718963397733132, 'x2': 0.028432137942827843}.
-[I 2026-04-21 08:45:13,914] Trial 28 finished with values: [1.4545308740819558, 0.0] and parameters: {'x0': 0.0, 'x1': 0.04774910272951829, 'x2': 1.0}.
-[I 2026-04-21 08:45:14,523] Trial 29 finished with values: [1.443456628945614, 1.3257021548609495e-118] and parameters: {'x0': 0.06571571287991912, 'x1': 0.9997015324402695, 'x2': 0.9401761095544151}.
-[I 2026-04-21 08:45:15,138] Trial 30 finished with values: [1.4443394761144561, 1.1982523729722923e-29] and parameters: {'x0': 0.5095978551114642, 'x1': 0.009069976469102108, 'x2': 0.9509181612115531}.
-[I 2026-04-21 08:45:15,690] Trial 31 finished with values: [1.4466735412988014, 6.783807214776015e-54] and parameters: {'x0': 0.2915746955448456, 'x1': 0.05652109261115761, 'x2': 1.0}.
-[I 2026-04-21 08:45:16,328] Trial 32 finished with values: [1.4442558247808832, 1.4721363098379749e-49] and parameters: {'x0': 0.3221972580606223, 'x1': 0.9695064368543467, 'x2': 0.026904311440889787}.
-[I 2026-04-21 08:45:16,985] Trial 33 finished with values: [1.4462906705701832, 4.271496767328079e-15] and parameters: {'x0': 0.7124297492536091, 'x1': 0.9430470297498714, 'x2': 0.9999999999999999}.
-[I 2026-04-21 08:45:17,725] Trial 34 finished with values: [8.874509324427002e-17, 1.449317359193815] and parameters: {'x0': 1.0, 'x1': 0.05355027248993058, 'x2': 0.9999999999999999}.
-[I 2026-04-21 08:45:20,228] Trial 35 finished with values: [1.4421472900270447, 1.8370418696915614e-05] and parameters: {'x0': 0.8893851946560436, 'x1': 0.061653915103546945, 'x2': 0.9999999999999999}.
-[I 2026-04-21 08:45:22,091] Trial 36 finished with values: [1.2860347520190483, 0.00732682699752418] and parameters: {'x0': 0.9453560035560985, 'x1': 0.2333758939789026, 'x2': 0.963645564221677}.
-[I 2026-04-21 08:45:22,596] Trial 37 finished with values: [1.3979215950049932, 0.013402146762977827] and parameters: {'x0': 0.950288740884737, 'x1': 0.0, 'x2': 0.8846892746428605}.
-[I 2026-04-21 08:45:23,056] Trial 38 finished with values: [1.499773926794213, 0.026041668692059296] and parameters: {'x0': 0.9559491578123709, 'x1': 0.0, 'x2': 1.0}.
-[I 2026-04-21 08:45:23,653] Trial 39 finished with values: [1.2507159928328349, 0.10107387451756286] and parameters: {'x0': 0.970742794965871, 'x1': 0.12552098979677392, 'x2': 0.8384654331851219}.
-[I 2026-04-21 08:45:24,482] Trial 40 finished with values: [1.3328017906425575, 0.24152549034686965] and parameters: {'x0': 0.9785294451073929, 'x1': 0.1767211714132525, 'x2': 1.0}.
-[I 2026-04-21 08:45:25,533] Trial 41 finished with values: [1.4328849389260425, 0.14666799744849854] and parameters: {'x0': 0.9730271148458519, 'x1': 0.06368389887687556, 'x2': 1.0}.
-[I 2026-04-21 08:45:26,530] Trial 42 finished with values: [1.333992159994511, 0.2629425225833838] and parameters: {'x0': 0.9793333800058809, 'x1': 0.0, 'x2': 0.8311487010167008}.
-[I 2026-04-21 08:45:27,294] Trial 43 finished with values: [1.412236542216437, 0.5055570678257422] and parameters: {'x0': 0.9849211636388685, 'x1': 0.0, 'x2': 1.0}.
-[I 2026-04-21 08:45:27,965] Trial 44 finished with values: [1.1974161959488412, 0.5105739589446882] and parameters: {'x0': 0.9864893950301072, 'x1': 0.0756990415680327, 'x2': 0.8488480742575549}.
-[I 2026-04-21 08:45:28,614] Trial 45 finished with values: [1.318172221905542, 0.4928733534366517] and parameters: {'x0': 0.9853155741934119, 'x1': 0.040451134193926895, 'x2': 0.942852105669598}.
-[I 2026-04-21 08:45:29,147] Trial 46 finished with values: [1.2613904163758827, 0.6637045325742482] and parameters: {'x0': 0.9883039032603425, 'x1': 0.08125736674161979, 'x2': 1.0}.
-[I 2026-04-21 08:45:29,735] Trial 47 finished with values: [1.354312703621413, 0.539278551869976] and parameters: {'x0': 0.9858812308189343, 'x1': 0.04422311000879493, 'x2': 1.0}.
-[I 2026-04-21 08:45:30,401] Trial 48 finished with values: [1.1762519994276803, 0.7403325974990232] and parameters: {'x0': 0.9897699973990214, 'x1': 0.05972497173503773, 'x2': 0.9427188954676303}.
-[I 2026-04-21 08:45:30,987] Trial 49 finished with values: [1.4086850958794073, 0.014756195786579529] and parameters: {'x0': 0.9511308040150737, 'x1': 0.10155002762709123, 'x2': 1.0}.
-[I 2026-04-21 08:45:31,611] Trial 50 finished with values: [1.5, 5.448261629847529e-09] and parameters: {'x0': 0.8196726952048367, 'x1': 0.0, 'x2': 0.9999999999999999}.
-[I 2026-04-21 08:45:32,244] Trial 51 finished with values: [1.2502094463894986, 3.2056528914080544e-22] and parameters: {'x0': 0.6055195066980048, 'x1': 0.5144722627636019, 'x2': 1.0}.
-[I 2026-04-21 08:45:32,934] Trial 52 finished with values: [1.2397226711499003, 0.160165830969946] and parameters: {'x0': 0.9752753876226731, 'x1': 0.49488554639808036, 'x2': 1.0}.
-[I 2026-04-21 08:45:33,579] Trial 53 finished with values: [0.8925557742864271, 1.172973175213934] and parameters: {'x0': 0.994668248743633, 'x1': 0.026768851874987096, 'x2': 1.0}.
-[I 2026-04-21 08:45:34,461] Trial 54 finished with values: [1.4381504402274703, 0.017328076151746984] and parameters: {'x0': 0.9524628631173203, 'x1': 0.0542626208461052, 'x2': 0.9894619669217432}.
-[I 2026-04-21 08:45:35,603] Trial 55 finished with values: [7.806015666202219e-17, 1.2748191023954125] and parameters: {'x0': 1.0, 'x1': 1.0, 'x2': 0.6575407959717496}.
-[I 2026-04-21 08:45:36,446] Trial 56 finished with values: [7.115937412943625e-17, 1.1621207711314017] and parameters: {'x0': 1.0, 'x1': 0.45467107825829617, 'x2': 0.9000825664598947}.
-[I 2026-04-21 08:45:37,127] Trial 57 finished with values: [8.996755200178027e-17, 1.4692816257621248] and parameters: {'x0': 1.0, 'x1': 0.03172483969131484, 'x2': 0.0}.
-[I 2026-04-21 08:45:38,049] Trial 58 finished with values: [9.184850993605148e-17, 1.5] and parameters: {'x0': 1.0, 'x1': 1.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:38,804] Trial 59 finished with values: [1.4999999999999603, 3.4534186058961785e-07] and parameters: {'x0': 0.8543983104594208, 'x1': 0.0, 'x2': 1.0}.
-[I 2026-04-21 08:45:39,444] Trial 60 finished with values: [1.4999738186944656, 0.008862461912037569] and parameters: {'x0': 0.9457001495716729, 'x1': 1.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:40,099] Trial 61 finished with values: [1.49597040326911, 3.344106942159469e-11] and parameters: {'x0': 0.7789908792292021, 'x1': 0.0, 'x2': 0.9959540334235724}.
-[I 2026-04-21 08:45:40,810] Trial 62 finished with values: [1.4999999999892142, 5.688385951871503e-06] and parameters: {'x0': 0.8786740068618826, 'x1': 1.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:41,691] Trial 63 finished with values: [1.5, 3.1557294531968846e-58] and parameters: {'x0': 0.2637964132348673, 'x1': 0.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:42,430] Trial 64 finished with values: [1.5, 7.480230743629189e-32] and parameters: {'x0': 0.48419136339291113, 'x1': 1.0, 'x2': 0.9999999999999999}.
-[I 2026-04-21 08:45:43,096] Trial 65 finished with values: [1.5, 4.0047195573294674e-10] and parameters: {'x0': 0.7985527502075314, 'x1': 1.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:43,615] Trial 66 finished with values: [1.5, 2.5241077372173905e-13] and parameters: {'x0': 0.7418207335939818, 'x1': 0.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:44,250] Trial 67 finished with values: [1.5, 1.3226336189894698e-145] and parameters: {'x0': 0.03527705191527296, 'x1': 0.0, 'x2': 1.0}.
-[I 2026-04-21 08:45:44,957] Trial 68 finished with values: [1.4999999999999991, 5.551585722856168e-08] and parameters: {'x0': 0.838922918712233, 'x1': 1.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:45,695] Trial 69 finished with values: [1.5, 1.3724523623822954e-16] and parameters: {'x0': 0.688102065412457, 'x1': 1.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:46,325] Trial 70 finished with values: [1.5, 8.983496600274516e-21] and parameters: {'x0': 0.624902615970522, 'x1': 1.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:47,189] Trial 71 finished with values: [1.3360437809792098, 0.12439732102478535] and parameters: {'x0': 0.9721117701172168, 'x1': 0.9610055863497126, 'x2': 0.1404219549675764}.
-[I 2026-04-21 08:45:47,815] Trial 72 finished with values: [1.4999999788104759, 0.0002521280861340979] and parameters: {'x0': 0.9126286553499576, 'x1': 1.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:48,620] Trial 73 finished with values: [1.0720099406560417, 0.7904386915070076] and parameters: {'x0': 0.9909892400741751, 'x1': 0.9738849481650971, 'x2': 0.1723592549270844}.
-[I 2026-04-21 08:45:49,970] Trial 74 finished with values: [1.5, 1.569773932032027e-33] and parameters: {'x0': 0.46583944509070774, 'x1': 0.0, 'x2': 1.0}.
-[I 2026-04-21 08:45:50,703] Trial 75 finished with values: [1.5, 5.92727394205842e-54] and parameters: {'x0': 0.29107602712373115, 'x1': 1.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:51,707] Trial 76 finished with values: [1.5, 1.2627223706127123e-26] and parameters: {'x0': 0.5461236289090728, 'x1': 0.0, 'x2': 1.0}.
-[I 2026-04-21 08:45:52,462] Trial 77 finished with values: [1.5, 7.198941849896501e-120] and parameters: {'x0': 0.06380439210513922, 'x1': 0.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:53,676] Trial 78 finished with values: [1.5, 1.664529328223761e-138] and parameters: {'x0': 0.04154232539309865, 'x1': 0.9999999999999999, 'x2': 0.0}.
-[I 2026-04-21 08:45:54,239] Trial 79 finished with values: [1.5, 1.5607630534113503e-39] and parameters: {'x0': 0.40570583918184533, 'x1': 0.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:54,954] Trial 80 finished with values: [1.5, 3.290701106035644e-36] and parameters: {'x0': 0.4379764640173388, 'x1': 0.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:55,796] Trial 81 finished with values: [1.5, 7.585881684617074e-38] and parameters: {'x0': 0.4217721983622859, 'x1': 0.0, 'x2': 1.0}.
-[I 2026-04-21 08:45:56,544] Trial 82 finished with values: [1.5, 1.3668866691685482e-77] and parameters: {'x0': 0.16890216394787, 'x1': 0.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:57,280] Trial 83 finished with values: [1.5, 3.908852672198784e-72] and parameters: {'x0': 0.19151305389665163, 'x1': 0.0, 'x2': 1.0}.
-[I 2026-04-21 08:45:57,944] Trial 84 finished with values: [1.368738774109001, 6.413949213370657e-74] and parameters: {'x0': 0.183969933214782, 'x1': 0.8445849301826778, 'x2': 0.0}.
-[I 2026-04-21 08:45:58,564] Trial 85 finished with values: [1.5, 7.821154111569983e-94] and parameters: {'x0': 0.11620119573885204, 'x1': 0.0, 'x2': 0.0}.
-[I 2026-04-21 08:45:59,170] Trial 86 finished with values: [1.3798773185964155, 1.093481288079773e-84] and parameters: {'x0': 0.14355836716770828, 'x1': 0.13961504110685263, 'x2': 1.0}.
-[I 2026-04-21 08:45:59,797] Trial 87 finished with values: [1.2554287177209893, 0.03870803989011958] and parameters: {'x0': 0.9614517999200447, 'x1': 0.5776228659053626, 'x2': 0.0}.
-[I 2026-04-21 08:46:00,689] Trial 88 finished with values: [1.4321138234773971, 2.9377677407990403e-73] and parameters: {'x0': 0.18670639798193514, 'x1': 0.926747962475976, 'x2': 1.0}.
-[I 2026-04-21 08:46:01,365] Trial 89 finished with values: [1.5, 4.826372123051888e-45] and parameters: {'x0': 0.3573667122411882, 'x1': 0.0, 'x2': 0.0}.
-[I 2026-04-21 08:46:02,012] Trial 90 finished with values: [1.5, 4.604223869502085e-71] and parameters: {'x0': 0.19629509740723164, 'x1': 0.0, 'x2': 0.0}.
-[I 2026-04-21 08:46:02,633] Trial 91 finished with values: [1.5, 6.601550344386256e-62] and parameters: {'x0': 0.24236748039595604, 'x1': 1.0, 'x2': 0.0}.
-[I 2026-04-21 08:46:03,351] Trial 92 finished with values: [1.5, 1.9509996739517576e-38] and parameters: {'x0': 0.4160834680374379, 'x1': 1.0, 'x2': 0.0}.
-[I 2026-04-21 08:46:04,137] Trial 93 finished with values: [0.20528076155011513, 1.197154164721039] and parameters: {'x0': 0.9988565040667228, 'x1': 0.6922106575700966, 'x2': 0.9215232759039778}.
-[I 2026-04-21 08:46:04,886] Trial 94 finished with values: [1.4599266499683603, 5.603920856727767e-36] and parameters: {'x0': 0.4404335671196255, 'x1': 0.04182246893986581, 'x2': 1.0}.
-[I 2026-04-21 08:46:05,567] Trial 95 finished with values: [0.31920819711066434, 1.2632690901735897] and parameters: {'x0': 0.998286874650178, 'x1': 0.21186748549868614, 'x2': 0.9689927504745048}.
-[I 2026-04-21 08:46:06,443] Trial 96 finished with values: [1.5, 6.40152603111393e-32] and parameters: {'x0': 0.4834379323701231, 'x1': 0.0, 'x2': 0.0}.
-[I 2026-04-21 08:46:07,463] Trial 97 finished with values: [1.5, 1.1719057694741297e-91] and parameters: {'x0': 0.12217063060310909, 'x1': 1.0, 'x2': 1.0}.
-[I 2026-04-21 08:46:08,308] Trial 98 finished with values: [1.5, 5.705079381198967e-12] and parameters: {'x0': 0.7653154935392955, 'x1': 1.0, 'x2': 0.0}.
-[I 2026-04-21 08:46:09,126] Trial 99 finished with values: [1.5, 2.2344074342642595e-25] and parameters: {'x0': 0.5620429599857228, 'x1': 1.0, 'x2': 0.0}.
+pyoptiwize/examples/c3dtlz4/py/test_gpsampler.py::test_gpsampler [I 2026-04-25 13:36:27,620] A new study created in RDB with name: my_study
+[I 2026-04-25 13:36:27,705] Trial 0 finished with values: [1.2569645750397653, 4.4185249455598885e-43] and parameters: {'x0': 0.3745401188473625, 'x1': 0.9507143064099162, 'x2': 0.7319939418114051}.
+[I 2026-04-25 13:36:27,770] Trial 1 finished with values: [1.236662945761789, 1.0145778959154135e-22] and parameters: {'x0': 0.5986584841970366, 'x1': 0.15601864044243652, 'x2': 0.15599452033620265}.
+[I 2026-04-25 13:36:27,833] Trial 2 finished with values: [1.1443092153344159, 4.571144650098741e-124] and parameters: {'x0': 0.05808361216819946, 'x1': 0.8661761457749352, 'x2': 0.6011150117432088}.
+[I 2026-04-25 13:36:27,897] Trial 3 finished with values: [1.4506544962685188, 2.3198580035410804e-15] and parameters: {'x0': 0.7080725777960455, 'x1': 0.020584494295802447, 'x2': 0.9699098521619943}.
+[I 2026-04-25 13:36:27,959] Trial 4 finished with values: [1.1839841387381274, 2.017890472548048e-08] and parameters: {'x0': 0.8324426408004217, 'x1': 0.21233911067827616, 'x2': 0.18182496720710062}.
+[I 2026-04-25 13:36:28,022] Trial 5 finished with values: [1.0389339803486743, 3.578564831812836e-74] and parameters: {'x0': 0.18340450985343382, 'x1': 0.3042422429595377, 'x2': 0.5247564316322378}.
+[I 2026-04-25 13:36:28,085] Trial 6 finished with values: [1.0560963419602245, 5.789891256550866e-37] and parameters: {'x0': 0.43194501864211576, 'x1': 0.2912291401980419, 'x2': 0.6118528947223795}.
+[I 2026-04-25 13:36:28,148] Trial 7 finished with values: [1.0610630040604079, 4.7574085951972936e-86] and parameters: {'x0': 0.13949386065204183, 'x1': 0.29214464853521815, 'x2': 0.3663618432936917}.
+[I 2026-04-25 13:36:28,211] Trial 8 finished with values: [1.171521166079494, 1.4723771522333772e-34] and parameters: {'x0': 0.45606998421703593, 'x1': 0.7851759613930136, 'x2': 0.19967378215835974}.
+[I 2026-04-25 13:36:28,274] Trial 9 finished with values: [1.2142476806598177, 2.491970914729005e-29] and parameters: {'x0': 0.5142344384136116, 'x1': 0.5924145688620425, 'x2': 0.046450412719997725}.
+[I 2026-04-25 13:36:34,617] Trial 10 finished with values: [1.5, 3.249132054563685e-24] and parameters: {'x0': 0.5772920306987445, 'x1': 1.0, 'x2': 1.0}.
+[I 2026-04-25 13:36:35,061] Trial 11 finished with values: [1.4810590572975793, 2.2471687400140787e-21] and parameters: {'x0': 0.616381271404474, 'x1': 0.0, 'x2': 0.9806860277744498}.
+[I 2026-04-25 13:36:35,476] Trial 12 finished with values: [1.3962865006473393, 0.0] and parameters: {'x0': 0.0, 'x1': 0.0, 'x2': 0.8824741829814651}.
+[I 2026-04-25 13:36:35,961] Trial 13 finished with values: [1.4319600251053506, 4.613008316428876e-65] and parameters: {'x0': 0.22548587130879116, 'x1': 0.0, 'x2': 0.9265677262819476}.
+[I 2026-04-25 13:36:36,455] Trial 14 finished with values: [1.4657790846195586, 3.1399921722830447e-18] and parameters: {'x0': 0.6627464371294791, 'x1': 1.0, 'x2': 0.9645202736367473}.
+[I 2026-04-25 13:36:36,928] Trial 15 finished with values: [1.445114846117425, 2.5479755591876564e-80] and parameters: {'x0': 0.1586725240275914, 'x1': 1.0, 'x2': 0.9417180617966907}.
+[I 2026-04-25 13:36:37,372] Trial 16 finished with values: [1.4458575475275077, 6.445293888426763e-57] and parameters: {'x0': 0.2719756187229194, 'x1': 1.0, 'x2': 0.9425579595120934}.
+[I 2026-04-25 13:36:38,081] Trial 17 finished with values: [1.255194971651199, 6.912014307771002e-107] and parameters: {'x0': 0.08618818508327279, 'x1': 0.3403540168938965, 'x2': 0.9792787620261143}.
+[I 2026-04-25 13:36:38,841] Trial 18 finished with values: [1.4448556966461257, 0.0] and parameters: {'x0': 0.0, 'x1': 0.9998164559591163, 'x2': 0.9416324342692624}.
+[I 2026-04-25 13:36:39,545] Trial 19 finished with values: [1.4445869046211222, 4.585494496743527e-44] and parameters: {'x0': 0.36564128475868873, 'x1': 0.0030928341581690846, 'x2': 0.9446011394004309}.
+[I 2026-04-25 13:36:40,478] Trial 20 finished with values: [1.4443633775253015, 3.095705331360937e-36] and parameters: {'x0': 0.43787447810613506, 'x1': 0.9996722436046344, 'x2': 0.941238061024219}.
+[I 2026-04-25 13:36:41,386] Trial 21 finished with values: [1.443408516454606, 4.3094579972876635e-45] and parameters: {'x0': 0.35709941202732837, 'x1': 0.9997098583444072, 'x2': 0.9401120015723482}.
+[I 2026-04-25 13:36:42,262] Trial 22 finished with values: [1.463130590964571, 2.888001049597235e-17] and parameters: {'x0': 0.6776289374052729, 'x1': 0.03833931187010174, 'x2': 1.0}.
+[I 2026-04-25 13:36:42,969] Trial 23 finished with values: [1.443973196351162, 1.7300030254632066e-25] and parameters: {'x0': 0.5608202394978651, 'x1': 0.9994244463105117, 'x2': 0.9410764319010944}.
+[I 2026-04-25 13:36:43,682] Trial 24 finished with values: [1.3849349118817273, 8.362307825117555e-13] and parameters: {'x0': 0.7513594778738962, 'x1': 0.8673348770287508, 'x2': 1.0}.
+[I 2026-04-25 13:36:44,285] Trial 25 finished with values: [1.5, 0.0] and parameters: {'x0': 0.0, 'x1': 1.0, 'x2': 0.0}.
+[I 2026-04-25 13:36:44,980] Trial 26 finished with values: [1.4381781661444666, 5.444554551490792e-68] and parameters: {'x0': 0.21077558233539917, 'x1': 0.9674237804847422, 'x2': 0.03128561406564639}.
+[I 2026-04-25 13:36:45,699] Trial 27 finished with values: [1.4450624040166224, 8.973847889825106e-96] and parameters: {'x0': 0.1111654223264895, 'x1': 0.9718963397733132, 'x2': 0.028432137942827843}.
+[I 2026-04-25 13:36:46,409] Trial 28 finished with values: [1.4545308740819558, 0.0] and parameters: {'x0': 0.0, 'x1': 0.04774910272951829, 'x2': 1.0}.
+[I 2026-04-25 13:36:47,054] Trial 29 finished with values: [1.443456628945614, 1.3257021548609495e-118] and parameters: {'x0': 0.06571571287991912, 'x1': 0.9997015324402695, 'x2': 0.9401761095544151}.
+[I 2026-04-25 13:36:47,892] Trial 30 finished with values: [1.4443394761144561, 1.1982523729722923e-29] and parameters: {'x0': 0.5095978551114642, 'x1': 0.009069976469102108, 'x2': 0.9509181612115531}.
+[I 2026-04-25 13:36:48,555] Trial 31 finished with values: [1.4466735412988014, 6.783807214776015e-54] and parameters: {'x0': 0.2915746955448456, 'x1': 0.05652109261115761, 'x2': 1.0}.
+[I 2026-04-25 13:36:49,300] Trial 32 finished with values: [1.4442558247808832, 1.4721363098379749e-49] and parameters: {'x0': 0.3221972580606223, 'x1': 0.9695064368543467, 'x2': 0.026904311440889787}.
+[I 2026-04-25 13:36:49,924] Trial 33 finished with values: [1.4462906705701832, 4.271496767328079e-15] and parameters: {'x0': 0.7124297492536091, 'x1': 0.9430470297498714, 'x2': 0.9999999999999999}.
+[I 2026-04-25 13:36:50,599] Trial 34 finished with values: [8.874509324427002e-17, 1.449317359193815] and parameters: {'x0': 1.0, 'x1': 0.05355027248993058, 'x2': 0.9999999999999999}.
+[I 2026-04-25 13:36:51,446] Trial 35 finished with values: [1.4421472900270447, 1.8370418696915614e-05] and parameters: {'x0': 0.8893851946560436, 'x1': 0.061653915103546945, 'x2': 0.9999999999999999}.
+[I 2026-04-25 13:36:52,023] Trial 36 finished with values: [1.2860347520190483, 0.00732682699752418] and parameters: {'x0': 0.9453560035560985, 'x1': 0.2333758939789026, 'x2': 0.963645564221677}.
+[I 2026-04-25 13:36:52,593] Trial 37 finished with values: [1.3979215950049932, 0.013402146762977827] and parameters: {'x0': 0.950288740884737, 'x1': 0.0, 'x2': 0.8846892746428605}.
+[I 2026-04-25 13:36:53,254] Trial 38 finished with values: [1.499773926794213, 0.026041668692059296] and parameters: {'x0': 0.9559491578123709, 'x1': 0.0, 'x2': 1.0}.
+[I 2026-04-25 13:36:54,052] Trial 39 finished with values: [1.2507159928328349, 0.10107387451756286] and parameters: {'x0': 0.970742794965871, 'x1': 0.12552098979677392, 'x2': 0.8384654331851219}.
+[I 2026-04-25 13:36:54,858] Trial 40 finished with values: [1.3328017906425575, 0.24152549034686965] and parameters: {'x0': 0.9785294451073929, 'x1': 0.1767211714132525, 'x2': 1.0}.
+[I 2026-04-25 13:36:55,604] Trial 41 finished with values: [1.4328849389260425, 0.14666799744849854] and parameters: {'x0': 0.9730271148458519, 'x1': 0.06368389887687556, 'x2': 1.0}.
+[I 2026-04-25 13:36:56,247] Trial 42 finished with values: [1.333992159994511, 0.2629425225833838] and parameters: {'x0': 0.9793333800058809, 'x1': 0.0, 'x2': 0.8311487010167008}.
+[I 2026-04-25 13:36:56,883] Trial 43 finished with values: [1.412236542216437, 0.5055570678257422] and parameters: {'x0': 0.9849211636388685, 'x1': 0.0, 'x2': 1.0}.
+[I 2026-04-25 13:36:57,610] Trial 44 finished with values: [1.1974161959488412, 0.5105739589446882] and parameters: {'x0': 0.9864893950301072, 'x1': 0.0756990415680327, 'x2': 0.8488480742575549}.
+[I 2026-04-25 13:36:58,360] Trial 45 finished with values: [1.318172221905542, 0.4928733534366517] and parameters: {'x0': 0.9853155741934119, 'x1': 0.040451134193926895, 'x2': 0.942852105669598}.
+[I 2026-04-25 13:36:58,987] Trial 46 finished with values: [1.2613904163758827, 0.6637045325742482] and parameters: {'x0': 0.9883039032603425, 'x1': 0.08125736674161979, 'x2': 1.0}.
+[I 2026-04-25 13:36:59,587] Trial 47 finished with values: [1.354312703621413, 0.539278551869976] and parameters: {'x0': 0.9858812308189343, 'x1': 0.04422311000879493, 'x2': 1.0}.
+[I 2026-04-25 13:37:00,277] Trial 48 finished with values: [1.1762519994276803, 0.7403325974990232] and parameters: {'x0': 0.9897699973990214, 'x1': 0.05972497173503773, 'x2': 0.9427188954676303}.
+[I 2026-04-25 13:37:01,008] Trial 49 finished with values: [1.4086850958794073, 0.014756195786579529] and parameters: {'x0': 0.9511308040150737, 'x1': 0.10155002762709123, 'x2': 1.0}.
+[I 2026-04-25 13:37:01,725] Trial 50 finished with values: [1.5, 5.448261629847529e-09] and parameters: {'x0': 0.8196726952048367, 'x1': 0.0, 'x2': 0.9999999999999999}.
+[I 2026-04-25 13:37:02,363] Trial 51 finished with values: [1.2502094463894986, 3.2056528914080544e-22] and parameters: {'x0': 0.6055195066980048, 'x1': 0.5144722627636019, 'x2': 1.0}.
+[I 2026-04-25 13:37:03,225] Trial 52 finished with values: [1.2397226711499003, 0.160165830969946] and parameters: {'x0': 0.9752753876226731, 'x1': 0.49488554639808036, 'x2': 1.0}.
+[I 2026-04-25 13:37:03,870] Trial 53 finished with values: [0.8925557742864271, 1.172973175213934] and parameters: {'x0': 0.994668248743633, 'x1': 0.026768851874987096, 'x2': 1.0}.
+[I 2026-04-25 13:37:04,762] Trial 54 finished with values: [1.4381504402274703, 0.017328076151746984] and parameters: {'x0': 0.9524628631173203, 'x1': 0.0542626208461052, 'x2': 0.9894619669217432}.
+[I 2026-04-25 13:37:05,955] Trial 55 finished with values: [7.806015666202219e-17, 1.2748191023954125] and parameters: {'x0': 1.0, 'x1': 1.0, 'x2': 0.6575407959717496}.
+[I 2026-04-25 13:37:06,815] Trial 56 finished with values: [7.115937412943625e-17, 1.1621207711314017] and parameters: {'x0': 1.0, 'x1': 0.45467107825829617, 'x2': 0.9000825664598947}.
+[I 2026-04-25 13:37:07,485] Trial 57 finished with values: [8.996755200178027e-17, 1.4692816257621248] and parameters: {'x0': 1.0, 'x1': 0.03172483969131484, 'x2': 0.0}.
+[I 2026-04-25 13:37:08,490] Trial 58 finished with values: [9.184850993605148e-17, 1.5] and parameters: {'x0': 1.0, 'x1': 1.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:09,317] Trial 59 finished with values: [1.4999999999999603, 3.4534186058961785e-07] and parameters: {'x0': 0.8543983104594208, 'x1': 0.0, 'x2': 1.0}.
+[I 2026-04-25 13:37:09,995] Trial 60 finished with values: [1.4999738186944656, 0.008862461912037569] and parameters: {'x0': 0.9457001495716729, 'x1': 1.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:10,825] Trial 61 finished with values: [1.49597040326911, 3.344106942159469e-11] and parameters: {'x0': 0.7789908792292021, 'x1': 0.0, 'x2': 0.9959540334235724}.
+[I 2026-04-25 13:37:11,624] Trial 62 finished with values: [1.4999999999892142, 5.688385951871503e-06] and parameters: {'x0': 0.8786740068618826, 'x1': 1.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:12,588] Trial 63 finished with values: [1.5, 3.1557294531968846e-58] and parameters: {'x0': 0.2637964132348673, 'x1': 0.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:13,331] Trial 64 finished with values: [1.5, 7.480230743629189e-32] and parameters: {'x0': 0.48419136339291113, 'x1': 1.0, 'x2': 0.9999999999999999}.
+[I 2026-04-25 13:37:14,309] Trial 65 finished with values: [1.5, 4.0047195573294674e-10] and parameters: {'x0': 0.7985527502075314, 'x1': 1.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:14,995] Trial 66 finished with values: [1.5, 2.5241077372173905e-13] and parameters: {'x0': 0.7418207335939818, 'x1': 0.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:15,539] Trial 67 finished with values: [1.5, 1.3226336189894698e-145] and parameters: {'x0': 0.03527705191527296, 'x1': 0.0, 'x2': 1.0}.
+[I 2026-04-25 13:37:16,206] Trial 68 finished with values: [1.4999999999999991, 5.551585722856168e-08] and parameters: {'x0': 0.838922918712233, 'x1': 1.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:16,989] Trial 69 finished with values: [1.5, 1.3724523623822954e-16] and parameters: {'x0': 0.688102065412457, 'x1': 1.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:17,627] Trial 70 finished with values: [1.5, 8.983496600274516e-21] and parameters: {'x0': 0.624902615970522, 'x1': 1.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:18,397] Trial 71 finished with values: [1.3360437809792098, 0.12439732102478535] and parameters: {'x0': 0.9721117701172168, 'x1': 0.9610055863497126, 'x2': 0.1404219549675764}.
+[I 2026-04-25 13:37:19,087] Trial 72 finished with values: [1.4999999788104759, 0.0002521280861340979] and parameters: {'x0': 0.9126286553499576, 'x1': 1.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:19,774] Trial 73 finished with values: [1.0720099406560417, 0.7904386915070076] and parameters: {'x0': 0.9909892400741751, 'x1': 0.9738849481650971, 'x2': 0.1723592549270844}.
+[I 2026-04-25 13:37:20,740] Trial 74 finished with values: [1.5, 1.569773932032027e-33] and parameters: {'x0': 0.46583944509070774, 'x1': 0.0, 'x2': 1.0}.
+[I 2026-04-25 13:37:21,429] Trial 75 finished with values: [1.5, 5.92727394205842e-54] and parameters: {'x0': 0.29107602712373115, 'x1': 1.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:22,332] Trial 76 finished with values: [1.5, 1.2627223706127123e-26] and parameters: {'x0': 0.5461236289090728, 'x1': 0.0, 'x2': 1.0}.
+[I 2026-04-25 13:37:23,162] Trial 77 finished with values: [1.5, 7.198941849896501e-120] and parameters: {'x0': 0.06380439210513922, 'x1': 0.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:24,570] Trial 78 finished with values: [1.5, 1.664529328223761e-138] and parameters: {'x0': 0.04154232539309865, 'x1': 0.9999999999999999, 'x2': 0.0}.
+[I 2026-04-25 13:37:25,359] Trial 79 finished with values: [1.5, 1.5607630534113503e-39] and parameters: {'x0': 0.40570583918184533, 'x1': 0.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:26,014] Trial 80 finished with values: [1.5, 3.290701106035644e-36] and parameters: {'x0': 0.4379764640173388, 'x1': 0.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:26,847] Trial 81 finished with values: [1.5, 7.585881684617074e-38] and parameters: {'x0': 0.4217721983622859, 'x1': 0.0, 'x2': 1.0}.
+[I 2026-04-25 13:37:27,607] Trial 82 finished with values: [1.5, 1.3668866691685482e-77] and parameters: {'x0': 0.16890216394787, 'x1': 0.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:28,356] Trial 83 finished with values: [1.5, 3.908852672198784e-72] and parameters: {'x0': 0.19151305389665163, 'x1': 0.0, 'x2': 1.0}.
+[I 2026-04-25 13:37:29,127] Trial 84 finished with values: [1.368738774109001, 6.413949213370657e-74] and parameters: {'x0': 0.183969933214782, 'x1': 0.8445849301826778, 'x2': 0.0}.
+[I 2026-04-25 13:37:29,791] Trial 85 finished with values: [1.5, 7.821154111569983e-94] and parameters: {'x0': 0.11620119573885204, 'x1': 0.0, 'x2': 0.0}.
+[I 2026-04-25 13:37:30,403] Trial 86 finished with values: [1.3798773185964155, 1.093481288079773e-84] and parameters: {'x0': 0.14355836716770828, 'x1': 0.13961504110685263, 'x2': 1.0}.
+[I 2026-04-25 13:37:31,148] Trial 87 finished with values: [1.2554287177209893, 0.03870803989011958] and parameters: {'x0': 0.9614517999200447, 'x1': 0.5776228659053626, 'x2': 0.0}.
+[I 2026-04-25 13:37:31,940] Trial 88 finished with values: [1.4321138234773971, 2.9377677407990403e-73] and parameters: {'x0': 0.18670639798193514, 'x1': 0.926747962475976, 'x2': 1.0}.
+[I 2026-04-25 13:37:32,620] Trial 89 finished with values: [1.5, 4.826372123051888e-45] and parameters: {'x0': 0.3573667122411882, 'x1': 0.0, 'x2': 0.0}.
+[I 2026-04-25 13:38:06,607] Trial 90 finished with values: [1.5, 4.604223869502085e-71] and parameters: {'x0': 0.19629509740723164, 'x1': 0.0, 'x2': 0.0}.
+[I 2026-04-25 13:38:07,502] Trial 91 finished with values: [1.5, 6.601550344386256e-62] and parameters: {'x0': 0.24236748039595604, 'x1': 1.0, 'x2': 0.0}.
+[I 2026-04-25 13:38:08,110] Trial 92 finished with values: [1.5, 1.9509996739517576e-38] and parameters: {'x0': 0.4160834680374379, 'x1': 1.0, 'x2': 0.0}.
+[I 2026-04-25 13:38:08,760] Trial 93 finished with values: [0.20528076155011513, 1.197154164721039] and parameters: {'x0': 0.9988565040667228, 'x1': 0.6922106575700966, 'x2': 0.9215232759039778}.
+[I 2026-04-25 13:38:09,634] Trial 94 finished with values: [1.4599266499683603, 5.603920856727767e-36] and parameters: {'x0': 0.4404335671196255, 'x1': 0.04182246893986581, 'x2': 1.0}.
+[I 2026-04-25 13:38:10,314] Trial 95 finished with values: [0.31920819711066434, 1.2632690901735897] and parameters: {'x0': 0.998286874650178, 'x1': 0.21186748549868614, 'x2': 0.9689927504745048}.
+[I 2026-04-25 13:38:11,238] Trial 96 finished with values: [1.5, 6.40152603111393e-32] and parameters: {'x0': 0.4834379323701231, 'x1': 0.0, 'x2': 0.0}.
+[I 2026-04-25 13:38:13,838] Trial 97 finished with values: [1.5, 1.1719057694741297e-91] and parameters: {'x0': 0.12217063060310909, 'x1': 1.0, 'x2': 1.0}.
+[I 2026-04-25 13:38:15,696] Trial 98 finished with values: [1.5, 5.705079381198967e-12] and parameters: {'x0': 0.7653154935392955, 'x1': 1.0, 'x2': 0.0}.
+[I 2026-04-25 13:38:16,373] Trial 99 finished with values: [1.5, 2.2344074342642595e-25] and parameters: {'x0': 0.5620429599857228, 'x1': 1.0, 'x2': 0.0}.
 
-my_study /tmp/optimization_tutorial_root_4275/pyoptiwize/examples/c3dtlz4/py/example.db 100
+my_study /tmp/optimization_tutorial_root_8526/pyoptiwize/examples/c3dtlz4/py/example.db 100
 Number of trials = 100
-Trial: 10 [Elapsed time: 38.9] Elapsed CPU time: 8.4 seconds
-Trial: 20 [Elapsed time: 49.6] Elapsed CPU time: 30.7 seconds
-Trial: 30 [Elapsed time: 59.3] Elapsed CPU time: 55.5 seconds
-Trial: 40 [Elapsed time: 68.4] Elapsed CPU time: 79.2 seconds
-Trial: 50 [Elapsed time: 75.8] Elapsed CPU time: 105.5 seconds
-Trial: 60 [Elapsed time: 83.6] Elapsed CPU time: 134.0 seconds
-Trial: 70 [Elapsed time: 90.5] Elapsed CPU time: 159.0 seconds
-Trial: 80 [Elapsed time: 99.0] Elapsed CPU time: 189.4 seconds
-Trial: 90 [Elapsed time: 106.2] Elapsed CPU time: 214.9 seconds
-Trial: 100 [Elapsed time: 113.9] Elapsed CPU time: 243.0 seconds
+Trial: 10 [Elapsed time: 13.5] Elapsed CPU time: 8.1 seconds
+Trial: 20 [Elapsed time: 24.8] Elapsed CPU time: 32.0 seconds
+Trial: 30 [Elapsed time: 32.3] Elapsed CPU time: 59.5 seconds
+Trial: 40 [Elapsed time: 39.3] Elapsed CPU time: 85.8 seconds
+Trial: 50 [Elapsed time: 46.2] Elapsed CPU time: 111.3 seconds
+Trial: 60 [Elapsed time: 54.5] Elapsed CPU time: 141.6 seconds
+Trial: 70 [Elapsed time: 62.2] Elapsed CPU time: 169.0 seconds
+Trial: 80 [Elapsed time: 70.6] Elapsed CPU time: 199.3 seconds
+Trial: 90 [Elapsed time: 77.8] Elapsed CPU time: 224.9 seconds
+Trial: 100 [Elapsed time: 121.6] Elapsed CPU time: 251.9 seconds
 ================================================================================
 DATAFRAME COMPARISON REPORT
 ================================================================================
@@ -2203,7 +2203,7 @@ To use with your own CSV files:
   requirements_data = pd.read_csv('your_requirements.csv')
 ======================================================================
 
-Plot saved → /tmp/optimization_tutorial_root_4275/pyoptiwize/examples/deap/py/ga_results.png
+Plot saved → /tmp/optimization_tutorial_root_8526/pyoptiwize/examples/deap/py/ga_results.png
 PASSED
 pyoptiwize/examples/eggholder/py/test_shgo.py::test_optimization_ex 
 The first element of the sorted dataset:     512.0 404.00 -959.5797
@@ -2847,7 +2847,7 @@ GENERIC CONSTRAINT FUNCTION GENERATOR FROM JSON
 # ============================================================================
 # GENERATED CONSTRAINT FUNCTIONS FROM JSON ALPHA ATTRIBUTE
 # ============================================================================
-# Source: /tmp/optimization_tutorial_root_4275/pyoptiwize/examples/pyomo/py/bnh.json
+# Source: /tmp/optimization_tutorial_root_8526/pyoptiwize/examples/pyomo/py/bnh.json
 # Variables: X1, X2
 # Alpha: (X1-5)*(X1-5)+X2*X2-25 and -(X1-8)*(X1-8)-(X2+3)*(X2+3)+7.7
 # Number of constraints: 2
@@ -2869,7 +2869,7 @@ def constraint_C2(X1, X2):
 
 
 ================================================================================
-✓ Constraints successfully generated and saved to '/tmp/optimization_tutorial_root_4275/pyoptiwize/examples/pyomo/py/generated_constraints_claude.py'
+✓ Constraints successfully generated and saved to '/tmp/optimization_tutorial_root_8526/pyoptiwize/examples/pyomo/py/generated_constraints_claude.py'
 ================================================================================
 
 ================================================================================
@@ -3226,7 +3226,7 @@ MODEL EVALUATION (held-out test set)
   5-fold cross-validation R² (full dataset, mean across F1+F2):
     mean=0.6310  std=0.3274
 
-✓ Multi-output surrogate model saved → '/tmp/optimization_tutorial_root_4275/pyoptiwize/examples/pyomo/py/surrogate_F1_F2.pkl'
+✓ Multi-output surrogate model saved → '/tmp/optimization_tutorial_root_8526/pyoptiwize/examples/pyomo/py/surrogate_F1_F2.pkl'
 
 ================================================================================
 RUNNING NSGA-II OPTIMIZATION
@@ -4100,7 +4100,7 @@ Category D: 32 solutions
   X1= 9.607  →  F1= 10.393, F2=  2.774
   X1= 9.567  →  F1= 10.433, F2=  2.737
   ... and 24 more solutions
-✓ Optimal solutions comparison saved as /tmp/optimization_tutorial_root_4275/pyoptiwize/examples/pyomo/py/nsga2_mixed_models_comparison.png
+✓ Optimal solutions comparison saved as /tmp/optimization_tutorial_root_8526/pyoptiwize/examples/pyomo/py/nsga2_mixed_models_comparison.png
 
 ======================================================================
 STATISTICAL SUMMARY
@@ -4447,7 +4447,7 @@ Category D: 9 solutions
   X1= 8.761  →  F1= 20.775, F2= 16.231, F3= 11.799
   X1= 9.150  →  F1= 21.156, F2= 15.530, F3= 12.958
   ... and 1 more solutions
-✓ Optimal solutions comparison saved as /tmp/optimization_tutorial_root_4275/pyoptiwize/examples/pyomo/py/nsga3_mixed_models_comparison.png
+✓ Optimal solutions comparison saved as /tmp/optimization_tutorial_root_8526/pyoptiwize/examples/pyomo/py/nsga3_mixed_models_comparison.png
 PASSED
 pyoptiwize/examples/pyomo/py/test_scip.py::test_scip 
 
@@ -4583,7 +4583,7 @@ Lowest cost: 8.93
 GENERATING COMPREHENSIVE VISUALIZATION
 ======================================================================
 
-Visualization saved as '/tmp/optimization_tutorial_root_4275/pyoptiwize/examples/pyomo/py/multi_objective_comparison.png'
+Visualization saved as '/tmp/optimization_tutorial_root_8526/pyoptiwize/examples/pyomo/py/multi_objective_comparison.png'
 
 ======================================================================
 MULTI-OBJECTIVE OPTIMIZATION COMPLETE!
@@ -4601,7 +4601,7 @@ pyoptiwize/examples/shekel/py/test_pytorch.py::test_pytorch
 Random seeds set for reproducibility (seed=42)
 ============================================================
 Using device: cpu
-Loading data from /tmp/optimization_tutorial_root_4275/pyoptiwize/examples/shekel/py/shekel_meshgrid_26.csv.expected.gz...
+Loading data from /tmp/optimization_tutorial_root_8526/pyoptiwize/examples/shekel/py/shekel_meshgrid_26.csv.expected.gz...
 Data shape: (456976, 5)
 Columns: ['X1', 'X2', 'X3', 'X4', 'Y']
 
@@ -4813,8 +4813,8 @@ Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits
 Correlation plot saved as 'correlation_plot.png'
 
 Scalers saved to scaler_X_pytorch.pkl and scaler_y_pytorch.pkl
-W0421 09:04:57.226000 8191 torch/onnx/_internal/exporter/_compat.py:125] Setting ONNX exporter to use operator set version 18 because the requested opset_version 15 is a lower version than we have implementations for. Automatic version conversion will be performed, which may not be successful at converting to the requested version. If version conversion is unsuccessful, the opset version of the exported model will be kept at 18. Please consider setting opset_version >=18 to leverage latest ONNX features
-W0421 09:04:58.104000 8191 torch/onnx/_internal/exporter/_registration.py:110] torchvision is not installed. Skipping torchvision::nms
+W0425 13:58:40.342000 12406 torch/onnx/_internal/exporter/_compat.py:125] Setting ONNX exporter to use operator set version 18 because the requested opset_version 15 is a lower version than we have implementations for. Automatic version conversion will be performed, which may not be successful at converting to the requested version. If version conversion is unsuccessful, the opset version of the exported model will be kept at 18. Please consider setting opset_version >=18 to leverage latest ONNX features
+W0425 13:58:41.246000 12406 torch/onnx/_internal/exporter/_registration.py:110] torchvision is not installed. Skipping torchvision::nms
 [torch.onnx] Obtain model graph for `ShekelModel([...]` with `torch.export.export(..., strict=False)`...
 [torch.onnx] Obtain model graph for `ShekelModel([...]` with `torch.export.export(..., strict=False)`... ✅
 [torch.onnx] Run decomposition...
@@ -4831,7 +4831,7 @@ No unused functions to remove
 Skipping constant folding for node 'node_Gemm_0' because it is graph input to preserve graph signature
 No unused functions to remove
 PassManager: No more graph changes detected after step 1
-ONNX model exported to /tmp/optimization_tutorial_root_4275/pyoptiwize/examples/shekel/py/shekel_model.pytorch
+ONNX model exported to /tmp/optimization_tutorial_root_8526/pyoptiwize/examples/shekel/py/shekel_model.pytorch
 
 ============================================================
 Training complete!
@@ -4867,7 +4867,7 @@ Creating CSV with 456976 points...
 Grid size: 26 points per dimension
 Total points: 456976
 
-CSV file '/tmp/optimization_tutorial_root_4275/pyoptiwize/examples/shekel/py/shekel_meshgrid_26.csv' created successfully!
+CSV file '/tmp/optimization_tutorial_root_8526/pyoptiwize/examples/shekel/py/shekel_meshgrid_26.csv' created successfully!
 Total rows: 456977 (including header)
 
 Minimum value found in grid:
@@ -4886,7 +4886,7 @@ Scalers loaded
 ============================================================
 Optimizing with PyTorch ONNX Neural Network Model using SHGO
 ============================================================
-[Elapsed time: 0.413] Elapsed CPU time: 0.493 seconds
+[Elapsed time: 0.408] Elapsed CPU time: 0.481 seconds
 
 Optimization Results (ONNX Model):
 Success: True
@@ -4938,7 +4938,7 @@ PASSED
     import pkg_resources
 
 pyoptiwize/examples/c3dtlz4/py/test_gpsampler.py::test_gpsampler
-  /tmp/optimization_tutorial_root_4275/pyoptiwize/examples/c3dtlz4/py/c3dtlz4_ex.py:42: ExperimentalWarning: GPSampler is experimental (supported from v3.6.0). The interface can change in the future.
+  /tmp/optimization_tutorial_root_8526/pyoptiwize/examples/c3dtlz4/py/c3dtlz4_ex.py:42: ExperimentalWarning: GPSampler is experimental (supported from v3.6.0). The interface can change in the future.
     sampler=optuna.samplers.GPSampler(seed=42, constraints_func=c3dtlz4.constraints_func, deterministic_objective=True),
 
 pyoptiwize/examples/c3dtlz4/py/test_gpsampler.py::test_gpsampler
@@ -4946,7 +4946,7 @@ pyoptiwize/examples/c3dtlz4/py/test_gpsampler.py::test_gpsampler
     optuna_warn(
 
 pyoptiwize/examples/shekel/py/test_pytorch.py::test_pytorch
-  /tmp/optimization_tutorial_root_4275/pyoptiwize/examples/shekel/py/pytorch_ex.py:457: UserWarning: # 'dynamic_axes' is not recommended when dynamo=True, and may lead to 'torch._dynamo.exc.UserError: Constraints violated.' Supply the 'dynamic_shapes' argument instead if export is unsuccessful.
+  /tmp/optimization_tutorial_root_8526/pyoptiwize/examples/shekel/py/pytorch_ex.py:457: UserWarning: # 'dynamic_axes' is not recommended when dynamo=True, and may lead to 'torch._dynamo.exc.UserError: Constraints violated.' Supply the 'dynamic_shapes' argument instead if export is unsuccessful.
     torch.onnx.export(
 
 pyoptiwize/examples/shekel/py/test_pytorch.py::test_pytorch
@@ -4962,4 +4962,4 @@ pyoptiwize/examples/shekel/py/test_pytorch.py::test_pytorch
     return _compat.export_compat(
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-========== 21 passed, 10 deselected, 7 warnings in 1266.15s (0:21:06) ==========
+========== 21 passed, 10 deselected, 7 warnings in 1370.12s (0:22:50) ==========
