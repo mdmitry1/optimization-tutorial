@@ -10,12 +10,13 @@ version=python3.12
 wheel=pyoptiwize
 
 usage() {
-    echo "$script_name [[-h|--help] | [-clean] | [-w|--from_wheel] [-r|--force_reinstall] [-p|--python_version <version>]"
+    echo "$script_name [[-h|--help] | [-clean] | [-w|--from_wheel] [-r|--force_reinstall] [-p|--python_version <version>] [-t|--testpypi]"
     echo "                                   -h --help:             display this help message"
     echo "                                   -clean:                clean all workareas $PWD/venv_31*"
     echo "                                   -w --from_wheel:       install $package from wheel https://pypi.org/project/$wheel"
     echo "                                   -r --force_reinstall:  reinstall $package in existing workarea"
     echo "                                   -p --python_version:   use python<version>"
+    echo "                                   -t --testpypi:         use test.pypi.org for pyoptiwize installation"
     echo "                                   -j --run_jupyter:      start jupyter notebook server"
     echo "Supported python versions:" python3.1{1,2,3}
     echo "Default installation:      download git repository from the GitHub and then install from the latest version"
@@ -28,6 +29,7 @@ usage() {
 from_wheel=
 reinstall=
 run_jupyter=
+testpypi=
 
 while [[ $# -gt 0 ]]; do
     opt="$1"
@@ -56,6 +58,9 @@ while [[ $# -gt 0 ]]; do
             ;;
         -j|--jupyter)
             run_jupyter=1
+            ;;
+        -t|--testpypi)
+            testpypi=1
             ;;
         *)
             echo -e "\nERROR: switch $opt is not supported\n"
@@ -116,6 +121,7 @@ if [[ $package_status -ne 0 || $extra_status -ne 0 || -n "$reinstall" ]]; then
     if [[ -n "$from_wheel" ]]; then
         echo "From wheel: $wheel"
         if [[ -n "$run_jupyter" ]]; then
+            if [[ -n "$testpypi" ]]; then
             pip install "${wheel}[notebook]"
         else
             pip install "${wheel}[test]"
