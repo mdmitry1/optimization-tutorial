@@ -11,5 +11,10 @@ if($status) then
     echo "\nERROR: build failed\n"
     exit 1
 else
+    if($#argv > 0) then
+        if("-test" == "$argv[1]") then
+            twine upload --repository testpypi $dist/*whl
+            exit($status)
+        endif 
     twine upload $dist/*whl
 endif
