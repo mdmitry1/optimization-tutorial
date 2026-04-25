@@ -16,8 +16,8 @@ usage() {
     echo "                                   -w --from_wheel:       install $package from wheel https://pypi.org/project/$wheel"
     echo "                                   -r --force_reinstall:  reinstall $package in existing workarea"
     echo "                                   -p --python_version:   use python<version>"
-    echo "                                   -t --testpypi:         use test.pypi.org for pyoptiwize installation"
     echo "                                   -j --run_jupyter:      start jupyter notebook server"
+    echo "                                   -t --testpypi:         use test.pypi.org for pyoptiwize installation"
     echo "Supported python versions:" python3.1{1,2,3}
     echo "Default installation:      download git repository from the GitHub and then install from the latest version"
     echo "Default python version:    python3.12"
