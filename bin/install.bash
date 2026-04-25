@@ -1,1 +1,0 @@
-../docker/24.04/install.bash
