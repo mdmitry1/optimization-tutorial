@@ -98,29 +98,31 @@ fi
 # 5. Mathsat
 # ---------------------------------------------------------------------------
 current_dir=$PWD
-wget --tries=5 --timeout=30 --waitretry=2 https://mathsat.fbk.eu/release/mathsat-5.6.15-linux-x86_64.tar.gz && \
-    tar -xvf mathsat-5.6.15-linux-x86_64.tar.gz && \
-    cd mathsat-5.6.15-linux-x86_64/python && \
+MATHSAT=mathsat-5.6.15
+ARCH=$(uname -m)
+wget --tries=5 --timeout=30 --waitretry=2 https://mathsat.fbk.eu/release/${MATHSAT}-linux-${ARCH}.tar.gz && \
+    tar -xvf ${MATHSAT}-linux-${ARCH}.tar.gz && \
+    cd ${MATHSAT}-linux-${ARCH}/python && \
     python setup.py build && \
     mkdir -p  /usr/local/lib/python3.12/dist-packages && \
     mv -f mathsat.py /usr/local/lib/python3.12/dist-packages && \
-    mv -f build/lib.linux-x86_64-cpython-312/_mathsat.cpython-312-x86_64-linux-gnu.so /usr/local/lib/python3.12/dist-packages/_mathsat.so && \
+    mv -f build/lib.linux-${ARCH}-cpython-312/_mathsat.cpython-312-${ARCH}-linux-gnu.so /usr/local/lib/python3.12/dist-packages/_mathsat.so && \
     cd $current_dir && \
-    rm -rf mathsat-5.6.15-linux-x86_64 && \
-    tar -xvf mathsat-5.6.15-linux-x86_64.tar.gz && \
-    cd mathsat-5.6.15-linux-x86_64/python && \
+    rm -rf ${MATHSAT}-linux-${ARCH} && \
+    tar -xvf ${MATHSAT}-linux-${ARCH}.tar.gz && \
+    cd ${MATHSAT}-linux-${ARCH}/python && \
     python3.13 setup.py build && \
     mkdir -p  /usr/local/lib/python3.13/dist-packages && \
     mv -f mathsat.py /usr/local/lib/python3.13/dist-packages && \
-    mv -f build/lib.linux-x86_64-cpython-313/_mathsat.cpython-313-x86_64-linux-gnu.so /usr/local/lib/python3.13/dist-packages/_mathsat.so && \
+    mv -f build/lib.linux-${ARCH}-cpython-313/_mathsat.cpython-313-${ARCH}-linux-gnu.so /usr/local/lib/python3.13/dist-packages/_mathsat.so && \
     cd $current_dir && \
-    rm -rf mathsat-5.6.15-linux-x86_64 && \
-    tar -xvf mathsat-5.6.15-linux-x86_64.tar.gz && \
-    cd mathsat-5.6.15-linux-x86_64/python && \
+    rm -rf ${MATHSAT}-linux-${ARCH} && \
+    tar -xvf ${MATHSAT}-linux-${ARCH}.tar.gz && \
+    cd ${MATHSAT}-linux-${ARCH}/python && \
     python3.11 setup.py build && \
     mkdir -p  /usr/local/lib/python3.11/dist-packages && \
     mv -f mathsat.py /usr/local/lib/python3.11/dist-packages && \
-    mv -f build/lib.linux-x86_64-cpython-311/_mathsat.cpython-311-x86_64-linux-gnu.so /usr/local/lib/python3.11/dist-packages/_mathsat.so && \
+    mv -f build/lib.linux-${ARCH}-cpython-311/_mathsat.cpython-311-${ARCH}-linux-gnu.so /usr/local/lib/python3.11/dist-packages/_mathsat.so && \
     cd $current_dir && \
     rm -rf mathsat*
 

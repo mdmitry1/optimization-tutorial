@@ -309,7 +309,10 @@ pip install 'pyoptiwize[test]'
 - [Optuna GP Sampler](https://medium.com/optuna/introducing-optunas-native-gpsampler-0aa9aa3b4840)
 - [pymoo](https://pypi.org/project/pymoo)
 - [Pyomo](https://pypi.org/project/pyomo)
+- [PySMT](https://pypi.org/project/PySMT)
 - [SCIP](https://www.scipopt.org)
+- [SLSQP](https://docs.scipy.org/doc/scipy/reference/optimize.minimize-slsqp.html)
+- [Z3](https://en.wikipedia.org/wiki/Z3_Theorem_Prover)
 
 ---
 
