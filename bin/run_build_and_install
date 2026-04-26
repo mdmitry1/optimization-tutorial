@@ -16,5 +16,6 @@ else
             twine upload --repository testpypi $dist/*whl
             exit($status)
         endif 
+    endif
     twine upload $dist/*whl
 endif
