@@ -265,7 +265,7 @@ source venv_312/bin/activate
 pip install pyoptiwize
 ```
 
-- Installion with test dependencies
+- Installation with test dependencies
 
 ```bash
 pip install 'pyoptiwize[test]'
