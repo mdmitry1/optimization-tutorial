@@ -17,6 +17,7 @@ from hashlib import sha256
 import logging
 import math
 import pickle
+from sys import argv
 
 logging.basicConfig(
     level=logging.INFO,
@@ -517,7 +518,7 @@ def main(batch_size: int = 512, rootpath: str = ".") -> str:
 
 
 if __name__ == "__main__":
-    import sys
-    rootpath = "." if len(sys.argv) < 2 else sys.argv[1]
-    batch_size = 512 if len(sys.argv) < 3 else int(sys.argv[2])
+    argv = [] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
+    rootpath = "." if len(argv) < 2 else argv[1]
+    batch_size = 512 if len(argv) < 3 else int(argv[2])
     print(main(batch_size, rootpath))

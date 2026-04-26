@@ -20,6 +20,8 @@ logging.basicConfig(
     format='%(message)s'
 )
 
+from sys import argv
+
 def load_shekel_data(csv_file='shekel_meshgrid_26.csv'):
     """
     Load Shekel function data from CSV file.
@@ -425,8 +427,8 @@ def main(batch_size: int = 512, rootpath: str = ".") -> int:
     return sha256(results_summary.encode()).hexdigest()
 
 if __name__ == "__main__":
-   import sys
-   rootpath = "." if len(sys.argv) < 2 else sys.argv[1]
-   batch_size = 512 if len(sys.argv) < 3 else int(sys.argv[2])
+   argv = [] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
+   rootpath = "." if len(argv) < 2 else argv[1]
+   batch_size = 512 if len(argv) < 3 else int(argv[2])
    print(main(batch_size, rootpath))
 
