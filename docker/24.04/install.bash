@@ -40,6 +40,7 @@ apt-get update && apt-get install -y \
 
 if [[ $? -ne 0 ]]; then
     echo -e "\nERROR: system packages installation failed\n"
+    exit 1
 fi    
 
 # ---------------------------------------------------------------------------
@@ -68,6 +69,7 @@ apt-get install -y --no-install-recommends \
 
 if [[ $? -ne 0 ]]; then
     echo -e "\nERROR: python3.11 and/or python3.13 installation failed\n"
+    exit 1
 fi    
 
 # ---------------------------------------------------------------------------
@@ -80,6 +82,7 @@ wget --tries=5 --timeout=30 --waitretry=2 https://repo.anaconda.com/miniconda/Mi
     
 if [[ $? -ne 0 ]]; then
     echo -e "\nERROR: conda installation failed\n"
+    exit 1
 fi    
 
 # ---------------------------------------------------------------------------
@@ -100,35 +103,30 @@ fi
 current_dir=$PWD
 MATHSAT=mathsat-5.6.15
 ARCH=$(uname -m)
-wget --tries=5 --timeout=30 --waitretry=2 https://mathsat.fbk.eu/release/${MATHSAT}-linux-${ARCH}.tar.gz && \
-    tar -xvf ${MATHSAT}-linux-${ARCH}.tar.gz && \
-    cd ${MATHSAT}-linux-${ARCH}/python && \
-    python setup.py build && \
-    mkdir -p  /usr/local/lib/python3.12/dist-packages && \
-    mv -f mathsat.py /usr/local/lib/python3.12/dist-packages && \
-    mv -f build/lib.linux-${ARCH}-cpython-312/_mathsat.cpython-312-${ARCH}-linux-gnu.so /usr/local/lib/python3.12/dist-packages/_mathsat.so && \
-    cd $current_dir && \
-    rm -rf ${MATHSAT}-linux-${ARCH} && \
-    tar -xvf ${MATHSAT}-linux-${ARCH}.tar.gz && \
-    cd ${MATHSAT}-linux-${ARCH}/python && \
-    python3.13 setup.py build && \
-    mkdir -p  /usr/local/lib/python3.13/dist-packages && \
-    mv -f mathsat.py /usr/local/lib/python3.13/dist-packages && \
-    mv -f build/lib.linux-${ARCH}-cpython-313/_mathsat.cpython-313-${ARCH}-linux-gnu.so /usr/local/lib/python3.13/dist-packages/_mathsat.so && \
-    cd $current_dir && \
-    rm -rf ${MATHSAT}-linux-${ARCH} && \
-    tar -xvf ${MATHSAT}-linux-${ARCH}.tar.gz && \
-    cd ${MATHSAT}-linux-${ARCH}/python && \
-    python3.11 setup.py build && \
-    mkdir -p  /usr/local/lib/python3.11/dist-packages && \
-    mv -f mathsat.py /usr/local/lib/python3.11/dist-packages && \
-    mv -f build/lib.linux-${ARCH}-cpython-311/_mathsat.cpython-311-${ARCH}-linux-gnu.so /usr/local/lib/python3.11/dist-packages/_mathsat.so && \
-    cd $current_dir && \
-    rm -rf mathsat*
-
+MATHSAT_LINUX=${MATHSAT}-linux-${ARCH}
+MATHSAT_LINUX_ARCHIVE=${MATHSAT}-linux-${ARCH}.tar.gz
+wget --tries=5 --timeout=30 --waitretry=2 https://mathsat.fbk.eu/release/${MATHSAT_LINUX_ARCHIVE}
 if [[ $? -ne 0 ]]; then
-    echo -e "\nERROR: Mathsat installation failed\n"
-fi    
+    echo -e "\nERROR: $MATHSAT_LINUX_ARCHIVE download failed\n"
+fi
+for pyver in 3.11 3.12 3.13; do
+    cpython_tag="cpython-$(echo $pyver | tr -d '.')"
+    dist_dir=/usr/local/lib/python${pyver}/dist-packages
+    tar -xvf ${MATHSAT_LINUX_ARCHIVE} && \
+        cd ${MATHSAT_LINUX}/python && \
+        python${pyver} setup.py build && \
+        mkdir -p ${dist_dir} && \
+        mv -f mathsat.py ${dist_dir} && \
+        mv -f build/lib.linux-${ARCH}-${cpython_tag}/_mathsat.${cpython_tag}-${ARCH}-linux-gnu.so ${dist_dir}/_mathsat.so && \
+        cd $current_dir && \
+        rm -rf ${MATHSAT_LINUX}
+        if [[ $? -ne 0 ]]; then
+            echo -e "\nERROR: Mathsat python${pyver} installation failed\n"
+            exit 1
+        fi    
+done
+rm -f $MATHSAT_LINUX_ARCHIVE
+
 
 # ---------------------------------------------------------------------------
 # 6. Install UTF-8 fonts
@@ -137,4 +135,4 @@ locale-gen en_US.UTF-8
 
 if [[ $? -ne 0 ]]; then
     echo -e "\nERROR: UTF-8 fonts installation failed\n"
-fi    
+fi
