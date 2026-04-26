@@ -11,6 +11,7 @@ import json
 import re
 from typing import List
 from sys import argv
+import os
 
 def extract_variable_names(json_data: dict) -> List[str]:
     """
