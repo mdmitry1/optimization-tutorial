@@ -95,6 +95,7 @@ $HOME/miniconda3/bin/conda install -y -c conda-forge ipopt scip && \
 
 if [[ $? -ne 0 ]]; then
     echo -e "\nERROR: SCIP and/or IPOPT installation failed\n"
+    exit 1
 fi    
 
 # ---------------------------------------------------------------------------
@@ -108,6 +109,7 @@ MATHSAT_LINUX_ARCHIVE=${MATHSAT}-linux-${ARCH}.tar.gz
 wget --tries=5 --timeout=30 --waitretry=2 https://mathsat.fbk.eu/release/${MATHSAT_LINUX_ARCHIVE}
 if [[ $? -ne 0 ]]; then
     echo -e "\nERROR: $MATHSAT_LINUX_ARCHIVE download failed\n"
+    exit 1
 fi
 for pyver in 3.11 3.12 3.13; do
     cpython_tag="cpython-$(echo $pyver | tr -d '.')"
@@ -135,4 +137,5 @@ locale-gen en_US.UTF-8
 
 if [[ $? -ne 0 ]]; then
     echo -e "\nERROR: UTF-8 fonts installation failed\n"
+    exit 1
 fi
