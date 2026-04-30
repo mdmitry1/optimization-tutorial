@@ -184,7 +184,7 @@ simplejson==3.20.2
 six==1.17.0
 sklearn-compat==0.1.5
 sktime==0.26.0
-smlptech @ file:///home/mdmitry/github/smlp_quickstart
+smlptech==1.2.3rc3
 smmap==6.0.0
 soupsieve==2.5
 ssh-import-id==5.11
