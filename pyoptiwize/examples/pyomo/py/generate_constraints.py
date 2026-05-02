@@ -162,7 +162,7 @@ def generate_constraints(json_file: str = "bnh.json", output_file: str = "genera
 
 
 if __name__ == "__main__":
-    argv = [] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
+    argv = [argv[0]] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
     # Get JSON file from command line or use default
     json_file = argv[1] if len(argv) > 1 else "bnh.json"
     output_file = argv[2] if len(argv) > 2 else "generated_constraints.py"

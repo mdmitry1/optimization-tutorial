@@ -117,6 +117,7 @@ fi
 if [[ $package_status -ne 0 || $extra_status -ne 0 || -n "$reinstall" ]]; then
     if [[ -n "$reinstall" ]]; then
         echo "Reinstalling $package ..."
+        echo Y | pip uninstall $package
     else
         echo "Installing $package ..."
     fi

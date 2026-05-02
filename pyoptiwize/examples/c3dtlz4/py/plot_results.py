@@ -25,7 +25,7 @@ def plot_results(csv: str = "results.csv", timeout: float =inf) -> int:
     return 0
 
 if __name__ == "__main__":
-    argv = [] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
+    argv = [argv[0]] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
     csv = "results.csv" if len(argv) < 2 else argv[1]
     timeout = inf if len(argv) < 3 else argv[2]
     plot_results(csv, timeout)

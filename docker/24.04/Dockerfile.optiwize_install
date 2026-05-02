@@ -6,8 +6,19 @@ FROM ubuntu:24.04
 RUN sed -i 's|http://archive.ubuntu.com/ubuntu|http://ftp.uni-stuttgart.de/ubuntu|g' /etc/apt/sources.list.d/ubuntu.sources && \
     sed -i 's|http://security.ubuntu.com/ubuntu|http://ftp.uni-stuttgart.de/ubuntu|g' /etc/apt/sources.list.d/ubuntu.sources
 
-WORKDIR /app
+RUN apt-get update && apt-get install -y sudo
+ARG USERNAME=testuser
+ARG USER_UID=1001
+ARG USER_GID=1001
+RUN groupadd --gid "${USER_GID}" "${USERNAME}" \
+ && useradd --uid "${USER_UID}" --gid "${USER_GID}" \
+            --create-home --shell /bin/bash "${USERNAME}" \
+ && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" \
+        > /etc/sudoers.d/${USERNAME} \
+ && chmod 0440 /etc/sudoers.d/${USERNAME}
+USER ${USERNAME}
+WORKDIR /home/${USERNAME}
 COPY install.bash .
-RUN ./install.bash
+RUN sudo ./install.bash
 
 CMD ["/usr/bin/bash"]

@@ -133,7 +133,7 @@ Classic 4-dimensional multimodal benchmark with 10 local minima. Solved with Sci
 
 ---
 
-## ⚠️ **Licensing limitations - read before installation**
+## ⚠️ **Licensing limitations - please, read before installation**
 
 Please read the [MathSAT 5 license terms](https://mathsat.fbk.eu/download.html) before using MathSAT.
 **MathSAT 5 is available for research and evaluation purposes only.**<br> 
@@ -155,9 +155,7 @@ sudo ./install.bash
 ### 2. Set locale
 
 ```bash
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US:en
-export LC_ALL=en_US.UTF-8
+sudo update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 LANGUAGE=en_US:en
 ```
 
 ### 3. Create and enter virtual environment
@@ -322,7 +320,8 @@ Start by greeting the user and inviting them to describe their optimization prob
 | SCIP | 10.0.0 |
 | GLPK | 5.0 |
 | Z3 | 4.8.12 |
-| CUDA | 12.8 |
+| PyTorch CUDA | 12.8 |
+| TensorFlow CUDA | 12.5.1 |
 
 ---
 
@@ -350,5 +349,5 @@ Start by greeting the user and inviting them to describe their optimization prob
 
 ## Copyright and license
 
-© 2025-2026 Dmitry Messerman. Licensed under [GNU General Public License v3.0](LICENSE).
+© 2025-2026 Dmitry Messerman. Licensed under [GNU General Public License v3.0](https://github.com/mdmitry1/optimization-tutorial/blob/main/LICENSE)
 

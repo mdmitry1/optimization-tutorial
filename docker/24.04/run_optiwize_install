@@ -3,4 +3,9 @@
 # Copyright (C) 2025-2026 Dmitry Messerman
 # SPDX-License-Identifier: GPL-3.0
 
-env DOCKER_BUILDKIT=1 docker build --no-cache --progress=plain -f Dockerfile.optiwize_install -t optiwize_install .
+env DOCKER_BUILDKIT=1 docker build \
+                             --no-cache \
+                             --progress=plain \
+                             --build-arg USERNAME=`whoami` \
+                             -f Dockerfile.optiwize_install \
+                             -t optiwize_install .

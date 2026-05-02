@@ -257,6 +257,6 @@ def objectives_and_constraints(csv: str = "results.csv", rel_thr: float = 0.0001
     return compare_dataframes(df, df1, float_threshold=rel_thr)
 
 if __name__ == "__main__":
-    argv = [] if basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
+    argv = [argv[0]] if basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
     results = "results.csv" if len(argv) < 2 else argv[1]
     print(objectives_and_constraints(results))

@@ -315,6 +315,6 @@ def main(rootpath: str = ".") -> int:
     return sha256(all_results.encode()).hexdigest()
 
 if __name__ == "__main__":
-    argv = [] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
+    argv = [argv[0]] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
     rootpath = "." if len(argv) < 2 else argv[1]
     print(main(rootpath))

@@ -518,7 +518,7 @@ def main(batch_size: int = 512, rootpath: str = ".") -> str:
 
 
 if __name__ == "__main__":
-    argv = [] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
+    argv = [argv[0]] if os.path.basename(argv[0]).startswith(("ipython", "ipykernel")) else argv
     rootpath = "." if len(argv) < 2 else argv[1]
     batch_size = 512 if len(argv) < 3 else int(argv[2])
     print(main(batch_size, rootpath))
