@@ -217,13 +217,14 @@ Difference between SHGO and DA methods: -2.84e-01 %
 54e5105d59a57fd2898e581ca6f1e3502d4cda22b371fa17a88420d6da862602
 ```
 
-### 6. Run all tests using existing virtual environment batch mode or interactively (requires installation with test dependencies)
+### 6. Run all tests using existing virtual environment in batch mode or interactively (requires installation with test dependencies)
 
-`pip install` runs in virtual environment and therefore it is necessary to exit it before running tests
+`pip install` runs in virtual environment and therefore it is necessary to deactivate it before running tests
 
 ```bash
-exit
-$(python -c 'import pyoptiwize; print(pyoptiwize.__path__[0])')/../bin/run_optimization_tutorial_examples [-j]
+cp -p $(which run_optimization_tutorial_examples) .
+deactivate
+./run_optimization_tutorial_examples [-j]
 ```
 
 - If -j option is specified, then Jupyter server will open
