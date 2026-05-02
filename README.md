@@ -241,9 +241,10 @@ run_optimization_tutorial_examples [[-h|--help] | [-clean] | [-w|--from_wheel] [
                                    -r --force_reinstall:  reinstall pyoptiwize in existing workarea
                                    -p --python_version:   use python<version>
                                    -j --run_jupyter:      start jupyter notebook server
-Supported python versions: python3.11 python3.12 python3.13
-Default installation:      download git repository from the GitHub and then install from the latest version
-Default python version:    python3.12
+Supported python versions:            python3.11 python3.12 python3.13
+Default installation:                 download git repository from the GitHub and then install from the latest version
+Default python version:               python3.12
+Virtual environment root directory:   $PWD/venv_31[1|2|3]
 ```
 
 ## ⚡ Installation from Docker image
