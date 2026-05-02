@@ -227,7 +227,7 @@ deactivate
 ./run_optimization_tutorial_examples [-j]
 ```
 
-- If -j option is specified, then Jupyter server will open
+- If -j option is specified, then Jupyter server will be started
 
 ---
 
