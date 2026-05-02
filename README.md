@@ -244,7 +244,6 @@ run_optimization_tutorial_examples [[-h|--help] | [-clean] | [-w|--from_wheel] [
 Supported python versions: python3.11 python3.12 python3.13
 Default installation:      download git repository from the GitHub and then install from the latest version
 Default python version:    python3.12
-Workarea root directory:   /home/mdmitry/github/optimization_tutorial/bin/venv_31[1|2|3]
 ```
 
 ## ⚡ Installation from Docker image
