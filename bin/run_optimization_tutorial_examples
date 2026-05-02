@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env -S bash --norc
 
 # Copyright (C) 2025-2026 Dmitry Messerman
 # SPDX-License-Identifier: GPL-3.0
@@ -61,8 +61,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         -t|--testpypi)
             testpypi=1
-            pip install requests --target /usr/local/lib/python3.12/dist-packages
-            test_version=$($script_path/pyoptiwize_versions.py -atl)
+            requests_package_dir=/tmp/${USER}_$$_requests/dist-packages
+            rm -rf $requests_package_dir
+            pip install requests --target $requests_package_dir
+            test_version=$(env PYTHONPATH=$requests_package_dir $script_path/pyoptiwize_versions.py -atl)
             ;;
         *)
             echo -e "\nERROR: switch $opt is not supported\n"
