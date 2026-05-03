@@ -76,9 +76,9 @@ fi
 # 3. Conda 
 # ---------------------------------------------------------------------------
 wget --tries=5 --timeout=30 --waitretry=2 https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
-    bash ./Miniconda3-latest-Linux-x86_64.sh -b && \
-    $HOME/miniconda3/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main && \
-    $HOME/miniconda3/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+    bash ./Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3 && \
+    /opt/miniconda3/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main && \
+    /opt/miniconda3/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
     
 if [[ $? -ne 0 ]]; then
     echo -e "\nERROR: conda installation failed\n"
@@ -88,9 +88,9 @@ fi
 # ---------------------------------------------------------------------------
 # 4. Install scip and ipopt
 # ---------------------------------------------------------------------------
-$HOME/miniconda3/bin/conda install -y -c conda-forge ipopt scip && \
-    ln -sf $HOME/miniconda3/bin/scip /usr/local/bin && \
-    ln -sf $HOME/miniconda3/bin/ipopt /usr/local/bin && \
+/opt/miniconda3/bin/conda install -y -c conda-forge ipopt scip && \
+    ln -sf /opt/miniconda3/bin/scip /usr/local/bin && \
+    ln -sf /opt/miniconda3/bin/ipopt /usr/local/bin && \
     rm ./Miniconda3-latest-Linux-x86_64.sh
 
 if [[ $? -ne 0 ]]; then
