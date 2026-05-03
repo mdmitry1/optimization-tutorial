@@ -194,26 +194,15 @@ source venv_313/bin/activate
 
 ### 3. Install `pyoptiwize`
 
-- Standard installation
 ```bash
 pip install pyoptiwize
-```
-
-- Installation with test dependencies
-```bash
-pip install 'pyoptiwize[test]'
-```
-
-- Installation with Jupyter dependencies
-```bash
-pip install 'pyoptiwize[notebook]'
 ```
 
 ### 4. Quickstart - run an example
 
 ```bash
 cp -rp $(python -c 'import pyoptiwize; print(pyoptiwize.__path__[0])')/examples/eggholder .
-python3 ./eggholder/py/optimization_ex.py
+python ./eggholder/py/optimization_ex.py
 ```
 
 Expected results:
@@ -233,14 +222,10 @@ Difference between SHGO and DA methods: -2.84e-01 %
 54e5105d59a57fd2898e581ca6f1e3502d4cda22b371fa17a88420d6da862602
 ```
 
-### 5. Run all examples using existing virtual environment in batch mode or interactively
-
-`pip install` runs in virtual environment and therefore it is necessary to deactivate it before running tests
+### 5. Run all examples
 
 ```bash
-export VENV_PATH=${PATH}
-deactivate
-env PATH=$VENV_PATH run_optimization_tutorial_examples [-j]
+run_optimization_tutorial_examples [-j]
 ```
 
 - If -j option is specified, then Jupyter server will be started

@@ -96,11 +96,16 @@ venv_root="venv_${version_digits}"
 if [[ ! -f "$venv_root/bin/activate" ]]; then
     echo "Establishing python virtual environment in $PWD/${venv_root} directory"
     "${version}" -m venv "$venv_root"
+    source "${venv_root}/bin/activate"
 else
     echo "Virtual environment in $PWD/${venv_root} directory already exists"
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        echo "venv has been activated already"
+    else
+        echo "Activating virtual environment"
+        source "${venv_root}/bin/activate"
+    fi
 fi
-
-source "${venv_root}/bin/activate"
 
 pip show -q "${package}"
 package_status=$?
