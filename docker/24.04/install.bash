@@ -86,7 +86,7 @@ if [[ $? -ne 0 ]]; then
 fi    
 
 # ---------------------------------------------------------------------------
-# 4. Install scip and ipopt
+# 4. scip and ipopt
 # ---------------------------------------------------------------------------
 /opt/miniconda3/bin/conda install -y -c conda-forge ipopt scip && \
     ln -sf /opt/miniconda3/bin/scip /usr/local/bin && \
@@ -131,9 +131,10 @@ rm -f $MATHSAT_LINUX_ARCHIVE
 
 
 # ---------------------------------------------------------------------------
-# 6. Install UTF-8 fonts
+# 6. UTF-8 fonts
 # ---------------------------------------------------------------------------
 locale-gen en_US.UTF-8
+update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 LANGUAGE=en_US:en
 
 if [[ $? -ne 0 ]]; then
     echo -e "\nERROR: UTF-8 fonts installation failed\n"

@@ -146,42 +146,53 @@ MathSAT 5 is provided as-is, without any warranty.
 
 #### 1.1 Download installation script [install.bash](https://raw.githubusercontent.com/mdmitry1/optimization-tutorial/refs/heads/main/docker/24.04/install.bash)
 
-#### 1.2. Run installation script (⚠️`sudo` required)
+#### 1.2 Review installation steps and run installation script (⚠️`sudo` required)
+
+#### 1.2.1 Installation steps:
+
 ```bash
-chmod +x install.bash
-sudo ./install.bash
+egrep '# [1-9]\." install.bash
 ```
 
-### 2. Set locale
-
-```bash
-sudo update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 LANGUAGE=en_US:en
+```
+# 1. System packages
+# 2. python3.11 and python3.13
+# 3. Conda 
+# 4. scip and ipopt
+# 5. Mathsat
+# 6. UTF-8 fonts
 ```
 
-### 3. Create and enter virtual environment
-
-#### 3.1 python3.11
+#### 1.2.1 Installation command:
 
 ```bash
-python3.11 -m venv_311 venv_311
+chmod +x install.bash && sudo ./install.bash
+```
+
+### 2. Create and enter virtual environment
+
+#### 2.1 python3.11
+
+```bash
+python3.11 -m venv venv_311
 source venv_311/bin/activate
 ```
 
-#### 3.2 python3.12
+#### 2.2 python3.12
 
 ```bash
-python3 -m venv_312 venv_312
+python3 -m venv venv_312
 source venv_312/bin/activate
 ```
 
-#### 3.3 python3.13
+#### 2.3 python3.13
 
 ```bash
-python3.13 -m venv_313 venv_313
+python3.13 -m venv venv_313
 source venv_313/bin/activate
 ```
 
-### 4. Install `pyoptiwize`
+### 3. Install `pyoptiwize`
 
 - Standard installation
 ```bash
@@ -193,7 +204,12 @@ pip install pyoptiwize
 pip install 'pyoptiwize[test]'
 ```
 
-### 5. Quickstart - run an example
+- Installation with Jupyter dependencies
+```bash
+pip install 'pyoptiwize[notebook]'
+```
+
+### 4. Quickstart - run an example
 
 ```bash
 cp -rp $(python -c 'import pyoptiwize; print(pyoptiwize.__path__[0])')/examples/eggholder .
@@ -217,21 +233,21 @@ Difference between SHGO and DA methods: -2.84e-01 %
 54e5105d59a57fd2898e581ca6f1e3502d4cda22b371fa17a88420d6da862602
 ```
 
-### 6. Run all examples using existing virtual environment in batch mode or interactively (requires installation with test dependencies)
+### 5. Run all examples using existing virtual environment in batch mode or interactively
 
 `pip install` runs in virtual environment and therefore it is necessary to deactivate it before running tests
 
 ```bash
-cp -p $(which run_optimization_tutorial_examples) .
+export VENV_PATH=${PATH}
 deactivate
-./run_optimization_tutorial_examples [-j]
+env PATH=$VENV_PATH run_optimization_tutorial_examples [-j]
 ```
 
 - If -j option is specified, then Jupyter server will be started
 
 ---
 
-### 7. Full list of script options
+### 6. Full list of script options
 
 ```bash
 run_optimization_tutorial_examples [[-h|--help] | [-clean] | [-w|--from_wheel] [-r|--force_reinstall] [-p|--python_version <version>]

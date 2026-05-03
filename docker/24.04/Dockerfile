@@ -112,9 +112,7 @@ RUN wget --tries=5 --timeout=30 --waitretry=2 https://mathsat.fbk.eu/release/mat
 # 6. Install UTF-8 fonts
 # ---------------------------------------------------------------------------
 RUN locale-gen en_US.UTF-8
-ENV LANG=en_US.UTF-8
-ENV LANGUAGE=en_US:en
-ENV LC_ALL=en_US.UTF-8
+RUN update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 LANGUAGE=en_US:en
 
 # --------------------------------------------------------------------------
 # 7. Clone repository
