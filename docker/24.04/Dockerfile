@@ -123,4 +123,4 @@ RUN ./run_git_clone
 
 # Default command
 WORKDIR /app/optimization-tutorial
-CMD ["/usr/bin/tcsh"]
+CMD ["/usr/bin/bash"]

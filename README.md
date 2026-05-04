@@ -140,7 +140,7 @@ Please read the [MathSAT 5 license terms](https://mathsat.fbk.eu/download.html) 
 **It cannot be used in a commercial environment, particularly as part of a commercial product, without written permission.**<br>
 MathSAT 5 is provided as-is, without any warranty.
 
-## ⚡ Installation (Ubuntu 24.04)
+## ⚡ Installation instructions for Ubuntu 24.04
 
 ### 1. External dependencies
 
@@ -248,26 +248,12 @@ Default python version:               python3.12
 Virtual environment root directory:   $PWD/venv_31[1|2|3]
 ```
 
-## ⚡ Installation from Docker image
+## ⚡ Docker image installation without GUI support
 
 ```bash
-docker pull ghcr.io/mdmitry1/optimization-tutorial:latest
 docker run -it ghcr.io/mdmitry1/optimization-tutorial:latest
-python -m venv venv_312
-bash
-source venv_312/bin/activate
 ```
 
-- Standard installation
-```bash
-pip install pyoptiwize
-```
-
-- Installation with test dependencies
-
-```bash
-pip install 'pyoptiwize[test]'
-```
 ## ⚡ Recommended GUI support for Docker Image
 
 ### Native Linux
@@ -277,6 +263,10 @@ pip install 'pyoptiwize[test]'
 ### Windows 11 with WSL2 and WSG installed
 
 [Enter container using WSLG X11 forwarding](https://github.com/mdmitry1/optimization-tutorial/blob/main/bin/enter_container_wslg)
+
+## ⚡pyoptiwize package installation instructions for Docker image are the same as for `Ubuntu 24.04`
+
+Only **pip install** is required, as all other dependencies are already present in the image
 
 ---
 
