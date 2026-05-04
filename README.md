@@ -248,25 +248,40 @@ Default python version:               python3.12
 Virtual environment root directory:   $PWD/venv_31[1|2|3]
 ```
 
-## ⚡ Docker image installation without GUI support
+## ⚡ Installation instructions for Docker image
+
+### 1. Installation without GUI support
 
 ```bash
 docker run -it ghcr.io/mdmitry1/optimization-tutorial:latest
 ```
 
-## ⚡ Recommended GUI support for Docker Image
+## 2. Recommended GUI support for Docker Image
 
-### Native Linux
+### 2.1 Native Linux
 
 [Enter container using socat and X11 forwarding](https://github.com/mdmitry1/optimization-tutorial/blob/main/bin/enter_container_x11_forwarding)
 
-### Windows 11 with WSL2 and WSG installed
+### 2.2 Windows 11 with WSL2 and WSG installed
 
 [Enter container using WSLG X11 forwarding](https://github.com/mdmitry1/optimization-tutorial/blob/main/bin/enter_container_wslg)
 
-## ⚡pyoptiwize package installation instructions for Docker image are the same as for `Ubuntu 24.04`
+## 3. Option 1: pyoptiwize package installation and running all examples in one step
 
-Only **pip install** is required, as all other dependencies are already present in the image
+```bash
+bin/run_optimization_tutorial_examples [-j] [-p <python3.11|python3.13>
+```
+
+## 4. Option 2: Follow pyoptiwize instructions for Ubuntu 24.04
+
+For example, for python3.12:
+
+```bash
+python3 -m venv venv_312
+source venv_312/bin/activate
+pip install pyoptiwize
+run_optimization_tutorial_examples [-j]
+```
 
 ---
 
