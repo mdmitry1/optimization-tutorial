@@ -266,13 +266,15 @@ docker run -it ghcr.io/mdmitry1/optimization-tutorial:latest
 
 [Enter container using WSLG X11 forwarding](https://github.com/mdmitry1/optimization-tutorial/blob/main/bin/enter_container_wslg)
 
-## 3. Option 1: pyoptiwize package installation and running all examples in one step
+### 2.3 pyoptiwize package installation
+
+#### Option 1: Install pyoptiwize and run all examples in one step
 
 ```bash
 bin/run_optimization_tutorial_examples [-j] [-p <python3.11|python3.13>
 ```
 
-## 4. Option 2: Follow pyoptiwize instructions for Ubuntu 24.04
+#### Option 2: Follow pyoptiwize instructions for Ubuntu 24.04
 
 For example, for python3.12:
 
