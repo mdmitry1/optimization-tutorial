@@ -10,6 +10,7 @@ Warning!!! Duplicate package metadata found:
   threadpoolctl                    3.1.0            (using 3.6.0, "/usr/local/lib/python3.12/dist-packages")
   blinker                          1.7.0            (using 1.9.0, "/usr/local/lib/python3.12/dist-packages")
   psutil                           5.9.8            (using 7.2.2, "/usr/local/lib/python3.12/dist-packages")
+  pip                              24.0             (using 26.1.1, "/usr/local/lib/python3.12/dist-packages")
   mdurl                            0.1.2            (using 0.1.2, "/usr/local/lib/python3.12/dist-packages")
   python-dateutil                  2.8.2            (using 3.9.0, "/usr/local/lib/python3.12/dist-packages")
   pexpect                          4.9.0            (using 4.9.0, "/usr/local/lib/python3.12/dist-packages")
@@ -82,7 +83,7 @@ oauthlib==3.2.2
 odfpy==1.4.2
 olefile==0.46
 openpyxl==3.1.2
-pip==24.0
+pip==26.1.1
 pipdeptree==2.35.3
 └── packaging [required: >=26, installed: 26.2]
 pycairo==1.25.1
@@ -107,7 +108,7 @@ python-debian==0.1.49+ubuntu2
 pyxdg==0.28
 PyYAML==6.0.1
 screen-resolution-extra==0.0.0
-smlptech==1.3.0rc4
+smlptech==1.3.0rc11
 ├── doepy [required: Any, installed: 0.0.2]
 │   ├── diversipy [required: Any, installed: 0.9]
 │   │   ├── numpy [required: Any, installed: 1.26.4]
@@ -126,6 +127,24 @@ smlptech==1.3.0rc4
 │           └── numpy [required: >=1.21.6,<1.28.0, installed: 1.26.4]
 ├── jenkspy [required: Any, installed: 0.4.1]
 │   └── numpy [required: Any, installed: 1.26.4]
+├── keras [required: ==3.14.1, installed: 3.14.1]
+│   ├── absl-py [required: Any, installed: 2.4.0]
+│   ├── h5py [required: Any, installed: 3.14.0]
+│   │   └── numpy [required: >=1.19.3, installed: 1.26.4]
+│   ├── ml_dtypes [required: Any, installed: 0.5.4]
+│   │   ├── numpy [required: >=1.21, installed: 1.26.4]
+│   │   ├── numpy [required: >=1.21.2, installed: 1.26.4]
+│   │   ├── numpy [required: >=1.23.3, installed: 1.26.4]
+│   │   └── numpy [required: >=1.26.0, installed: 1.26.4]
+│   ├── namex [required: Any, installed: 0.1.0]
+│   ├── numpy [required: Any, installed: 1.26.4]
+│   ├── optree [required: Any, installed: 0.19.1]
+│   │   └── typing_extensions [required: >=4.6.0, installed: 4.15.0]
+│   ├── packaging [required: Any, installed: 26.2]
+│   └── rich [required: Any, installed: 15.0.0]
+│       ├── markdown-it-py [required: >=2.2.0, installed: 4.2.0]
+│       │   └── mdurl [required: ~=0.1, installed: 0.1.2]
+│       └── Pygments [required: >=2.13.0,<3.0.0, installed: 2.20.0]
 ├── keras-tuner [required: Any, installed: 1.4.8]
 │   ├── grpcio [required: Any, installed: 1.80.0]
 │   │   └── typing_extensions [required: ~=4.12, installed: 4.15.0]
@@ -690,7 +709,20 @@ smlptech==1.3.0rc4
 │       │   └── six [required: >=1.5, installed: 1.17.0]
 │       ├── pytz [required: >=2020.1, installed: 2026.2]
 │       └── tzdata [required: >=2022.7, installed: 2026.2]
-└── tensorflow [required: Any, installed: 2.21.0]
+├── tensorboard [required: Any, installed: 2.20.0]
+│   ├── absl-py [required: >=0.4, installed: 2.4.0]
+│   ├── grpcio [required: >=1.48.2, installed: 1.80.0]
+│   │   └── typing_extensions [required: ~=4.12, installed: 4.15.0]
+│   ├── Markdown [required: >=2.6.8, installed: 3.10.2]
+│   ├── numpy [required: >=1.12.0, installed: 1.26.4]
+│   ├── packaging [required: Any, installed: 26.2]
+│   ├── pillow [required: Any, installed: 12.2.0]
+│   ├── protobuf [required: >=3.19.6,!=4.24.0, installed: 7.35.0]
+│   ├── setuptools [required: >=41.0.0, installed: 82.0.1]
+│   ├── tensorboard-data-server [required: >=0.7.0,<0.8.0, installed: 0.7.2]
+│   └── Werkzeug [required: >=1.0.1, installed: 3.1.8]
+│       └── MarkupSafe [required: >=2.1.1, installed: 3.0.3]
+└── tensorflow [required: ==2.21.0, installed: 2.21.0]
     ├── absl-py [required: >=1.0.0, installed: 2.4.0]
     ├── astunparse [required: >=1.6.0, installed: 1.6.3]
     │   ├── six [required: >=1.6.1,<2.0, installed: 1.17.0]
