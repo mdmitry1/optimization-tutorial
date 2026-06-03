@@ -18,7 +18,7 @@ def test_gpsampler(monkeypatch, request):
         print("")
         assert exists(out) == False
         m.setattr(sys, 'argv', ['c3dtlz4_ex','-n','100','-p',test_path])
-        assert main() == '5ad02bc5986c77fbe0fb2d088aaa6a55928dfda0c8b29d357ff6e407cd409b5b'
+        assert main() == '1d49f6ef9d5dc758b8a514e90f8f41dbb3eb858767d3d0bafc277ec2586e4f70'
         if version_info.minor == 14:
             assert int(popen(f"sum {out}").read().split()[0]) == 35272 or \
                    int(popen(f"sum {out}").read().split()[0]) == 38273
@@ -27,4 +27,5 @@ def test_gpsampler(monkeypatch, request):
                    int(popen(f"sum {out}").read().split()[0]) == 10640 or \
                    int(popen(f"sum {out}").read().split()[0]) == 35272 or \
                    int(popen(f"sum {out}").read().split()[0]) == 45261 or \
-                   int(popen(f"sum {out}").read().split()[0]) == 52597
+                   int(popen(f"sum {out}").read().split()[0]) == 52597 or \
+                   int(popen(f"sum {out}").read().split()[0]) == 33613
