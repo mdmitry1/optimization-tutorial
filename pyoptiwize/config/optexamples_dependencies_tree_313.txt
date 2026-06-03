@@ -4,7 +4,7 @@ cryptography==48.0.0
 pip==26.0.1
 pipdeptree==2.35.3
 └── packaging [required: >=26, installed: 26.2]
-pyoptiwize==0.2.2.2.dev19+g2d1e0b65e
+pyoptiwize==0.2.2.2
 ├── deap [required: ~=1.4.3, installed: 1.4.4]
 │   ├── moocore [required: Any, installed: 0.3.1]
 │   │   ├── cffi [required: >=1.17.1, installed: 2.0.0]
