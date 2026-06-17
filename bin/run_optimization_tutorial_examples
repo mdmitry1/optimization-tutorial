@@ -1,4 +1,4 @@
-#!/usr/bin/env -S bash --norc
+#!/usr/bin/env bash
 
 # Copyright (C) 2025-2026 Dmitry Messerman
 # SPDX-License-Identifier: GPL-3.0
